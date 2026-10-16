@@ -52,7 +52,7 @@ Projection seams/cylinder caps remain intentionally split where attributes diffe
 
 Geometry tiers and local checks
                          master triangles   reduced triangles   meshes
-Car                           108464                18936           5
+Car                           116464                20088           5
 Tree                           77872                 6150           2
 Chair                          32280                 7960           3
 Tier differences affect body/cabin grid density, rounded corners, radial surfaces,
@@ -121,3 +121,36 @@ shortest half-dimension: car 872/328 master/reduced; chair 120/40 after role ass
 (112/32 are present in the rounded back primitive before final assembly). Their
 attribute buffers remain finite and the parent review found no corresponding visible
 failure. No watertight CAD, photorealism, scanned-surface or production-asset claim.
+
+Wheel-arch repair after recipient review — 2026-10-16
+Recorded: 2026-10-16T23:48:38Z. A targeted follow-up of roughly five minutes,
+including construction checks and parent close-up review. The recipient close-up
+showed bright pinched highlights above the car wheel openings. The former max(y,
+arch) operation flattened multiple angular rings into a ledge, disturbing normals.
+The previous freeze was lifted only for this demonstrated car-body defect.
+
+The body now retains its original superellipse surface above a circular wheel-opening
+boundary. Each row samples the retained angular domain instead of moving vertices
+off the coachwork surface. Additional longitudinal rows sample each arch at 24 master
+or eight reduced semicircle segments. Normals use the implicit uncut-sweep gradient,
+so the deliberate opening boundary cannot average surrounding highlights inward.
+Original circumferential/longitudinal metric UV scale is retained. Door, hood, handle
+and mirror attachments map onto the new rendered body grid; measured seam center
+clearance remains at most 0.4mm (door) and 0.3mm (hood) in both tiers.
+
+All six builds again passed finite-buffer, normal and bounds checks. Car ground
+contact and envelope are unchanged; the cut body has zero zero-area triangles.
+Tree and chair geometry buffers are hash-identical to the previously accepted
+versions, as are the car canopy, roof, pillars and window trim. The current totals
+are reflected in the table above. Parent accepted /tmp/study-repaired/car-arch-fixed.png
+from build 68fd9a301e28d411: the pinched highlight/collapsed ledge were resolved and
+painted sweep read continuously outside the opening. Geometry was then frozen again.
+
+Remaining sampling limit: near the lower arch-entry transition, remapped angular
+rows create 34 near-grazing master faces out of 18,240 body triangles whose geometric
+face normal has slightly negative alignment with the smooth authored normal
+(minimum dot -0.077). Reduced has zero such faces. None has zero area or nonfinite
+attributes; the parent target-view review found no corresponding visible failure.
+This is recorded rather than expanded into new topology work after acceptance.
+There is no added wheel-well lining, body thickness, suspension or interior realism.
+No other subject, material, UI, test or build-output files were edited by this pass.

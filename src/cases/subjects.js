@@ -94,16 +94,36 @@ function buildCar(group,m,hi) {
   const zCurve=new THREE.CatmullRomCurve3(sections.map(s=>V(s[0],0,0)),false,'catmullrom',.3);
   function sectionV(z){let lo=0,high=1;for(let k=0;k<30;k++){const mid=(lo+high)/2;if(zCurve.getPoint(mid).x<z)lo=mid;else high=mid;}return (lo+high)/2;}
   function upperBody(x,z){const s=curve.getPoint(sectionV(z));return s.y+s.z*Math.sqrt(Math.max(0,1-Math.pow(Math.abs(x)/s.x,2/.65)));}
-  const bodyPoint=(u,v)=>{let a=u*Math.PI*2,s=curve.getPoint(v),z=zCurve.getPoint(v).x;let x=s.x*Math.sign(Math.cos(a))*Math.pow(Math.abs(Math.cos(a)),.65),y=s.y+Math.sin(a)*s.z;
-    // Open the lower side surfaces into genuine wheel arches; the painted shoulder stays continuous.
-    const axle=Math.min(Math.abs(z-1.36),Math.abs(z+1.35));if(axle<.43&&Math.abs(x)>.64&&Math.sin(a)<.35){const arch=.355+Math.sqrt(Math.max(0,.43*.43-axle*axle));y=Math.max(y,arch);}
-    return V(x,y,z);};
-  const bodyU=hi?80:32,bodyV=hi?64:28,body=surface(bodyU,bodyV,bodyPoint,(u,v)=>[u*4.4,v*4.4]);
-  // Join the periodic normals at the side of the swept body.
-  for(let j=0;j<=bodyV;j++){const a=j*(bodyU+1),b=a+bodyU,n=V(0,0,0).fromBufferAttribute(body.attributes.normal,a).add(V(0,0,0).fromBufferAttribute(body.attributes.normal,b)).normalize();body.attributes.normal.setXYZ(a,n.x,n.y,n.z);body.attributes.normal.setXYZ(b,n.x,n.y,n.z);}
+  function archAngle(v){
+    const z=zCurve.getPoint(v).x,s=curve.getPoint(v),distance=Math.min(Math.abs(z-1.36),Math.abs(z+1.35));
+    if(distance>=.43)return -Math.PI/2;
+    const edge=.363+Math.sqrt(.43*.43-distance*distance);
+    return Math.asin(THREE.MathUtils.clamp((edge-s.y)/s.z,-1,1));
+  }
+  // Cut the angular domain at the wheel opening. Retained points stay on the original
+  // smooth sweep; no theta ring is flattened onto the arch or folded back under it.
+  const bodyU=hi?80:32,regularRows=hi?64:28,archSegments=hi?24:8,rows=[];
+  for(let j=0;j<=regularRows;j++)rows.push(j/regularRows);
+  for(const axle of [-1.35,1.36])for(let j=0;j<=archSegments;j++)rows.push(sectionV(axle+.43*Math.cos(j/archSegments*Math.PI)));
+  const bodyRows=rows.sort((a,b)=>a-b).filter((v,j,a)=>!j||v-a[j-1]>1e-8),bodyV=bodyRows.length-1;
+  function rowSection(t){const q=t*bodyV,j=Math.min(bodyV-1,Math.floor(q));return THREE.MathUtils.lerp(bodyRows[j],bodyRows[j+1],q-j);}
+  function rowCoordinate(v){let lo=0,high=bodyV;while(high-lo>1){const j=(lo+high)>>1;if(bodyRows[j]<v)lo=j;else high=j;}return (lo+(v-bodyRows[lo])/(bodyRows[high]-bodyRows[lo]))/bodyV;}
+  function bodyAngle(u,v){const a=archAngle(v);return THREE.MathUtils.lerp(a,Math.PI-a,u);}
+  const bodyPoint=(u,t)=>{const v=rowSection(t),a=bodyAngle(u,v),s=curve.getPoint(v);return V(s.x*Math.sign(Math.cos(a))*Math.pow(Math.abs(Math.cos(a)),.65),s.y+Math.sin(a)*s.z,zCurve.getPoint(v).x);};
+  const body=surface(bodyU,bodyV,bodyPoint,(u,t)=>{const v=rowSection(t);return [bodyAngle(u,v)/(Math.PI*2)*4.4,v*4.4];});
+  // The implicit superellipse gradient gives the uncut coachwork normal even at the
+  // opening boundary. Boundary triangles cannot pull a highlight into the wheel well.
+  for(let j=0;j<=bodyV;j++){
+    const v=bodyRows[j],s=curve.getPoint(v),lo=Math.max(0,v-.0001),high=Math.min(1,v+.0001),derivative=curve.getPoint(high).sub(curve.getPoint(lo)).divideScalar(zCurve.getPoint(high).x-zCurve.getPoint(lo).x),power=2/.65;
+    for(let i=0;i<=bodyU;i++){
+      const a=bodyAngle(i/bodyU,v),cx=Math.sign(Math.cos(a))*Math.pow(Math.abs(Math.cos(a)),.65),sy=Math.sin(a),f=Math.pow(Math.abs(cx),power);
+      const n=V(power/s.x*Math.sign(cx)*Math.pow(Math.abs(cx),power-1),2*sy/s.z,-power*f*derivative.x/s.x-2*sy*derivative.y/s.z-2*sy*sy*derivative.z/s.z).normalize();body.attributes.normal.setXYZ(j*(bodyU+1)+i,n.x,n.y,n.z);
+    }
+  }
   body.computeTangents();add(group,body,m.paint,'paint-coachwork');
-  function bodySide(side,y,z,offset=.0004){const v=sectionV(z),s=curve.getPoint(v),angle=Math.asin(THREE.MathUtils.clamp((y-s.y)/s.z,-.999,.999)),a=side>0?angle:Math.PI-angle;return gridPoint(body,bodyU,bodyV,(a+Math.PI*2)%(Math.PI*2)/(Math.PI*2),v,offset);}
-  function bodyTop(x,z,offset=.0003){const v=sectionV(z),s=curve.getPoint(v),a=Math.acos(Math.sign(x)*Math.pow(Math.min(1,Math.abs(x)/s.x),1/.65));return gridPoint(body,bodyU,bodyV,a/(Math.PI*2),v,offset).point;}
+  function bodyGrid(a,v,offset){const edge=archAngle(v);return gridPoint(body,bodyU,bodyV,(a-edge)/(Math.PI-2*edge),rowCoordinate(v),offset);}
+  function bodySide(side,y,z,offset=.0004){const v=sectionV(z),s=curve.getPoint(v),angle=Math.asin(THREE.MathUtils.clamp((y-s.y)/s.z,-.999,.999));return bodyGrid(side>0?angle:Math.PI-angle,v,offset);}
+  function bodyTop(x,z,offset=.0003){const v=sectionV(z),s=curve.getPoint(v),a=Math.acos(Math.sign(x)*Math.pow(Math.min(1,Math.abs(x)/s.x),1/.65));return bodyGrid(a,v,offset).point;}
   for(const z of [-2.19,2.19])add(group,rounded(1.12,.24,.035,.07,hi?6:2),m.paint,'paint-end-panel',[0,.57,z]);
   // One continuous canopy is partitioned into glazing, a broad roof, and adjoining pillars.
   // Shared boundaries and differential normals avoid stacked shells and roof-spanning pillar tubes.
