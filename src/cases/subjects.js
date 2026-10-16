@@ -11,13 +11,13 @@ export const SUBJECT_ROLES = {
 export const SUBJECTS = {
   car: { label: 'Unbranded touring coupe', dimensions: [2.15, 1.42, 4.44], seed: 3081,
     description: 'Section-swept painted coachwork, curved opaque glazing, panel lines, wheels and trim.',
-    views: { close: {position: [2.0,1.36,2.65],target:[.56,.82,1.12],fov:35}, medium:{position:[4.9,3.0,6.3],target:[0,.72,0],fov:35}, silhouette:{position:[6.4,2.25,8.2],target:[0,.72,0],fov:35} } },
+    views: { close: {position: [2.0,1.36,2.65],target:[.56,.82,1.12],fov:35}, medium:{position:[4.9,3.0,6.3],target:[0,.72,0],fov:35}, silhouette:{position:[8.6,1.30,.25],target:[0,.72,0],fov:35} } },
   tree: { label: 'Branched broadleaf tree', dimensions: [3.02,4.4,3.28], seed: 6197,
     description: 'Curving tapered trunk and three branch orders with deterministic clustered leaf cards.',
-    views: {close:{position:[1.5,2.6,2.0],target:[.16,2.58,.08],fov:35},medium:{position:[6.8,4.7,7.4],target:[0,2.1,0],fov:35},silhouette:{position:[7.7,4.9,8.8],target:[0,2.1,0],fov:35}} },
+    views: {close:{position:[1.5,2.6,2.0],target:[.16,2.58,.08],fov:35},medium:{position:[6.8,4.7,7.4],target:[0,2.1,0],fov:35},silhouette:{position:[10.8,2.85,.25],target:[0,2.1,0],fov:35}} },
   chair: { label: 'Upholstered lounge chair',dimensions:[.844,.953,.816],seed:9271,
     description:'Soft shaped cushions, stitched piping, curved timber arms and splayed wooden legs.',
-    views:{close:{position:[.86,.87,1.0],target:[.18,.57,.23],fov:35},medium:{position:[1.65,1.25,1.9],target:[0,.46,0],fov:35},silhouette:{position:[2.15,1.35,2.45],target:[0,.46,0],fov:35}} },
+    views:{close:{position:[.86,.87,1.0],target:[.18,.57,.23],fov:35},medium:{position:[1.65,1.25,1.9],target:[0,.46,0],fov:35},silhouette:{position:[2.65,.78,.10],target:[0,.46,0],fov:35}} },
 };
 for (const [id,s] of Object.entries(SUBJECTS)) s.roles = SUBJECT_ROLES[id];
 const V = (x,y,z) => new THREE.Vector3(x,y,z);

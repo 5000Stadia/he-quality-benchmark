@@ -72,3 +72,9 @@ orientation to produce outward normals; one refinement added metric primitive UV
 indexed batched tangents, mesh-role selection independent of material identity, ground
 contact offsets, and actual envelope metadata. No browser aesthetic approval is claimed.
 Parent owns integration, captures, shader inspection and final camera/visual validation.
+
+Parent-review refinement: silhouette poses now use near-horizontal +X side/profile
+views, distinct from the three-quarter medium views. Parent may fit distances for
+viewport aspect and records actual resulting poses. Material tile widths from parent:
+paint .25m, bark .45m, fabric .20m, wood .50m; metric UVs support global texture.repeat
+values of 4, 2.222..., 5, and 2 respectively. Leaves stay normalized alpha atlas UVs.
