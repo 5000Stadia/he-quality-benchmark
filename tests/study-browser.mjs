@@ -7,13 +7,13 @@ const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || '/home/k/Proj
 const url = process.env.STUDY_URL || 'http://127.0.0.1:8770/quality-lab/phone-site/study.html?debug=1';
 const out = process.env.STUDY_TEST_OUT || '/tmp/quality-study-browser';
 await mkdir(out, { recursive: true });
-let executablePath = process.env.CHROMIUM_PATH || chromium.executablePath();
-try { await access(executablePath, constants.X_OK); } catch { executablePath = '/opt/google/chrome/chrome'; }
+let executablePath = process.env.CHROMIUM_PATH || '/opt/google/chrome/chrome';
+try { await access(executablePath, constants.X_OK); } catch { executablePath = chromium.executablePath(); }
 const browser = await chromium.launch({ executablePath, headless: true, args: ['--no-sandbox', '--enable-gpu', '--use-angle=gl-egl', '--ignore-gpu-blocklist'] });
 const context = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true, acceptDownloads: true });
 const results = [];
 const errors = [];
-context.on('page', page => page.on('pageerror', e => errors.push(e.message)));
+context.on('page', page => page.on('pageerror', e => errors.push(e.stack || e.message)));
 const page = await context.newPage();
 page.setDefaultTimeout(15000);
 const state = p => p.evaluate(() => window.studyDebug.state());
@@ -23,7 +23,7 @@ const disabledVotes = async p => { for (const id of ['voteA', 'voteB', 'voteTie'
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 async function test(name, fn) {
   try { await fn(); results.push({ name, ok: true }); console.log('PASS', name); }
-  catch (e) { results.push({ name, ok: false, error: e.stack }); console.error('FAIL', name, e.message); await page.screenshot({ path: `${out}/failure-${results.length}.png` }).catch(() => {}); }
+  catch (e) { results.push({ name, ok: false, error: e.stack }); console.error('FAIL', name, e.message); await page.screenshot({ path: `${out}/failure-${results.length}.png` }).catch(() => {}); await writeFile(`${out}/failure-${results.length}.json`, JSON.stringify(await page.evaluate(() => ({ state: window.studyDebug?.state(), result: window.studyResult, status: document.querySelector('#studyStatus')?.textContent, ready: window.studyReady })).catch(() => ({})), null, 2)); }
 }
 async function fresh(p = page) { await p.goto(url, { waitUntil: 'domcontentloaded' }); await ready(p); }
 function votes(r) { assert.ok(Array.isArray(r.votes), 'public result.votes array required'); return r.votes; }
@@ -87,11 +87,16 @@ try {
     await page.locator('#runMeasure').click();
     await page.waitForFunction(() => window.studyDebug.state().status === 'measuring');
     await page.waitForFunction(() => window.studyDebug.state().status !== 'measuring', null, { timeout: 90000 });
+    const internal = await state(page);
+    assert.ok(rows(internal).some(x => Number.isFinite(x.sampleCount) && x.sampleCount > 0), 'debug state must expose valid internal samples');
+    await page.locator('#voteTie').click();
     const r = await result(page);
     const measured = rows(r).filter(x => Number.isFinite(x.sampleCount) && x.sampleCount > 0);
     assert.ok(measured.length, 'export must include steady sampleCount');
     assert.ok(callbacks >= Math.max(...measured.map(x => x.sampleCount)), 'reported samples cannot exceed observed rAF callbacks');
-    assert.ok(measured.every(x => x.sampleCount >= 20), 'steady measurement needs meaningful sample count');
+    const frameRows = measured.filter(x => x.frameMs && typeof x.frameMs === 'object');
+    assert.ok(frameRows.length, 'real rAF/frameMs measurement required');
+    assert.ok(frameRows.every(x => x.sampleCount >= 20), 'real rAF measurement needs meaningful sample count');
     assert.match(JSON.stringify(r), /p50|median/); assert.match(JSON.stringify(r), /p95/); assert.match(JSON.stringify(r), /p99/);
     assert.ok(rows(r).some(x => Number.isFinite(x.fov) && x.position && x.target), 'export actual camera');
   });
@@ -105,7 +110,7 @@ try {
     await page.locator('#restartTrial').click(); await ready(page);
   });
   await test('context loss invalidates trial and records interruption', async () => {
-    const supported = await page.evaluate(() => { const c = document.querySelector('#studyViewport'); const gl = c.getContext('webgl2') || c.getContext('webgl'); const ext = gl?.getExtension('WEBGL_lose_context'); if (!ext) return false; window.__acceptanceLostContext = ext; ext.loseContext(); return true; });
+    const supported = await page.evaluate(() => { const c = document.querySelector('#studyViewport canvas'); const gl = c.getContext('webgl2') || c.getContext('webgl'); const ext = gl?.getExtension('WEBGL_lose_context'); if (!ext) return false; window.__acceptanceLostContext = ext; ext.loseContext(); return true; });
     assert.equal(supported, true, 'test GPU must support WEBGL_lose_context');
     await page.waitForFunction(() => window.studyDebug.state().contextLost && !window.studyReady);
     await disabledVotes(page); assert.ok(interruptions(await result(page)).some(x => /context/i.test(JSON.stringify(x))));
