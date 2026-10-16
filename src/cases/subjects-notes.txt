@@ -1,0 +1,74 @@
+Original subject masters — provenance and scope
+Started: 2026-10-16T23:23:23Z
+Finished: 2026-10-16T23:25:37Z
+Author: quality-lab subject-geometry helper, original procedural recipes.
+No imported models, downloads, scanned surfaces, brand marks, or copied designs.
+Three.js 0.186.1 primitives, Catmull-Rom curves, RoundedBoxGeometry and
+BufferGeometryUtils support the original constructions. Existing Three.js license applies
+to those library utilities; model design is project-authored.
+
+Interface
+SUBJECTS contains labels, actual approximate envelope dimensions in metres, fixed numeric
+camera poses/FOVs, seed, description and roles. SUBJECT_ROLES is also exported separately.
+createSubject(id, materials, 'master'|'reduced') passes material objects through unchanged.
+Roles are preserved as mesh-name prefixes. Batched car/chair meshes retain source part
+names in mesh.userData.parts. Tree exposes leafCount=1020 and branchCount=127 (including
+trunk and seven root flares) on group.userData. +Y up, front +Z, ground near y=0.
+Fixed ground-contact recipe offsets are shared between tiers, avoiding independent
+normalization changes; min y remains 0.0001–0.0006m because tessellation samples differ.
+
+Design construction
+Car: longitudinal curved body sections use rounded superellipse cross sections with
+wheel-arch side cutouts. Separate convex swept glazing, painted roof/pillars, sill trim,
+mirrors, modeled door/hood gaps, handles, bumper edges, grille bars, 10-spoke wheels,
+40 tread blocks per tire, rounded head/tail lamp housings. Rounded body highlight
+continuity and tessellation are meaningful geometry comparison targets. Nominal body
+width ~1.85m; mirror envelope 2.15m. Approx. 1.414m high and 4.438m long.
+Tree: curved tapered trunk, seven root flares, 17 radial branches, six subordinate twigs
+per branch, ten individually positioned curved alpha leaf cards per twig. The seeded
+recipe consumes identical randomness in both tiers. Leaf locations and count never
+change with tier; curved cards become planar in reduced tier. Two role meshes total.
+Chair: rounded seat/back cushions, raked back, timber underframe, four splayed tapered
+legs, curved arms and posts. Cushion perimeter piping, individual 6mm stitch dashes at
+~14mm pitch, and two tailored seat lines are geometric. Three role meshes total.
+
+UV physical scale
+Body/glazing and tube UV distances are authored in metres (body circumference uses a
+4.4m nominal unwrap, longitudinal 4.4m). Cabin nominal width unwrap 2.1m, length 2.21m.
+Rounded cushions and timber boxes use local metric planar UVs per dominant normal.
+Cylinder/torus unwraps use nominal circumference and length in metres; tread uses metric
+planar projection. Tube v is curve arc length, u is initial circumference, so taper
+retains a stable root-scale unwrap. Materials repeating once per UV unit therefore
+repeat nominally once per metre; parent materials may deliberately set their own repeat.
+Leaf UVs exclusively normalized [0,1] per card for an alpha silhouette; authored leaf
+lengths are 0.15–0.235m. Leaf textures must use the matching silhouette orientation.
+All six builds include finite position, normal, UV and tangent buffers. Role batches
+merge coincident identical attributes into indexed geometry then calculate tangents.
+Projection seams/cylinder caps remain intentionally split where attributes differ.
+
+Geometry tiers and local checks
+                         master triangles   reduced triangles   meshes
+Car                           100136                16224           5
+Tree                           77872                 6150           2
+Chair                          23616                 4904           3
+Tier differences affect body/cabin grid density, rounded corners, radial surfaces,
+curved paths, branches and leaf card curvature only. All design parts, role semantics,
+thread dash counts, foliage placement/count and camera poses remain identical.
+node --check passed. Node import and construction of all six combinations passed;
+finite-value scans covered every attribute buffer, with zero invalid numbers.
+Envelope checks: tree ~3.019 x 4.391 x 3.279m; chair ~.843 x .952 x .815m.
+
+Limitations and retries
+These are procedural study assets, not photorealistic scanned or production-ready assets.
+There is no car interior, suspension, transmissive glass setup, tire deformation, rig,
+wind deformation, manufactured stitch topology, or watertight production CAD promise.
+Glass remains whatever opaque material the parent supplies; expensive transmission is
+an independent parent toggle. Light material is shared front/rear; material treatment
+is controlled by parent. Rounded box upholstery UVs have projection boundaries; inspect
+fabric repeat continuity and grazing views during browser review. Alpha leaf material
+must be DoubleSide or use an appropriate double-sided alpha policy.
+One local geometry correction reversed custom-surface index winding and cabin sweep
+orientation to produce outward normals; one refinement added metric primitive UVs,
+indexed batched tangents, mesh-role selection independent of material identity, ground
+contact offsets, and actual envelope metadata. No browser aesthetic approval is claimed.
+Parent owns integration, captures, shader inspection and final camera/visual validation.
