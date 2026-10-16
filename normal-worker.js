@@ -1,0 +1,3 @@
+self.onmessage=async({data})=>{const {id,blob}=data;try{const image=await createImageBitmap(blob),w=image.width,h=image.height,cv=new OffscreenCanvas(w,h),ctx=cv.getContext('2d');ctx.drawImage(image,0,0);const rgb=ctx.getImageData(0,0,w,h).data,lum=new Float32Array(w*h),bytes=new Uint8Array(w*h*4);
+for(let i=0;i<w*h;i++)lum[i]=(rgb[i*4]+rgb[i*4+1]+rgb[i*4+2])/765;
+for(let y=0;y<h;y++)for(let x=0;x<w;x++){let dx=(lum[y*w+(x+1)%w]-lum[y*w+(x+w-1)%w])*1.4,dy=(lum[((y+1)%h)*w+x]-lum[((y+h-1)%h)*w+x])*1.4,L=Math.hypot(dx,dy,1),i=(y*w+x)*4;bytes[i]=(-dx/L*.5+.5)*255;bytes[i+1]=(dy/L*.5+.5)*255;bytes[i+2]=(1/L*.5+.5)*255;bytes[i+3]=255;}image.close();self.postMessage({id,w,h,bytes},[bytes.buffer]);}catch(e){self.postMessage({id,error:String(e)});}};

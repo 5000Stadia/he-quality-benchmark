@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "esbuild": "^0.25.12",
+    "three": "^0.186.1"
+  },
+  "name": "he-quality-benchmark",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/app.js --bundle --format=esm --minify --outfile=app.js"
+  }
+}

@@ -1,0 +1,30 @@
+Scope: quality first, then storage, live performance and cold start; Three.js browser runtime. Network floor 50 Mbps. Experiments isolated from holo-emitter; its source was inspected read-only.
+
+Existing HE optimizations verified 2026-10-16:
+- src/make/build.js: geometry merged by material; separate movable parts and instanced mover banks.
+- lab/painted/texjobs.js and texworker.js: texture workers and IndexedDB reuse.
+- src/make/hillside.js: near instanced trees, far billboard atlases, distance-based tile LOD, progressive tile build generator with a default 4ms update budget, retaining old LOD until replacement is built, cache eviction outside radius*2 when cache exceeds 600 tiles.
+- hillside.js: optional far render bundles already measured by HE and disabled by default; code comments say reduced draws did not reduce frame time on RX460. Do not recommend bundles as a new discovery or unconditional speedup.
+- src/make/terrain-mesh.js: terrain grid LOD with skirts.
+- src/make/render.js: Three.js WebGPU renderer with WebGL fallback and GPU timestamps.
+- Older painted lab uses r160; newer FPS scenes use r186.1. Our controlled material experiments use r160 WebGL, not the whole current HE application.
+
+Potential improvements, not claims that HE lacks every analogous mechanism:
+1. Extend existing terrain/tree streaming ideas to arbitrary props and interiors, where applicable.
+2. Add resource byte accounting, per-device residency caps, upload/transcode budgets and cancellation of obsolete queued work. A 600-tile threshold is not a hard memory cap; generator next() can itself overrun the nominal per-frame budget.
+3. Make LOD depend on projected size/error, with hysteresis to avoid switching repeatedly; retain high-detail interactable objects and cheap far proxies. Test transitions under motion.
+4. Cache shared material tiles by content hash, distinguish HTTP/IndexedDB cache from decoded CPU/GPU residency, and dispose GPU resources on eviction.
+5. Evaluate meshopt-packed geometry as a fast-start alternative for complex custom meshes while retaining recipes for editable/regular geometry.
+6. Use different material tiers by screen footprint and byte budget; close-up hero quality should not force every distant object to load the largest maps.
+
+Representation screening:
+A. Procedural recipes -> ordinary rasterized meshes. Actually tested; excellent source compactness for furniture, but generated geometry and texture memory are still real costs. Recipe byte counts exclude the shared engine.
+B. Packed/quantized triangle meshes and geometric LOD. Actually encoded and browser validation tracked separately. Primary implementation: https://github.com/zeux/meshoptimizer/blob/master/gltf/README.md . gltfpack may remove unused alternate UV attributes; shipping mesh retains active UVs but is not an editable archival replacement.
+C. Shared reusable image materials, GPU-compressed KTX2. Actually tested. https://www.khronos.org/ktx/ and https://threejs.org/docs/pages/KTX2Loader.html . KTX2 transcodes to a supported GPU format; actual target and uploaded mip payload recorded. Device-specific formats and decoder startup matter. ETC tests at native 1254 generated black output on this path; invalid render cases excluded from quality rankings, rerun at 1024.
+D. Voxel surface mesh. Actually prototyped at 32/64/128 samples across desk width. Dense occupancy with material IDs, exposed-face meshing, no greedy merge or sparse octree. This is not a benchmark of optimized voxel ray tracing. Low resolution loses thin furniture parts; higher resolution increases meshed triangles sharply. Sparse octrees are legitimate alternatives for volumetric/editable worlds: https://research.nvidia.com/publication/2010-02_efficient-sparse-voxel-octrees-analysis-extensions-and-implementation . Their quality/memory/runtime must be tested for those workloads; do not infer a universal loss from our baseline.
+E. Signed-distance functions / sphere tracing. Research-screened, not runtime-benchmarked here. Compact analytic shape descriptions are appealing for rounded solids and CSG; direct ray marching adds per-pixel intersection work and needs spatial acceleration, materials and shadow design. The same recipe can generate a raster mesh. Source: https://graphics.stanford.edu/courses/cs348b-20-spring-content/uploads/hart.pdf . Candidate for shape authoring/special effects; no measured basis here to replace all props with SDF rendering.
+F. Gaussian splats / radiance representations. Research-screened, not trained or benchmarked locally. Strong candidate for captured static environments, not automatically an editable, relightable object library. Large-scene hierarchy and memory compression are active demonstrated techniques, so dismissing them on original uncompressed sizes would be unfair. Sources: https://repo-sam.inria.fr/fungraph/reduced_3dgs/reduced_3DGS_i3d.pdf and https://repo-sam.inria.fr/fungraph/hierarchical-3d-gaussians/hierarchical-3d-gaussians_high.pdf . Need matched capture dataset, target-browser renderer, lighting/editing requirements and mobile validation before ranking.
+G. Impostors / baked distant images. HE already uses tree billboards. Multi-view impostors can extend this to less symmetrical props, but baked lighting, silhouette changes, parallax and transitions need validation. Source: https://dev.epicgames.com/documentation/en-us/unreal-engine/impostor-baker-plugin-in-unreal-engine . This is a distance tier, not adequate close-up replacement.
+
+Interpretation:
+The best supported architecture is hybrid, not a new universal representation. This is an engineering recommendation based on the tested cases and source audit, not proof of global optimality. Real-phone thermal, battery, peak-memory, sustained camera movement and diverse unique-asset tests remain necessary. Desktop GPU timer values are not phone FPS. Million-object registry tests are synthetic compact records with a separate bounded render; they do not establish a finished million-object streaming engine.

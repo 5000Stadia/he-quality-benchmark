@@ -1,0 +1,84 @@
+Best-supported recommendation: hybrid Three.js pipeline
+
+Use recipes for regular editable furniture and optimized mesh assets for intricate objects. Keep a shared reusable material library; AVIF90 is the strongest small-download close-up candidate in these samples, AVIF80 is a good smaller tier. Run expensive material preparation in workers. GPU-compressed tiers reduce residency, but their quality and payload tradeoffs must be evaluated per material. Keep a high-detail source master and generate delivery tiers offline.
+
+Extend HE's existing instancing, terrain/tree LOD and streaming to the appropriate prop workloads; do not replace it with a universal voxel or splat engine on the evidence here. Prioritize close/interactable objects, select detail by projected error, use transition hysteresis, and enforce decoded CPU/GPU byte budgets plus per-frame upload/build budgets. Admission control must act before resource exhaustion. No finite mobile renderer can retain arbitrarily many unique full-detail objects simultaneously.
+
+Controlled platform: Chromium + actual AMD RX460 GPU, Three.js r160 WebGL. Additional r186.1 WebGL material smoke/performance test passed, but no full WebGPU engine benchmark was run. Extreme-count tests use 585x1140 output, shadows off, 20 size variants of one desk. Material close-ups use 960x720 with shadows on. These are synthetic workloads, not measurements of HE's complete runtime or a real phone.
+
+QUALITY AND MATERIALS
+Texture pair means walnut and leather, shared across objects; below bytes exclude geometry, common engine and decoder. SSIM compares rendered crops to the same lossless reference, not physical realism. Native reference resolution is 1254x1254, not 2K or 4K. Generated albedo still contains some shading. Derived normals approximate color gradients, not measured height; increasing resolution cannot fix incorrect material semantics. A physically authored/scanned roughness and normal source is preferable when available.
+ref              11,225,990 bytes | 31.99 MiB maps | SSIM wood 1.0000, leather 1.0000 | encode 0.00s
+webp90             969,484 bytes | 31.99 MiB maps | SSIM wood 0.9837, leather 0.9978 | encode 1.53s
+webp75             486,448 bytes | 31.99 MiB maps | SSIM wood 0.9422, leather 0.9946 | encode 1.11s
+webp60             402,558 bytes | 31.99 MiB maps | SSIM wood 0.9201, leather 0.9924 | encode 1.01s
+avif80             761,491 bytes | 31.99 MiB maps | SSIM wood 0.9862, leather 0.9978 | encode 2.06s
+avif65             470,036 bytes | 31.99 MiB maps | SSIM wood 0.9699, leather 0.9957 | encode 1.64s
+avif45             239,235 bytes | 31.99 MiB maps | SSIM wood 0.9303, leather 0.9863 | encode 1.43s
+uastc            7,453,465 bytes |  8.03 MiB maps | SSIM wood 0.9978, leather 0.9613 | encode 15.18s
+rdo              6,431,984 bytes |  8.03 MiB maps | SSIM wood 0.9699, leather 0.9556 | encode 56.65s
+uastc1024        4,921,601 bytes |  5.33 MiB maps | SSIM wood 0.9840, leather 0.9352 | encode 10.13s
+uastc512         1,183,527 bytes |  1.33 MiB maps | SSIM wood 0.8590, leather 0.9337 | encode 2.73s
+etc1024            916,860 bytes |  5.33 MiB maps | SSIM wood 0.9485, leather 0.8921 | encode 0.00s
+mixed1024        2,875,909 bytes |  5.33 MiB maps | SSIM wood 0.9542, leather 0.8927 | encode 0.00s
+avif90           1,122,741 bytes | 31.99 MiB maps | SSIM wood 0.9931, leather 0.9983 | encode 2.68s
+avif80-worker      761,491 bytes | 31.99 MiB maps | SSIM wood 0.9862, leather 0.9978 | encode 0.00s
+
+Texture memory is uploaded mip-payload accounting/standard uncompressed estimate, not a measured driver VRAM allocation. All four native RGBA maps total about 32 MiB per material pair. Twenty unique pairs would approach 640 MiB; two thousand would be about 62.5 GiB. Sharing and eviction are necessary even when the download is small. KTX2 actual transcoding formats are retained in raw results. Native 1254 ETC cases rendered incorrectly and were excluded; 1024 cases were rerun successfully. Zero encoding times in the matrix mean not separately attributed there; mixed formats use their component encode logs. AVIF worker reuses AVIF80 files. Shared normal-worker code is additional engine overhead.
+
+GEOMETRY ALTERNATIVES
+Original custom recipe + design: 8,523 bytes, requiring shared code. Original expanded export: 2,088,308 bytes, including redundant/custom attributes. Optimized exports preserve active UVs with floating-point UV storage; alternate archival UV attributes were dropped. Normal/position quantization is lossy. Per-file conversion and single browser load times follow; later loads have warmed decoder/shader state, so do not treat them as independent cold-start comparisons.
+packed: 114,112 bytes, 13,348 triangles, encoded 0.146s, local browser ready 135.0ms
+lod50: 74,320 bytes, 6,674 triangles, encoded 0.132s, local browser ready 12.4ms
+lod10: 49,508 bytes, 3,420 triangles, encoded 0.123s, local browser ready 7.3ms
+Voxel 32: 48.8mm grid, 141 gzip occupancy bytes excluding dimensions header and shared mesher/materials, 5,956 surface triangles, 786,192 attribute bytes, built 20.5ms
+Voxel 64: 24.4mm grid, 417 gzip occupancy bytes excluding dimensions header and shared mesher/materials, 34,788 surface triangles, 4,592,016 attribute bytes, built 59.7ms
+Voxel 128: 12.2mm grid, 3,449 gzip occupancy bytes excluding dimensions header and shared mesher/materials, 144,896 surface triangles, 19,126,272 attribute bytes, built 175.1ms
+Voxel occupancy can compress extremely well for rectangular furniture, but the surface mesh expands and thin details disappear at low resolution. This prototype does not establish the performance of a sparse-octree ray tracer or greedily merged voxel mesh. SDFs, splats and multi-view impostors are research-screened in RESEARCH.txt, not falsely assigned local benchmark scores.
+
+EXTREME OBJECT COUNTS
+Registry 2,000, submitted 2,000, full detail: 37.99ms GPU median / 38.03ms p95, grid-query p95 1.50ms, registry built 0.7ms
+Registry 10,000, submitted 10,000, low detail: 5.89ms GPU median / 6.03ms p95, grid-query p95 2.41ms, registry built 5.1ms
+Registry 50,000, submitted 50,000, low detail: 21.73ms GPU median / 21.77ms p95, grid-query p95 2.70ms, registry built 11.6ms
+Registry 10,000, submitted 1,000, low detail: 1.36ms GPU median / 2.00ms p95, grid-query p95 2.80ms, registry built 2.3ms
+Registry 100,000, submitted 1,000, low detail: 1.36ms GPU median / 1.98ms p95, grid-query p95 2.40ms, registry built 24.9ms
+Registry 1,000,000, submitted 1,000, low detail: 1.36ms GPU median / 1.97ms p95, grid-query p95 2.81ms, registry built 136.8ms
+90 GPU samples per scenario across 3 runs. Grid traversal has 300 samples per scenario, along a synthetic diagonal path; it is measured separately from overview rendering. The million-object test uses a compact synthetic registry and 1,000 submitted low-detail meshes. It is not a million unique high-detail assets, nor an end-to-end camera-streaming benchmark. Instancing lowers CPU draw overhead but does not remove triangles or pixel shading. The 2,000 full-detail test already exceeds a 16.7ms GPU budget, so submitting unlimited full-detail objects is disqualified.
+
+COLD START
+Fresh browser contexts, gzip code/JSON, 40ms latency, specified Mbps, 4x main-thread CPU slowdown, unchanged desktop GPU. Worker slowdown is not established. Local server/OS caches warm. Values include prototype dependency fetching, compilation and preparation, not merely network transfer. Unused experimental modules are included; this is not an optimized production bundle. Three runs per cell.
+webp90            50 Mbps: 3.37s ready, 1550ms largest main-thread task (median of run maxima)
+webp90           100 Mbps: 3.30s ready, 1558ms largest main-thread task (median of run maxima)
+webp90           300 Mbps: 3.33s ready, 1604ms largest main-thread task (median of run maxima)
+avif80            50 Mbps: 2.81s ready, 1108ms largest main-thread task (median of run maxima)
+avif80           100 Mbps: 2.74s ready, 1097ms largest main-thread task (median of run maxima)
+avif80           300 Mbps: 2.73s ready, 1105ms largest main-thread task (median of run maxima)
+mixed1024         50 Mbps: 2.26s ready, 365ms largest main-thread task (median of run maxima)
+mixed1024        100 Mbps: 2.11s ready, 343ms largest main-thread task (median of run maxima)
+mixed1024        300 Mbps: 2.08s ready, 344ms largest main-thread task (median of run maxima)
+avif80-worker     50 Mbps: 2.16s ready, 718ms largest main-thread task (median of run maxima)
+avif80-worker    100 Mbps: 2.06s ready, 666ms largest main-thread task (median of run maxima)
+avif80-worker    300 Mbps: 1.95s ready, 604ms largest main-thread task (median of run maxima)
+Worker AVIF80 matches main-thread AVIF80 in the captured quality metrics. Workers help responsiveness but do not eliminate GPU upload/compile stalls. Earlier HE material tests already used workers and IndexedDB. The improved worker path is adopting that established HE mechanism for image-derived textures, not inventing a new HE feature.
+
+TIMING AND CONFIDENCE
+This expanded experiment began 2026-10-16 22:05:10 UTC. Existing generated references were reused: their original generation calls totaled 46.597 seconds. Encoding, geometry conversion and runtime construction are separately timed above. Fresh concept-to-finished artistic authoring time is NOT established for every method and should not be inferred from codec time. The benchmark scripts and exact encoding commands are retained.
+
+Confident conclusions: share reusable materials; avoid object-specific projected color atlases for general PBR; preserve high-resolution masters; use compact recipes or optimized meshes according to shape; use LOD and bounded residency rather than raw object-count promises. The tested simple voxel conversion is not a better close-up furniture route. AVIF90/80 plus worker processing is the best tested download/close-up balance for these materials, with a substantial uncompressed residency cost.
+
+Remaining validation before production choice: actual target phones and browsers, thermal sustained motion, frame-time tails under real input, diverse material/object catalogs, true streamed camera paths, occlusion in interiors, LOD transition quality, worker-pool concurrency/cancellation, byte-budgeted eviction under network variability, r186 WebGPU versus WebGL, and independently authored PBR height/roughness sources. No claim of universal optimum or guaranteed mobile FPS is made.
+
+
+FOLLOW-UP: GPU UPLOAD AND RESIDENCY
+avif80, 16 distinct GPU allocations through 1 resident sets: median blocking upload+render 122.25ms, p95 129.42ms. Texture objects baseline/peak/after disposal 7/11/7.
+avif80, 64 distinct GPU allocations through 4 resident sets: median blocking upload+render 121.95ms, p95 137.94ms. Texture objects baseline/peak/after disposal 7/23/7.
+avif80, 64 distinct GPU allocations through 8 resident sets: median blocking upload+render 123.20ms, p95 138.83ms. Texture objects baseline/peak/after disposal 7/39/7.
+uastc, 16 distinct GPU allocations through 4 resident sets: median blocking upload+render 374.40ms, p95 412.90ms. Texture objects baseline/peak/after disposal 11/27/11.
+uastc1024, 16 distinct GPU allocations through 4 resident sets: median blocking upload+render 251.95ms, p95 269.35ms. Texture objects baseline/peak/after disposal 15/31/15.
+uastc512, 16 distinct GPU allocations through 4 resident sets: median blocking upload+render 62.55ms, p95 103.57ms. Texture objects baseline/peak/after disposal 19/35/19.
+uastc1024-bc7, 16 distinct GPU allocations through 4 resident sets: median blocking upload+render 2.95ms, p95 19.98ms. Texture objects baseline/peak/after disposal 15/31/15.
+uastc512-bc7, 16 distinct GPU allocations through 4 resident sets: median blocking upload+render 1.05ms, p95 1.48ms. Texture objects baseline/peak/after disposal 19/35/19.
+These isolate uploads and resource disposal using repeated source pixels, not independent downloaded materials. They explicitly wait for GPU completion, so values are blocking upload+render costs, not steady FPS. Counters returning to baseline validate object disposal, not exact driver-memory reclamation. The default ASTC target was slow on this AMD desktop path. Forcing BC7 on aligned 1024/512 files greatly reduced upload time. This supports device-specific format selection and prewarming; it does not establish ASTC performance on native mobile hardware. Native 1254 BC7 and ETC trials failed GL compressed-image size validation; excluded from rankings. The public phone page uses 512/1024 KTX files only. It uses BC7 on the tested detected AMD path when available, and Three.js capability-selected formats on phones.
+
+PHONE HARNESS
+A separate bundled r186.1 WebGL fixture is available in the public benchmark. Unlike earlier desktop timing loops it reports real requestAnimationFrame intervals and asynchronous GPU timestamps. Full geometry is the 13,348-triangle packed desk; low geometry is 276 triangles. No shadows, direct framebuffer, capped preview DPR 1.5 with explicit DPR 1/2 comparisons. It does not reuse HE's full WebGPU renderer or world simulation. Quick tests adaptively stop increasing load; extended tests are opt-in. Share JSON for complete results. No automatic result upload.
