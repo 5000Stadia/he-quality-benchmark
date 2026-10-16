@@ -30,7 +30,51 @@ function surface(nu,nv,point,uv=(u,v)=>[u,v]) {
   const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(p,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(t,2));g.setIndex(ix);return finish(g);
 }
 function rounded(w,h,d,r,steps) { const g=new RoundedBoxGeometry(w,h,d,steps,r);const p=g.attributes.position,n=g.attributes.normal,uv=g.attributes.uv;for(let i=0;i<p.count;i++){const a=[Math.abs(n.getX(i)),Math.abs(n.getY(i)),Math.abs(n.getZ(i))];const k=a.indexOf(Math.max(...a));uv.setXY(i,k===0?p.getZ(i):p.getX(i),k===1?p.getZ(i):p.getY(i));}return g; }
-function tube(points,r0,r1,segments,radial) {const curve=new THREE.CatmullRomCurve3(points);const frames=curve.computeFrenetFrames(segments,false);let length=curve.getLength();return surface(radial,segments,(u,v)=>{let j=Math.round(v*segments),a=u*Math.PI*2,r=THREE.MathUtils.lerp(r0,r1,v);return curve.getPointAt(v).addScaledVector(frames.normals[j],Math.cos(a)*r).addScaledVector(frames.binormals[j],Math.sin(a)*r);},(u,v)=>[u*2*Math.PI*r0,v*length]);}
+function tube(points,r0,r1,segments,radial,capped=false) {
+  const curve=new THREE.CatmullRomCurve3(points);
+  if(capped)return curveTube(curve,r0,r1,segments,radial);
+  // The tree recipe retains its original open, intersecting branch construction.
+  const frames=curve.computeFrenetFrames(segments,false),length=curve.getLength();
+  return surface(radial,segments,(u,v)=>{let j=Math.round(v*segments),a=u*Math.PI*2,r=THREE.MathUtils.lerp(r0,r1,v);return curve.getPointAt(v).addScaledVector(frames.normals[j],Math.cos(a)*r).addScaledVector(frames.binormals[j],Math.sin(a)*r);},(u,v)=>[u*2*Math.PI*r0,v*length]);
+}
+function curveFrom(point) {
+  const curve=new THREE.Curve();curve.arcLengthDivisions=512;
+  curve.getPoint=(t,target=V(0,0,0))=>target.copy(point(t));return curve;
+}
+function curveTube(curve,r0,r1,segments,radial,closed=false) {
+  const frames=curve.computeFrenetFrames(segments,closed),length=curve.getLength(),p=[],n=[],uv=[],ix=[];
+  for(let j=0;j<=segments;j++){
+    const t=j/segments,c=curve.getPointAt(t),r=THREE.MathUtils.lerp(r0,r1,t);
+    for(let i=0;i<=radial;i++){
+      const a=i/radial*Math.PI*2,q=frames.normals[j].clone().multiplyScalar(Math.cos(a)).addScaledVector(frames.binormals[j],Math.sin(a));
+      p.push(...c.clone().addScaledVector(q,r).toArray());
+      n.push(...q.addScaledVector(frames.tangents[j],-(r1-r0)/length).normalize().toArray());uv.push(i/radial*2*Math.PI*r0,t*length);
+    }
+  }
+  for(let j=0;j<segments;j++)for(let i=0;i<radial;i++){const a=j*(radial+1)+i,b=a+1,c=a+radial+1,d=c+1;ix.push(a,b,c,b,d,c);}
+  // Separate cap vertices preserve flat end-grain normals instead of rounding them into the sides.
+  if(!closed)for(const end of [0,segments]){
+    const c=curve.getPointAt(end/segments),r=end?r1:r0,normal=frames.tangents[end].clone().multiplyScalar(end?1:-1),center=p.length/3;
+    p.push(...c.toArray());n.push(...normal.toArray());uv.push(0,0);
+    for(let i=0;i<=radial;i++){
+      const a=i/radial*Math.PI*2,x=Math.cos(a)*r,y=Math.sin(a)*r;
+      p.push(...c.clone().addScaledVector(frames.normals[end],x).addScaledVector(frames.binormals[end],y).toArray());n.push(...normal.toArray());uv.push(x,y);
+    }
+    for(let i=0;i<radial;i++)end?ix.push(center,center+i+1,center+i+2):ix.push(center,center+i+2,center+i+1);
+  }
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(p,3));g.setAttribute('normal',new THREE.Float32BufferAttribute(n,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));g.setIndex(ix);g.computeTangents();return g;
+}
+function surfaceNormal(point,u,v) {
+  const e=.0001,du=point(Math.min(1,u+e),v).sub(point(Math.max(0,u-e),v)),dv=point(u,Math.min(1,v+e)).sub(point(u,Math.max(0,v-e)));
+  return du.cross(dv).normalize();
+}
+function gridPoint(geometry,nu,nv,u,v,offset=0) {
+  // Barycentric attachment to the rendered triangle, including the independently tessellated reduced body.
+  const x=THREE.MathUtils.clamp(u,0,1)*nu,y=THREE.MathUtils.clamp(v,0,1)*nv,i=Math.min(nu-1,Math.floor(x)),j=Math.min(nv-1,Math.floor(y)),a=j*(nu+1)+i,fx=x-i,fy=y-j;
+  const ids=fx+fy<=1?[a,a+1,a+nu+1]:[a+1,a+nu+2,a+nu+1],weights=fx+fy<=1?[1-fx-fy,fx,fy]:[1-fy,fx+fy-1,1-fx],point=V(0,0,0),normal=V(0,0,0);
+  for(let k=0;k<3;k++){point.addScaledVector(V(0,0,0).fromBufferAttribute(geometry.attributes.position,ids[k]),weights[k]);normal.addScaledVector(V(0,0,0).fromBufferAttribute(geometry.attributes.normal,ids[k]),weights[k]);}
+  normal.normalize();return {point:point.addScaledVector(normal,offset),normal};
+}
 function add(group,geometry,material,name,position,rotation) {
   const uv=geometry.attributes.uv,p=geometry.parameters;
   if(uv && p && ['TorusGeometry','CylinderGeometry','BoxGeometry'].includes(geometry.type))for(let i=0;i<uv.count;i++){
@@ -39,7 +83,8 @@ function add(group,geometry,material,name,position,rotation) {
     if(geometry.type==='BoxGeometry'){const n=geometry.attributes.normal,q=geometry.attributes.position;uv.setXY(i,Math.abs(n.getX(i))>.5?q.getZ(i):q.getX(i),Math.abs(n.getY(i))>.5?q.getZ(i):q.getY(i));}
   }
   const mesh=new THREE.Mesh(geometry,material);mesh.name=name;mesh.castShadow=true;mesh.receiveShadow=true;if(position)mesh.position.set(...position);if(rotation)mesh.rotation.set(...rotation);group.add(mesh);return mesh; }
-function path(group,points,r,material,name,hi) {return add(group,tube(points.map(p=>Array.isArray(p)?V(...p):p),r,r,hi?64:20,hi?8:4),material,name);}
+function curvePath(group,curve,r,material,name,hi,closed=false) {return add(group,curveTube(curve,r,r,hi?96:32,hi?8:4,closed),material,name);}
+function path(group,points,r,material,name,hi) {return curvePath(group,new THREE.CatmullRomCurve3(points.map(p=>Array.isArray(p)?V(...p):p)),r,material,name,hi);}
 function batch(group,geometries,material,name) {const normalized=geometries.map(g=>{const q=g.index?g.toNonIndexed():g;const a=q.clone();for(const key of Object.keys(a.attributes))if(!['position','normal','uv'].includes(key))a.deleteAttribute(key);return a;});const raw=mergeGeometries(normalized,false),g=mergeVertices(raw,1e-7);raw.dispose();g.computeTangents();for(const q of normalized)q.dispose();for(const q of geometries)q.dispose();return add(group,g,material,name);}
 
 function buildCar(group,m,hi) {
@@ -47,24 +92,48 @@ function buildCar(group,m,hi) {
   const sections=[[-2.2,.64,.58,.20],[-2.08,.81,.62,.28],[-1.6,.90,.67,.30],[-.9,.91,.68,.31],[0,.915,.69,.31],[1.15,.89,.67,.29],[1.85,.83,.61,.25],[2.13,.71,.58,.20],[2.2,.55,.56,.14]];
   const curve=new THREE.CatmullRomCurve3(sections.map(s=>V(s[1],s[2],s[3])),false,'catmullrom',.3);
   const zCurve=new THREE.CatmullRomCurve3(sections.map(s=>V(s[0],0,0)),false,'catmullrom',.3);
-  const body=surface(hi?80:24,hi?64:20,(u,v)=>{let a=u*Math.PI*2,s=curve.getPoint(v),z=zCurve.getPoint(v).x;let x=s.x*Math.sign(Math.cos(a))*Math.pow(Math.abs(Math.cos(a)),.65),y=s.y+Math.sin(a)*s.z;
+  function sectionV(z){let lo=0,high=1;for(let k=0;k<30;k++){const mid=(lo+high)/2;if(zCurve.getPoint(mid).x<z)lo=mid;else high=mid;}return (lo+high)/2;}
+  function upperBody(x,z){const s=curve.getPoint(sectionV(z));return s.y+s.z*Math.sqrt(Math.max(0,1-Math.pow(Math.abs(x)/s.x,2/.65)));}
+  const bodyPoint=(u,v)=>{let a=u*Math.PI*2,s=curve.getPoint(v),z=zCurve.getPoint(v).x;let x=s.x*Math.sign(Math.cos(a))*Math.pow(Math.abs(Math.cos(a)),.65),y=s.y+Math.sin(a)*s.z;
     // Open the lower side surfaces into genuine wheel arches; the painted shoulder stays continuous.
     const axle=Math.min(Math.abs(z-1.36),Math.abs(z+1.35));if(axle<.43&&Math.abs(x)>.64&&Math.sin(a)<.35){const arch=.355+Math.sqrt(Math.max(0,.43*.43-axle*axle));y=Math.max(y,arch);}
-    return V(x,y,z);},(u,v)=>[u*4.4,v*4.4]);add(group,body,m.paint,'paint-coachwork');
+    return V(x,y,z);};
+  const bodyU=hi?80:32,bodyV=hi?64:28,body=surface(bodyU,bodyV,bodyPoint,(u,v)=>[u*4.4,v*4.4]);
+  // Join the periodic normals at the side of the swept body.
+  for(let j=0;j<=bodyV;j++){const a=j*(bodyU+1),b=a+bodyU,n=V(0,0,0).fromBufferAttribute(body.attributes.normal,a).add(V(0,0,0).fromBufferAttribute(body.attributes.normal,b)).normalize();body.attributes.normal.setXYZ(a,n.x,n.y,n.z);body.attributes.normal.setXYZ(b,n.x,n.y,n.z);}
+  body.computeTangents();add(group,body,m.paint,'paint-coachwork');
+  function bodySide(side,y,z,offset=.0004){const v=sectionV(z),s=curve.getPoint(v),angle=Math.asin(THREE.MathUtils.clamp((y-s.y)/s.z,-.999,.999)),a=side>0?angle:Math.PI-angle;return gridPoint(body,bodyU,bodyV,(a+Math.PI*2)%(Math.PI*2)/(Math.PI*2),v,offset);}
+  function bodyTop(x,z,offset=.0003){const v=sectionV(z),s=curve.getPoint(v),a=Math.acos(Math.sign(x)*Math.pow(Math.min(1,Math.abs(x)/s.x),1/.65));return gridPoint(body,bodyU,bodyV,a/(Math.PI*2),v,offset).point;}
   for(const z of [-2.19,2.19])add(group,rounded(1.12,.24,.035,.07,hi?6:2),m.paint,'paint-end-panel',[0,.57,z]);
-  // Cabin cross sections form convex glazing and a separate painted roof.
-  const cabin=(u,v)=>{const z=THREE.MathUtils.lerp(-1.27,.94,v),bulge=Math.sin(Math.PI*v),w=.64+.11*Math.sin(Math.PI*v),height=.89+.48*Math.pow(Math.max(0,bulge),.55);const a=u*Math.PI;return V(Math.cos(a)*w,.88+Math.sin(a)*(height-.88),z);};
-  add(group,surface(hi?48:12,hi?48:12,cabin,(u,v)=>[u*2.1,v*2.21]),m.glass,'glass-curved-cabin');
-  add(group,surface(hi?20:6,hi?36:10,(u,v)=>{const q=cabin(.37+u*.26,.17+v*.62);q.y+=.012;return q;},(u,v)=>[u*.65,v*1.4]),m.paint,'paint-roof');
+  // One continuous canopy is partitioned into glazing, a broad roof, and adjoining pillars.
+  // Shared boundaries and differential normals avoid stacked shells and roof-spanning pillar tubes.
+  const cabin=(u,v)=>{
+    const z=THREE.MathUtils.lerp(-1.27,.96,v),w=.69+.075*Math.sin(Math.PI*v),a=u*Math.PI,x=Math.cos(a)*w;
+    const ramp=v<.27?Math.sin(v/.27*Math.PI/2):v>.73?Math.sin((1-v)/.27*Math.PI/2):1;
+    return V(x,upperBody(x,z)+.38*Math.max(0,ramp)*Math.pow(Math.max(0,Math.sin(a)),.45),z);
+  };
+  const uc=[0,.19,.225,.775,.81,1],vc=[0,.245,.27,.49,.515,.73,.755,1];
+  for(let j=0;j<vc.length-1;j++)for(let i=0;i<uc.length-1;i++){
+    const u0=uc[i],u1=uc[i+1],v0=vc[j],v1=vc[j+1],roof=i===2&&v0>=.245&&v1<=.755,pillar=i===1||i===3||((i===0||i===4)&&v0===.49);
+    const nu=Math.max(2,Math.ceil((u1-u0)*(hi?80:24))),nv=Math.max(2,Math.ceil((v1-v0)*(hi?72:24)));
+    const g=surface(nu,nv,(u,v)=>cabin(THREE.MathUtils.lerp(u0,u1,u),THREE.MathUtils.lerp(v0,v1,v)),(u,v)=>[(u0+u*(u1-u0))*2.1,(v0+v*(v1-v0))*2.23]);
+    for(let y=0;y<=nv;y++)for(let x=0;x<=nu;x++){const n=surfaceNormal(cabin,THREE.MathUtils.lerp(u0,u1,x/nu),THREE.MathUtils.lerp(v0,v1,y/nv));g.attributes.normal.setXYZ(y*(nu+1)+x,n.x,n.y,n.z);}
+    g.computeTangents();add(group,g,roof||pillar?m.paint:m.glass,roof?'paint-roof':pillar?'paint-window-pillar':'glass-curved-cabin');
+  }
+  for(const v of [0,1])curvePath(group,curveFrom(t=>cabin(t,v).addScaledVector(surfaceNormal(cabin,t,v),.001)),.009,m.chrome,'chrome-window-header',hi);
   for(const side of [-1,1]) {
-    path(group,[[-.01,.89,-1.29],[side*.66,.89,-1.25],[side*.75,.89,-.35],[side*.69,.89,.95],[0,.89,.96]],.014,m.chrome,'chrome-window-sill',hi);
-    for(const v of [.16,.55,.83]) {const ps=[];for(let i=0;i<=20;i++)ps.push(cabin(side<0?i/40:1-i/40,v).add(V(0,.009,0)));path(group,ps,v===.55?.028:.022,m.paint,'paint-window-pillar',hi);}
-    path(group,[[side*.905,.76,.63],[side*.922,.58,.59],[side*.914,.43,.44],[side*.91,.40,-.83],[side*.92,.59,-.99],[side*.906,.81,-.98]],.0035,m.rubber,'rubber-door-gap',hi);
-    add(group,rounded(.10,.028,.22,.012,hi?4:1),m.chrome,'chrome-door-handle',[side*.926,.80,-.59]);
-    path(group,[[side*.70,.98,.64],[side*.95,1.00,.64]],.019,m.paint,'paint-mirror-stalk',hi);
+    const u=side>0?0:1;
+    curvePath(group,curveFrom(t=>cabin(u,t).addScaledVector(surfaceNormal(cabin,u,t),.001)),.010,m.chrome,'chrome-window-sill',hi);
+    const door=new THREE.CatmullRomCurve3([V(0,.88,.65),V(0,.65,.62),V(0,.47,.45),V(0,.45,-.72),V(0,.61,-.91),V(0,.87,-.97)]);
+    curvePath(group,curveFrom(t=>{const q=door.getPoint(t);return bodySide(side,q.y,q.z).point;}),.003,m.rubber,'rubber-door-gap',hi);
+    const mount=bodySide(side,.81,-.59,.013),handle=add(group,rounded(.028,.025,.19,.010,hi?4:1),m.chrome,'chrome-door-handle',mount.point.toArray());
+    const along=V(0,0,1).addScaledVector(mount.normal,-mount.normal.z).normalize(),up=along.clone().cross(mount.normal).normalize();handle.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(mount.normal,up,along));
+    const mirrorRoot=bodySide(side,.91,.72,.004).point;
+    path(group,[mirrorRoot,V(side*.95,1.00,.64)],.019,m.paint,'paint-mirror-stalk',hi);
     add(group,rounded(.20,.105,.27,.048,hi?6:2),m.paint,'paint-mirror-shell',[side*.966,1.035,.64]);
     add(group,rounded(.007,.073,.18,.025,hi?4:1),m.glass,'glass-mirror',[side*1.071,1.041,.625]);
-    path(group,[[side*.70,.93,1.82],[side*.64,.973,1.18],[side*.59,.975,.93]],.003,m.rubber,'rubber-hood-gap',hi);
+    const hood=new THREE.CatmullRomCurve3([V(side*.57,0,1.00),V(side*.61,0,1.45),V(side*.57,0,1.96)]);
+    curvePath(group,curveFrom(t=>{const q=hood.getPoint(t);return bodyTop(q.x,q.z);}),.0028,m.rubber,'rubber-hood-gap',hi);
     for(const z of [-1.35,1.36]){
       const x=side*.82;
       add(group,new THREE.TorusGeometry(.279,.084,hi?16:6,hi?96:28),m.rubber,'rubber-tire',[x,.363,z],[0,Math.PI/2,0]);
@@ -109,29 +178,43 @@ function buildTree(group,m,hi) {
 
 function buildChair(group,m,hi){
   const steps=hi?7:2;
-  add(group,rounded(.76,.16,.76,.075,steps),m.fabric,'fabric-seat-cushion',[0,.45,.045]);
-  const back=add(group,rounded(.73,.50,.16,.085,steps),m.fabric,'fabric-back-cushion',[0,.712,-.285],[-.15,0,0]);
+  const seat=add(group,rounded(.76,.16,.76,.075,steps),m.fabric,'fabric-seat-cushion',[0,.45,.045]);
+  const back=add(group,rounded(.73,.50,.16,.08,steps),m.fabric,'fabric-back-cushion',[0,.712,-.285],[-.15,0,0]);
   add(group,rounded(.73,.09,.65,.035,steps),m.wood,'wood-seat-frame',[0,.337,.02]);
   for(const side of [-1,1]){
     for(const front of [-1,1]){
-      const p0=V(side*.365,.015,front*.355),p1=V(side*.315,.345,front*.285);add(group,tube([p0,p0.clone().lerp(p1,.5),p1],.027,.038,hi?16:4,hi?12:5),m.wood,'wood-splayed-leg');
+      const p0=V(side*.365,.015,front*.355),p1=V(side*.315,.345,front*.285);add(group,tube([p0,p0.clone().lerp(p1,.5),p1],.027,.038,hi?16:4,hi?12:5,true),m.wood,'wood-splayed-leg');
     }
     path(group,[[side*.367,.36,.255],[side*.375,.54,.20],[side*.375,.65,.11]],.026,m.wood,'wood-arm-front-support',hi);
     path(group,[[side*.375,.38,-.28],[side*.375,.67,-.30]],.026,m.wood,'wood-arm-rear-support',hi);
     path(group,[[side*.376,.64,.33],[side*.385,.665,.18],[side*.385,.68,-.12],[side*.375,.67,-.34]],.035,m.wood,'wood-curved-arm',hi);
   }
-  // Rounded rectangles trace cushion edges, independently of tessellation tier.
-  function outline(w,d,r,y,z=0){let p=[];for(let c=0;c<4;c++){const angle=-Math.PI/2+c*Math.PI/2,cx=(c===0||c===1?1:-1)*(w/2-r),cz=(c===1||c===2?1:-1)*(d/2-r);for(let j=0;j<=10;j++){let a=angle+j*Math.PI/20;p.push(V(cx+Math.cos(a)*r,y,cz+Math.sin(a)*r+z));}}p.push(p[0].clone());return p;}
-  const seat=outline(.745,.745,.09,.473,.045);path(group,seat,.0038,m.stitch,'stitch-seat-piping',hi);
-  // Back cushion piping is authored in local coordinates, then follows the back rake.
-  const backLine=outline(.706,.465,.08,0).map(p=>V(p.x,p.z,.075).applyEuler(back.rotation).add(back.position));path(group,backLine,.0038,m.stitch,'stitch-back-piping',hi);
+  // The rounded-box surface is the Minkowski sum of its inner box and a sphere.
+  // A constant-depth section therefore has an exact rounded-rectangle perimeter.
+  function roundedRectangle(t,hx,hy,r){
+    const arc=Math.PI*r/2,lx=2*(hx-r),ly=2*(hy-r),lengths=[arc,ly,arc,lx,arc,ly,arc,lx];
+    let d=(t%1)*lengths.reduce((a,b)=>a+b,0),part=0;while(part<7&&d>lengths[part])d-=lengths[part++];const f=d/lengths[part];
+    if(part%2===0){const corner=part/2,a=Math.PI/2-corner*Math.PI/2-f*Math.PI/2,cx=(corner<2?1:-1)*(hx-r),cy=(corner===0||corner===3?1:-1)*(hy-r);return V(cx+Math.cos(a)*r,cy+Math.sin(a)*r,0);}
+    if(part===1)return V(hx,THREE.MathUtils.lerp(hy-r,-hy+r,f),0);
+    if(part===3)return V(THREE.MathUtils.lerp(hx-r,-hx+r,f),-hy,0);
+    if(part===5)return V(-hx,THREE.MathUtils.lerp(-hy+r,hy-r,f),0);
+    return V(THREE.MathUtils.lerp(-hx+r,hx-r,f),hy,0);
+  }
+  function cushionPoint(p,size,r,mesh,offset){
+    const inner=V(...size).multiplyScalar(.5).subScalar(r),base=V(THREE.MathUtils.clamp(p.x,-inner.x,inner.x),THREE.MathUtils.clamp(p.y,-inner.y,inner.y),THREE.MathUtils.clamp(p.z,-inner.z,inner.z));
+    return base.addScaledVector(p.clone().sub(base).normalize(),r+offset).applyEuler(mesh.rotation).add(mesh.position);
+  }
+  function seatCurve(y,offset){const r=.075,section=Math.sqrt(r*r-Math.pow(y-.005,2));return curveFrom(t=>{const p=roundedRectangle(t,.305+section,.305+section,section);return cushionPoint(V(p.x,y,p.y),[.76,.16,.76],r,seat,offset);});}
+  function backCurve(z,offset){const r=.08,section=Math.sqrt(r*r-z*z);return curveFrom(t=>{const p=roundedRectangle(t,.285+section,.17+section,section);return cushionPoint(V(p.x,p.y,z),[.73,.50,.16],r,back,offset);});}
+  curvePath(group,seatCurve(.026,.00025),.0032,m.stitch,'stitch-seat-piping',hi,true);
+  curvePath(group,backCurve(.050,.00025),.0032,m.stitch,'stitch-back-piping',hi,true);
   const stitchGeometries=[];
-  for(const points of [seat,backLine]){
-    const c=new THREE.CatmullRomCurve3(points,true,'centripetal');let n=Math.floor(c.getLength()/.014);
-    for(let i=0;i<n;i++){const p=c.getPointAt(i/n),p2=c.getPointAt(Math.min(1,i/n+.006/c.getLength()));stitchGeometries.push(tube([p,p2],.00085,.00085,1,hi?5:3));}
+  for(const c of [seatCurve(.048,.0002),backCurve(.063,.0002)]){
+    const length=c.getLength(),n=Math.floor(length/.014);
+    for(let i=0;i<n;i++){const p=c.getPointAt(i/n),p2=c.getPointAt(Math.min(1,i/n+.006/length));stitchGeometries.push(tube([p,p2],.00085,.00085,1,hi?5:3,true));}
   }
   batch(group,stitchGeometries,m.stitch,'stitch-individual-thread-dashes');
-  for(const x of [-.18,.18])path(group,[[x,.535,.28],[x,.538,.04],[x,.534,-.16]],.0013,m.stitch,'stitch-seat-tailoring',hi);
+  for(const x of [-.18,.18])curvePath(group,curveFrom(t=>cushionPoint(V(x,.08,THREE.MathUtils.lerp(.235,-.205,t)),[.76,.16,.76],.075,seat,.00015)),.001,m.stitch,'stitch-seat-tailoring',hi);
 }
 
 export function createSubject(id,materials,geometryTier='master') {

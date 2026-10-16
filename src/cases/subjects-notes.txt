@@ -19,18 +19,21 @@ normalization changes; min y remains 0.0001–0.0006m because tessellation sampl
 
 Design construction
 Car: longitudinal curved body sections use rounded superellipse cross sections with
-wheel-arch side cutouts. Separate convex swept glazing, painted roof/pillars, sill trim,
+wheel-arch side cutouts. A continuous canopy is partitioned into convex glazing and
+adjoining painted roof/pillars with shared boundaries and differential normals. Sill trim,
 mirrors, modeled door/hood gaps, handles, bumper edges, grille bars, 10-spoke wheels,
 40 tread blocks per tire, rounded head/tail lamp housings. Rounded body highlight
 continuity and tessellation are meaningful geometry comparison targets. Nominal body
-width ~1.85m; mirror envelope 2.15m. Approx. 1.414m high and 4.438m long.
+width ~1.85m; mirror envelope 2.15m. Approx. 1.392m high and 4.438m long.
 Tree: curved tapered trunk, seven root flares, 17 radial branches, six subordinate twigs
 per branch, ten individually positioned curved alpha leaf cards per twig. The seeded
 recipe consumes identical randomness in both tiers. Leaf locations and count never
 change with tier; curved cards become planar in reduced tier. Two role meshes total.
 Chair: rounded seat/back cushions, raked back, timber underframe, four splayed tapered
-legs, curved arms and posts. Cushion perimeter piping, individual 6mm stitch dashes at
-~14mm pitch, and two tailored seat lines are geometric. Three role meshes total.
+legs, curved arms and posts with closed ends and separate flat cap normals. Cushion
+perimeter piping follows exact rounded-box sections; individual 6mm stitch dashes at
+~14mm pitch sit beside it, with two surface-attached tailored seat lines. Three role
+meshes total.
 
 UV physical scale
 Body/glazing and tube UV distances are authored in metres (body circumference uses a
@@ -38,7 +41,8 @@ Body/glazing and tube UV distances are authored in metres (body circumference us
 Rounded cushions and timber boxes use local metric planar UVs per dominant normal.
 Cylinder/torus unwraps use nominal circumference and length in metres; tread uses metric
 planar projection. Tube v is curve arc length, u is initial circumference, so taper
-retains a stable root-scale unwrap. Materials repeating once per UV unit therefore
+retains a stable root-scale unwrap. Exposed tube caps use local metric planar UVs.
+Materials repeating once per UV unit therefore
 repeat nominally once per metre; parent materials may deliberately set their own repeat.
 Leaf UVs exclusively normalized [0,1] per card for an alpha silhouette; authored leaf
 lengths are 0.15–0.235m. Leaf textures must use the matching silhouette orientation.
@@ -48,9 +52,9 @@ Projection seams/cylinder caps remain intentionally split where attributes diffe
 
 Geometry tiers and local checks
                          master triangles   reduced triangles   meshes
-Car                           100136                16224           5
+Car                           108464                18936           5
 Tree                           77872                 6150           2
-Chair                          23616                 4904           3
+Chair                          32280                 7960           3
 Tier differences affect body/cabin grid density, rounded corners, radial surfaces,
 curved paths, branches and leaf card curvature only. All design parts, role semantics,
 thread dash counts, foliage placement/count and camera poses remain identical.
@@ -78,3 +82,42 @@ views, distinct from the three-quarter medium views. Parent may fit distances fo
 viewport aspect and records actual resulting poses. Material tile widths from parent:
 paint .25m, bark .45m, fabric .20m, wood .50m; metric UVs support global texture.repeat
 values of 4, 2.222..., 5, and 2 respectively. Leaves stay normalized alpha atlas UVs.
+
+Browser repair pass — 2026-10-16
+Recorded: 2026-10-16T23:42:15Z. About eight minutes of focused geometry repair,
+construction checks and parent browser review after the first asset screenshots.
+The first browser review found detached car gaps, narrow/disconnected cabin strips,
+detached back piping, hovering seat lines and visibly open timber arm ends. This pass
+repairs those authored construction defects without changing the interface, material
+roles, seeds, camera recipes, material objects, dependencies or tree design.
+
+Car door/hood curves now project onto the actual triangles of each tier's body grid;
+handle mounts use the same surface point and normal. Measured seam-center clearance
+is ~0.4mm for door gaps and ~0.3mm for hood gaps in both tiers, within their tube radii.
+Canopy roof, pillars and glazing share one parametrization, adjoining patch boundaries
+and normals. B pillars cover side windows only; roof-spanning pillar tubes and the
+stacked narrow roof patch were removed. Cabin perimeter trim follows the canopy.
+
+Chair piping and stitch curves use exact rounded-box sections in cushion-local space
+before applying back rake. Master piping center clearance from rendered cushion
+triangles is 0.27–0.43mm; reduced clearance is 1.18–2.15mm, within the 3.2mm piping
+radius. Seat tailoring center clearance is 0.15mm in both tiers. Exposed wood and
+detail tubes now have closed, planar end caps with normals split from the side wall.
+Tree branch geometry, layout, leaf placements and counts are unchanged.
+
+Validation: node --check; construction of all six subject/tier combinations; finite
+positions, normals, UVs, tangents and bounds; no zero-length normals. Parent rebuilt
+and visually accepted car medium/close, chair close and tree close from build
+070981c8624efbf9, reporting that detached details were resolved and caps read correctly.
+Parent froze these recipes for the controlled comparison matrix. This repairer did
+not write build outputs or alter parent UI/material/test files.
+
+Remaining artifact limits: geometry is an authored diagnostic fixture. Tube panel
+gaps and threads approximate seam appearance rather than physically recessed panels
+or manufactured upholstery construction. Reduced cushions and piping show their
+coarse tessellation; flat timber caps do not have separately authored end-grain maps.
+Collapsed or near-zero-area triangles remain where RoundedBoxGeometry radii meet a
+shortest half-dimension: car 872/328 master/reduced; chair 120/40 after role assembly
+(112/32 are present in the rounded back primitive before final assembly). Their
+attribute buffers remain finite and the parent review found no corresponding visible
+failure. No watertight CAD, photorealism, scanned-surface or production-asset claim.
