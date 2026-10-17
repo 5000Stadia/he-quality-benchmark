@@ -1,0 +1,70 @@
+{
+  "schema": "he-quality-public-smoke/1",
+  "checkedUTC": "2026-10-17T00:07:20.866Z",
+  "baseURL": "https://5000stadia.github.io/he-quality-benchmark/",
+  "testedContentCommit": "e2044911d708d8f162250358a820823b13205825",
+  "meaning": "Normal non-debug study entry and preserved v1 initial rendering/manual-view smoke; not another full performance benchmark or iPhone result",
+  "study": {
+    "buildId": "c75c68663d9a3f0a",
+    "debugAbsent": true,
+    "environment": {
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/146.0.0.0 Safari/537.36",
+      "platform": "Linux x86_64",
+      "three": "186",
+      "rendererBackend": "WebGLRenderer",
+      "devicePixelRatio": 3,
+      "firstStudyVisit": true,
+      "hardwareConcurrency": 16,
+      "deviceMemoryGiB": 8,
+      "network": {
+        "effectiveType": "4g",
+        "downlink": 1.5,
+        "rtt": 100
+      },
+      "gpu": "ANGLE (AMD, AMD Radeon RX 460 Graphics (radeonsi polaris11 ACO), OpenGL ES 3.2)",
+      "glExtensions": [
+        "EXT_clip_control",
+        "EXT_color_buffer_float",
+        "EXT_color_buffer_half_float",
+        "EXT_conservative_depth",
+        "EXT_depth_clamp",
+        "EXT_disjoint_timer_query_webgl2",
+        "EXT_float_blend",
+        "EXT_polygon_offset_clamp",
+        "EXT_render_snorm",
+        "EXT_texture_compression_bptc",
+        "EXT_texture_compression_rgtc",
+        "EXT_texture_filter_anisotropic",
+        "EXT_texture_mirror_clamp_to_edge",
+        "EXT_texture_norm16",
+        "KHR_parallel_shader_compile",
+        "NV_shader_noperspective_interpolation",
+        "OES_draw_buffers_indexed",
+        "OES_sample_variables",
+        "OES_shader_multisample_interpolation",
+        "OES_texture_float_linear",
+        "WEBGL_blend_func_extended",
+        "WEBGL_clip_cull_distance",
+        "WEBGL_compressed_texture_astc",
+        "WEBGL_compressed_texture_etc",
+        "WEBGL_compressed_texture_etc1",
+        "WEBGL_compressed_texture_s3tc",
+        "WEBGL_compressed_texture_s3tc_srgb",
+        "WEBGL_debug_renderer_info",
+        "WEBGL_debug_shaders",
+        "WEBGL_lose_context",
+        "WEBGL_multi_draw",
+        "WEBGL_stencil_texturing"
+      ],
+      "asynchronousGPUTime": true
+    },
+    "status": "Both versions are ready. Switch A/B, inspect the views, then choose."
+  },
+  "legacy": {
+    "ready": true,
+    "firstFrameMs": 2140,
+    "manualViewsUsable": true,
+    "newStudyLinkPresent": true
+  },
+  "errors": []
+}

@@ -172,4 +172,14 @@ captured PNGs; timestamps and figure fonts are presentation metadata.
 The included scientific figures compose the captured frames without
 retouching. Screenshot pixels are browser-composited at the simulated DPR;
 actual renderer-buffer dimensions remain separately recorded in raw rows.
-</pre><p><a href="assets/study-evidence/summary.json">Summary JSON</a> · <a href="assets/study-evidence/desktop-matrix.json">Raw matrix</a></p></html>
+
+Public deployment checks
+------------------------
+Hosted browser acceptance: 10/10 groups passed, no browser errors.
+HTTP/content checks: 73 public paths matched the published source,
+including all 55 unique surfaces and Basis JS/WASM. This validates the
+desktop browser at the public URL, not actual iPhone quality or speed.
+Tested content commit: e2044911d708d8f162250358a820823b13205825; renderer build unchanged.
+Evidence: assets/study-evidence/browser-acceptance-public.json and
+assets/study-evidence/publication-validation.json.
+</pre><p><a href="assets/study-evidence/summary.json">Summary JSON</a> · <a href="assets/study-evidence/desktop-matrix.json">Raw matrix</a> · <a href="assets/study-evidence/browser-acceptance-public.json">Public browser checks</a> · <a href="assets/study-evidence/publication-validation.json">Public asset checks</a></p></html>

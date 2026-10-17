@@ -172,3 +172,13 @@ captured PNGs; timestamps and figure fonts are presentation metadata.
 The included scientific figures compose the captured frames without
 retouching. Screenshot pixels are browser-composited at the simulated DPR;
 actual renderer-buffer dimensions remain separately recorded in raw rows.
+
+Public deployment checks
+------------------------
+Hosted browser acceptance: 10/10 groups passed, no browser errors.
+HTTP/content checks: 73 public paths matched the published source,
+including all 55 unique surfaces and Basis JS/WASM. This validates the
+desktop browser at the public URL, not actual iPhone quality or speed.
+Tested content commit: e2044911d708d8f162250358a820823b13205825; renderer build unchanged.
+Evidence: assets/study-evidence/browser-acceptance-public.json and
+assets/study-evidence/publication-validation.json.

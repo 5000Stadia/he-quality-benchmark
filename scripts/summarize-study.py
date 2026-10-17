@@ -279,11 +279,24 @@ def main():
       'The included scientific figures compose the captured frames without',
       'retouching. Screenshot pixels are browser-composited at the simulated DPR;',
       'actual renderer-buffer dimensions remain separately recorded in raw rows.'])
+    public_path=EVIDENCE/'browser-acceptance-public.json'
+    http_path=EVIDENCE/'publication-validation.json'
+    if public_path.exists() and http_path.exists():
+        public=json.loads(public_path.read_text());http=json.loads(http_path.read_text())
+        assert not public['errors'] and all(r['ok'] for r in public['results'])
+        lines.extend(['','Public deployment checks','------------------------',
+          f"Hosted browser acceptance: {len(public['results'])}/{len(public['results'])} groups passed, no browser errors.",
+          f"HTTP/content checks: {len(http['checks'])} public paths matched the published source,",
+          'including all 55 unique surfaces and Basis JS/WASM. This validates the',
+          'desktop browser at the public URL, not actual iPhone quality or speed.',
+          f"Tested content commit: {http['deployedContentCommit']}; renderer build unchanged.",
+          'Evidence: assets/study-evidence/browser-acceptance-public.json and',
+          'assets/study-evidence/publication-validation.json.'])
     text='\n'.join(lines)+'\n'
     for a,b in [('about4x','about 4×'),('about16x','about 16×'),('desktop60Hz','desktop 60 Hz'),('DPR3','DPR 3'),('to1.5','to 1.5'),('about2seconds','about 2 seconds'),('phase0','phase 0'),('central80%width/70%height','central 80% width / 70% height'),('an8x8-block','an 8×8 block'),('the8x8','the 8×8'),('All55','All 55'),('within8-bit','within 8-bit'),('NumPy2.5.4','NumPy 2.5.4'),('Pillow12.3.0','Pillow 12.3.0'),('Software4.4.2','Software 4.4.2'),('Three0.186.1','Three 0.186.1'),('iPhone13','iPhone 13')]:text=text.replace(a,b)
     (SITE/'STUDY-FINDINGS.txt').write_text(text)
     images=''.join(f'<section><h2>{s.title()}</h2><a href="assets/study-evidence/{s}-comparison.jpg"><img src="assets/study-evidence/{s}-comparison.jpg" alt="Matched {s} close views across delivery and geometry tiers"></a></section>' for s in ('car','tree','chair'))
-    body='<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>HE + Photonic · provisional subject findings</title><style>body{background:#101b1d;color:#edf4ef;font:16px/1.5 system-ui;max-width:1100px;margin:20px auto;padding:16px}a{color:#a6dfc4}img{max-width:100%}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.5 ui-monospace,monospace}</style><a href="study.html">Open the blind study</a><h1>Three subjects, measured costs</h1><p>Desktop evidence; new-subject phone quality choices remain open. Read this after your blind choices to avoid format/cost cues.</p>'+images+'<pre>'+html.escape(text)+'</pre><p><a href="assets/study-evidence/summary.json">Summary JSON</a> · <a href="assets/study-evidence/desktop-matrix.json">Raw matrix</a></p></html>'
+    body='<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>HE + Photonic · provisional subject findings</title><style>body{background:#101b1d;color:#edf4ef;font:16px/1.5 system-ui;max-width:1100px;margin:20px auto;padding:16px}a{color:#a6dfc4}img{max-width:100%}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.5 ui-monospace,monospace}</style><a href="study.html">Open the blind study</a><h1>Three subjects, measured costs</h1><p>Desktop evidence; new-subject phone quality choices remain open. Read this after your blind choices to avoid format/cost cues.</p>'+images+'<pre>'+html.escape(text)+'</pre><p><a href="assets/study-evidence/summary.json">Summary JSON</a> · <a href="assets/study-evidence/desktop-matrix.json">Raw matrix</a> · <a href="assets/study-evidence/browser-acceptance-public.json">Public browser checks</a> · <a href="assets/study-evidence/publication-validation.json">Public asset checks</a></p></html>'
     (SITE/'study-findings.html').write_text(body)
     print('Wrote provisional report, summary and three standalone comparison figures.')
 
