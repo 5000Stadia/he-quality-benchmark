@@ -1,0 +1,104 @@
+{
+  "schema": "he-quality-study-interaction-publication/1",
+  "verifiedUTC": "2026-10-17T01:11:08.333030+00:00",
+  "deployedContentCommit": "2b7000f486715ba92f54a2776b4fa01244f8c5f6",
+  "buildId": "7396763086827e49",
+  "baseURL": "https://5000stadia.github.io/he-quality-benchmark/",
+  "checks": [
+    {
+      "path": "study.html",
+      "httpStatus": 200,
+      "bytes": 9031,
+      "sha256": "98ed000c3f1e7d70a9b09ae9e5fb5ba715dded2d7a065a675ee6cb33101c52c0",
+      "matchesLocal": true
+    },
+    {
+      "path": "study.js",
+      "httpStatus": 200,
+      "bytes": 793725,
+      "sha256": "2db420fd89f052cb92eb1c706c3e0d6aee985f8d6f66b754f63d825a6b4e73b8",
+      "matchesLocal": true
+    },
+    {
+      "path": "src/cases/build-info.json",
+      "httpStatus": 200,
+      "bytes": 135,
+      "sha256": "218fa56ddea21dc021bd568aab43e3cf64494027b8ebdd73b3d8b16ed271ef58",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/study/manifest.json",
+      "httpStatus": 200,
+      "bytes": 48699,
+      "sha256": "2c191b8031ed1b487856bf2ab55dd5e2cc0045f4db2f5fc1f181bd7bf5306b3f",
+      "matchesLocal": true
+    },
+    {
+      "path": "app.js",
+      "httpStatus": 200,
+      "bytes": 742612,
+      "sha256": "72454cc3ea9eada55db334a0f92ae73ff27e4e8dc69ce45f5c1848f18376f783",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/desk.glb",
+      "httpStatus": 200,
+      "bytes": 114112,
+      "sha256": "2019406a08a580633569d6aa611b4373120d5eea1f7fb4b4a76aae96173655e4",
+      "matchesLocal": true
+    },
+    {
+      "path": "study-findings.html",
+      "httpStatus": 200,
+      "bytes": 14878,
+      "sha256": "e62f04a44d53a783f1aab22451d4dc3678de88f4d1b0fe72239c54d5064a70a5",
+      "matchesLocal": true
+    },
+    {
+      "path": "STUDY-FINDINGS.txt",
+      "httpStatus": 200,
+      "bytes": 13134,
+      "sha256": "f55999a330fc1e0e4c6e9bfb1c88c357f53a391ab70e88f93dcc02fd439b261e",
+      "matchesLocal": true
+    },
+    {
+      "path": "IPHONE-STUDY-FINDINGS.txt",
+      "httpStatus": 200,
+      "bytes": 7992,
+      "sha256": "784d10dd8bab0f67f5563a8a6525e233feb5724530741121a2f5c9a7edd04ceb",
+      "matchesLocal": true
+    },
+    {
+      "path": "iphone13-study-2026-10-16.selected.json",
+      "httpStatus": 200,
+      "bytes": 11616,
+      "sha256": "10e709d11376bd7969dd6e7aef3ad737d240a107ae597cdb8300cfcd66e50c9f",
+      "matchesLocal": true
+    },
+    {
+      "path": "STUDY-PROTOCOL.txt",
+      "httpStatus": 200,
+      "bytes": 10790,
+      "sha256": "3ef3690700e6e5a610c193b95c713f6b0e205b331585605d5c1e8ab8795548db",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/study-evidence/interaction-validation-local.json",
+      "httpStatus": 200,
+      "bytes": 2811,
+      "sha256": "ee8a7cb42e8853e172fa7d3925e6de3ccb2fa40d84c974874d721474cd9ca4b1",
+      "matchesLocal": true
+    },
+    {
+      "path": "assets/study-evidence/regression-validation-local.json",
+      "httpStatus": 200,
+      "bytes": 4423,
+      "sha256": "7418c79dc11353fa8f8fbf259e6d2c6b140bfe0c129b49fb0c27cc0dc11f5559",
+      "matchesLocal": true
+    }
+  ],
+  "limits": [
+    "HTTP/content integrity check; physical iPhone Safari retest not claimed.",
+    "Historical performance matrix and original user votes retain their original build identities."
+  ]
+}

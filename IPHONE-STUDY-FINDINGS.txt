@@ -102,7 +102,8 @@ above the viewport while answer controls remained visible. Whether this affected
 any supplied judgment is unknown. Preserve all nine first choices, treat ties as
 provisional, and do not claim verified viewing of both candidates or motion.
 Repair build 7396763086827e49 brings each new pair canvas into view. Five
-automated desktop touch journeys passed; native Safari has not been retested.
+automated desktop touch journeys passed locally and at the public URL; native
+Safari has not been retested.
 Three interruptions are separately recorded, including a hidden-tab event;
 none is counted as an additional vote. The final current trial is stopped.
 

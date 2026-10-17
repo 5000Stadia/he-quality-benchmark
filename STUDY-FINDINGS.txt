@@ -203,3 +203,5 @@ resume after reload; nine answers end explicitly; Next brings the model
 into view. Editing/resizing discards affected partial timing only.
 Desktop Chromium touch/viewport emulation is not native iPhone Safari.
 Evidence: assets/study-evidence/interaction-validation-local.json.
+The same 5 journeys also passed at the public URL on this build.
+Evidence: assets/study-evidence/interaction-validation-public.json.
