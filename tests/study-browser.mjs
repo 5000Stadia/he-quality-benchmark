@@ -131,7 +131,10 @@ try {
     } finally { release(); await p.close(); }
   });
   await test('storage, clipboard and share failures preserve raw/download evidence', async () => {
-    const p = await context.newPage();
+    // A fresh-session scenario needs isolated storage; reload now preserves first votes.
+    const isolated = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true, acceptDownloads: true });
+    isolated.on('page', p => p.on('pageerror', e => errors.push(e.stack || e.message)));
+    const p = await isolated.newPage();
     await p.addInitScript(() => {
       Storage.prototype.setItem = () => { throw new DOMException('Acceptance storage failure', 'QuotaExceededError'); };
       Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: async () => { throw new Error('Acceptance clipboard unavailable'); } } });
@@ -146,7 +149,7 @@ try {
       const pending = p.waitForEvent('download'); await p.locator('#exportStudy').click();
       const download = await pending; const saved = JSON.parse(await readFile(await download.path(), 'utf8'));
       assert.deepEqual(votes(saved), votes(data));
-    } finally { await p.close(); }
+    } finally { await isolated.close(); }
   });
   await test('next/restart plus desktop viewport remain usable', async () => {
     await fresh(); const before = (await state(page)).trialId;

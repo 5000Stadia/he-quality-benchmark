@@ -1,0 +1,138 @@
+{
+  "testedUTC": "2026-10-17T01:10:02.711447+00:00",
+  "buildId": "7396763086827e49",
+  "url": "http://127.0.0.1:8770/quality-lab/phone-site/study.html?debug=1",
+  "environment": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/146.0.0.0 Safari/537.36",
+    "rendererBackend": "WebGLRenderer",
+    "devicePixelRatio": 3,
+    "gpu": "ANGLE (AMD, AMD Radeon RX 460 Graphics (radeonsi polaris11 ACO), OpenGL ES 3.2)"
+  },
+  "isolationChanges": [
+    "Storage/clipboard/share failure scenario now uses a fresh browser context instead of recovering an existing immutable vote.",
+    "Ordinary non-debug fresh-link scenario now uses a fresh browser context; reload intentionally preserves seed, first votes and comment drafts."
+  ],
+  "originalAssumptionFailures": {
+    "acceptance": "9/10; same-context storage scenario recovered a saved vote, so voting was disabled.",
+    "switching": "3/4; same-context deep link recovered one saved vote instead of starting at zero."
+  },
+  "acceptance": {
+    "results": [
+      {
+        "name": "ready pair is blind in UI and public export",
+        "ok": true
+      },
+      {
+        "name": "paused A/B share exact pose, lighting and timeline in all views",
+        "ok": true
+      },
+      {
+        "name": "first tie is saved before reveal and remains immutable",
+        "ok": true
+      },
+      {
+        "name": "geometry comparisons hold texture constant; texture comparisons hold geometry constant",
+        "ok": true
+      },
+      {
+        "name": "measurement contains real rAF samples and numerical camera evidence",
+        "ok": true
+      },
+      {
+        "name": "hidden-tab interruption requires explicit restart",
+        "ok": true
+      },
+      {
+        "name": "context loss invalidates trial and records interruption",
+        "ok": true
+      },
+      {
+        "name": "stopped asynchronous asset load cannot revive trial",
+        "ok": true
+      },
+      {
+        "name": "storage, clipboard and share failures preserve raw/download evidence",
+        "ok": true
+      },
+      {
+        "name": "next/restart plus desktop viewport remain usable",
+        "ok": true
+      }
+    ],
+    "errors": []
+  },
+  "switching": {
+    "results": [
+      {
+        "name": "all subjects render large diagnostic A/B differences and restore both originals exactly",
+        "ok": true
+      },
+      {
+        "name": "diagnostic preserves first blind vote and adds no quality votes or measurements",
+        "ok": true
+      },
+      {
+        "name": "Stop/Restart ends diagnostic and next trial inherits original materials",
+        "ok": true
+      },
+      {
+        "name": "ordinary non-debug chair deep link auto-enters check without quality vote or blind leakage",
+        "ok": true
+      }
+    ],
+    "pixelProof": [
+      {
+        "subjectId": "chair",
+        "colorAB": {
+          "meanAbsoluteRGBDelta": 140.69765063188663,
+          "maxChannelDelta": 233,
+          "changedPixels": 1221931,
+          "pixels": 1561356,
+          "identical": false
+        },
+        "colorRoundtripIdentical": true,
+        "originalARestored": true,
+        "originalBRestored": true
+      },
+      {
+        "subjectId": "car",
+        "colorAB": {
+          "meanAbsoluteRGBDelta": 144.56562586196443,
+          "maxChannelDelta": 233,
+          "changedPixels": 1255734,
+          "pixels": 1561356,
+          "identical": false
+        },
+        "colorRoundtripIdentical": true,
+        "originalARestored": true,
+        "originalBRestored": true
+      },
+      {
+        "subjectId": "tree",
+        "colorAB": {
+          "meanAbsoluteRGBDelta": 160.8357131023717,
+          "maxChannelDelta": 233,
+          "changedPixels": 1413199,
+          "pixels": 1561356,
+          "identical": false
+        },
+        "colorRoundtripIdentical": true,
+        "originalARestored": true,
+        "originalBRestored": true
+      },
+      {
+        "subjectId": "chair-nondebug-deeplink",
+        "colorAB": {
+          "meanAbsoluteRGBDelta": 140.69765063188663,
+          "maxChannelDelta": 233,
+          "changedPixels": 1221931,
+          "pixels": 1561356,
+          "identical": false
+        },
+        "colorRoundtripIdentical": true
+      }
+    ],
+    "errors": []
+  },
+  "limits": "Desktop AMD GPU at390x844 mobile viewport/DPR3; not an iPhone Safari test. No performance matrix rerun."
+}

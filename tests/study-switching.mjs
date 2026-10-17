@@ -6,7 +6,7 @@ const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || '/home/k/Proj
 const url=process.env.STUDY_URL || 'http://127.0.0.1:8770/quality-lab/phone-site/study.html?debug=1';
 const out=process.env.STUDY_SWITCH_OUT || '/tmp/quality-study-switching-local'; await mkdir(out,{recursive:true});
 const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH || '/opt/google/chrome/chrome',headless:true,args:['--no-sandbox','--enable-gpu','--use-angle=gl-egl','--ignore-gpu-blocklist']});
-const p=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:3,isMobile:true,hasTouch:true});p.setDefaultTimeout(15000);
+let p=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:3,isMobile:true,hasTouch:true});p.setDefaultTimeout(15000);
 const errors=[];p.on('pageerror',e=>errors.push(e.stack));const results=[];const pixelProof=[];
 const ready=()=>p.waitForFunction(()=>window.studyReady===true,null,{timeout:90000});
 const result=()=>p.evaluate(()=>JSON.parse(JSON.stringify(window.studyResult)));
@@ -50,6 +50,8 @@ try{
   await p.locator('#nextTrial').click();await ready();assert.match(await p.locator('#switchCheck').innerText(),/start/i);
  });
  await check('ordinary non-debug chair deep link auto-enters check without quality vote or blind leakage',async()=>{
+  // Fresh-link behavior must use isolated storage: reload intentionally recovers saved choices.
+  await p.close();p=await b.newPage({viewport:{width:390,height:844},deviceScaleFactor:3,isMobile:true,hasTouch:true});p.setDefaultTimeout(15000);p.on('pageerror',e=>errors.push(e.stack));
   const deep=new URL(url);deep.search='?subject=chair&switchcheck=1';await p.goto(deep.href);await ready();
   assert.match(await p.locator('#switchCheck').innerText(),/return/i);const r=await result();assert.equal(r.current.subjectId,'chair');assert.equal(r.votes.length,0);assert.equal(r.measurements.length,0);blind(r);
   const a=await shot('deep-chair-A','A'),c=await shot('deep-chair-B','B'),a2=await shot('deep-chair-A-roundtrip','A');const delta=diff(a,c);assert.ok(delta.meanAbsoluteRGBDelta>15);assert.equal(diff(a,a2).identical,true);pixelProof.push({subjectId:'chair-nondebug-deeplink',colorAB:delta,colorRoundtripIdentical:true});
