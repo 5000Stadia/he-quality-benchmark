@@ -1,0 +1,63 @@
+{
+ "purpose": "Planted controls: a chair material downsampled by box filter (colour in linear light; normals averaged then renormalised). Key = role-size.",
+ "wood-32": {
+  "color": {
+   "url": "assets/v3/planted/wood-32-color.png",
+   "width": 32,
+   "height": 32,
+   "sha256": "011cb75154f94fecca52f4a125d9e35255d68623f18ddf19df81f7aceaedab69"
+  },
+  "normal": {
+   "url": "assets/v3/planted/wood-32-normal.png",
+   "width": 32,
+   "height": 32,
+   "sha256": "d2744ed25cef3e8bd65ed010d58080ee4f26fd7ec44458288709c2e365828f92"
+  },
+  "roughness": {
+   "url": "assets/v3/planted/wood-32-roughness.png",
+   "width": 32,
+   "height": 32,
+   "sha256": "8104ea31cfd4413898a3598c8b64c167ae23302edcea9ae7ee926ff0c19003ca"
+  }
+ },
+ "fabric-32": {
+  "color": {
+   "url": "assets/v3/planted/fabric-32-color.png",
+   "width": 32,
+   "height": 32,
+   "sha256": "b8ec5a2b5c68a65f2957f3fd5beb827ecadcac277e24e866367901eaae36e410"
+  },
+  "normal": {
+   "url": "assets/v3/planted/fabric-32-normal.png",
+   "width": 32,
+   "height": 32,
+   "sha256": "4c93f09e01e00bc8ce17ac5a502d77ccb72b1e341561c9cf22e537cac5a8b41b"
+  },
+  "roughness": {
+   "url": "assets/v3/planted/fabric-32-roughness.png",
+   "width": 32,
+   "height": 32,
+   "sha256": "18036daecb03105b36b6c209decefa7cd16e63e5b2dec81cb900eafe684282b4"
+  }
+ },
+ "fabric-128": {
+  "color": {
+   "url": "assets/v3/planted/fabric-128-color.png",
+   "width": 128,
+   "height": 128,
+   "sha256": "9b489c1acf3721ab1a142d2ac90940f750336e1c3f1875456c08d3eff9c64160"
+  },
+  "normal": {
+   "url": "assets/v3/planted/fabric-128-normal.png",
+   "width": 128,
+   "height": 128,
+   "sha256": "b6f15272368635e3791733006e40070e78668a466aa47d181f8ae6ce76cd1200"
+  },
+  "roughness": {
+   "url": "assets/v3/planted/fabric-128-roughness.png",
+   "width": 128,
+   "height": 128,
+   "sha256": "a3507d7f24f8d02693f23069238064e9f08d640fcc1adb24b88e643c0a84dd42"
+  }
+ }
+}

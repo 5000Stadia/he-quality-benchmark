@@ -1,0 +1,10 @@
+kloofendal_48d_partly_cloudy_puresky_2k.hdr — Poly Haven, CC0 (Greg Zaal; sky edits Jarod Guest).
+https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/kloofendal_48d_partly_cloudy_puresky_2k.hdr
+Downloaded 2026-10-16; 5,451,493 bytes. Not committed (reproducible); the phone study uses the
+prepared sun-free remainder in ../v3/sky-remainder-1k.hdr plus ../v3/sky-sun.json, made by
+lab/tools/export-v3-assets.mjs from this file.
+5244534e9cf5b606f2ff513aa00ddb161b0a4826ffd88a0d3bd03ac29247d198  lab/study-v3/assets/hdri/kloofendal_48d_partly_cloudy_puresky_2k.hdr
+
+Official asset and license pages, verified during publication review:
+https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky
+https://polyhaven.com/license

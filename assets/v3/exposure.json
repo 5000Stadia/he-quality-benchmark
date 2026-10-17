@@ -1,0 +1,47 @@
+{
+ "meaning": "Tone-mapping exposure per subject/view/rung matching L0 mean frame luminance; desktop ladder run T2-desktop-3 (RX460, 549x620). Same value for both sides of a pair at a given rung.",
+ "exposure": {
+  "chair": {
+   "medium": {
+    "L0": 0.95,
+    "L1": 0.9779,
+    "L2": 1.0231,
+    "L3": 1.79
+   },
+   "close": {
+    "L0": 0.95,
+    "L1": 1.0325,
+    "L2": 1.06,
+    "L3": 1.9863
+   }
+  },
+  "car": {
+   "medium": {
+    "L0": 0.95,
+    "L1": 0.9877,
+    "L2": 1.0123,
+    "L3": 1.8002
+   },
+   "close": {
+    "L0": 0.95,
+    "L1": 1.0605,
+    "L2": 1.1163,
+    "L3": 2.0613
+   }
+  },
+  "tree": {
+   "medium": {
+    "L0": 0.95,
+    "L1": 0.971,
+    "L2": 0.9883,
+    "L3": 1.7609
+   },
+   "close": {
+    "L0": 0.95,
+    "L1": 1.176,
+    "L2": 1.232,
+    "L3": 2.58
+   }
+  }
+ }
+}
