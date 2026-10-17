@@ -84,6 +84,26 @@ resolution loss at 512. No AVIF, ETC1S, alternative model-generation pipeline,
 Photonic skin/hair/animated garment or combined reduced-geometry/texture pair
 was judged in this nine-pair session.
 
+Car-specific sensitivity
+-------------------------
+The car texture pairs vary paint color, normal and roughness maps on the same
+master geometry. Chrome, rubber, opaque glazing and lamps are unchanged scalar
+controls. The authored paint variation is subtle, and the fixed satin clearcoat
+uses an unperturbed coat normal and fixed coat roughness. Base maps still affect
+the rendered image, but the prominent smooth coating reflection is protected
+from their encoding changes. These pairs test delivery/detail retention within
+one authored material; they do not compare different car-generation methods,
+paint-construction methods or overall realism. The separate geometry pair changes
+curvature while retaining reference maps.
+
+An independent source trace confirms the chosen channels are assigned to actual
+MeshPhysicalMaterial map/normalMap/roughnessMap and used on car meshes. Preserved
+desktop close frames differ: whole-image RGB RMSE is 0.519 levels of 255 for
+UASTC1024, 0.544 for UASTC512, versus 8.736 for reduced geometry. These metrics
+show nonidentical desktop pixels and relative sensitivity; they are neither
+perceptual thresholds nor captures of the phone's ASTC path. The user's report
+that only reduced geometry visibly differs is consistent with this narrow test.
+
 Presentation and limits
 -----------------------
 All saved vote snapshots are static (motion=false, timeline=0): car geometry
