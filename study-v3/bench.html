@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="../">
+<title>HE headroom v3</title>
+<style>
+:root{--bg:#0f1716;--fg:#e8eeec;--muted:#9fb0ac;--btn:#24312f}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.4 -apple-system,system-ui,sans-serif}
+main{max-width:520px;margin:0 auto;padding:8px 16px 40px} p{color:var(--muted);margin:6px 0}
+#viewport canvas{display:block;border-radius:8px}
+.row{display:flex;gap:8px;margin:8px 0}.row button{flex:1}
+button{font:inherit;padding:11px 6px;border-radius:8px;border:1px solid #3b4b48;background:var(--btn);color:var(--fg)} button:disabled{opacity:.4}
+pre{white-space:pre-wrap;font-size:12px;color:var(--muted)} textarea{width:100%}
+</style></head><body><main>
+<h1 style="font-size:18px">Headroom benchmark v3</h1>
+<p>About 3 minutes. Keep the phone still, the screen on and this tab in front. Plugged in or not, Low Power Mode off if you can.</p>
+<p id="mode"></p>
+<p><a id="other" href="study-v3/bench.html?msaa=0" style="color:#7fd1c1"></a></p>
+<div class="row"><button id="start">Start</button><button id="copy">Copy results</button><button id="share">Share</button></div>
+<pre id="runs"></pre>
+<div id="viewport"></div>
+<pre id="log"></pre><textarea id="raw" hidden readonly></textarea>
+</main><script type="module" src="study-v3/bench.bundle.js"></script></body></html>
