@@ -1,0 +1,87 @@
+{
+  "testedUTC": "2026-10-17T00:41:16.831Z",
+  "url": "https://5000stadia.github.io/he-quality-benchmark/study.html?debug=1",
+  "buildId": "7f6a64196156a3d2",
+  "environment": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/146.0.0.0 Safari/537.36",
+    "platform": "Linux x86_64",
+    "three": "186",
+    "rendererBackend": "WebGLRenderer",
+    "devicePixelRatio": 3,
+    "gpu": "ANGLE (AMD, AMD Radeon RX 460 Graphics (radeonsi polaris11 ACO), OpenGL ES 3.2)"
+  },
+  "results": [
+    {
+      "name": "all subjects render large diagnostic A/B differences and restore both originals exactly",
+      "ok": true
+    },
+    {
+      "name": "diagnostic preserves first blind vote and adds no quality votes or measurements",
+      "ok": true
+    },
+    {
+      "name": "Stop/Restart ends diagnostic and next trial inherits original materials",
+      "ok": true
+    },
+    {
+      "name": "ordinary non-debug chair deep link auto-enters check without quality vote or blind leakage",
+      "ok": true
+    }
+  ],
+  "pixelProof": [
+    {
+      "subjectId": "chair",
+      "colorAB": {
+        "meanAbsoluteRGBDelta": 140.67925657782936,
+        "maxChannelDelta": 233,
+        "changedPixels": 1221588,
+        "pixels": 1561356,
+        "identical": false
+      },
+      "colorRoundtripIdentical": true,
+      "originalARestored": true,
+      "originalBRestored": true
+    },
+    {
+      "subjectId": "car",
+      "colorAB": {
+        "meanAbsoluteRGBDelta": 144.54007072484856,
+        "maxChannelDelta": 233,
+        "changedPixels": 1255449,
+        "pixels": 1561356,
+        "identical": false
+      },
+      "colorRoundtripIdentical": true,
+      "originalARestored": true,
+      "originalBRestored": true
+    },
+    {
+      "subjectId": "tree",
+      "colorAB": {
+        "meanAbsoluteRGBDelta": 160.82992838703453,
+        "maxChannelDelta": 233,
+        "changedPixels": 1413131,
+        "pixels": 1561356,
+        "identical": false
+      },
+      "colorRoundtripIdentical": true,
+      "originalARestored": true,
+      "originalBRestored": true
+    },
+    {
+      "subjectId": "chair-nondebug-deeplink",
+      "colorAB": {
+        "meanAbsoluteRGBDelta": 140.67925657782936,
+        "maxChannelDelta": 233,
+        "changedPixels": 1221588,
+        "pixels": 1561356,
+        "identical": false
+      },
+      "colorRoundtripIdentical": true
+    }
+  ],
+  "errors": [],
+  "method": "Canvas PNG RGB differences at paused pose; actual visible A/B controls; mean delta on 0..255 scale. Desktop GPU at mobile viewport, not iPhone Safari.",
+  "testedContentCommit": "14fce46b5a4f233cf4eb5655472551cfd328c18e",
+  "contentCommitSource": "Deployed content commit supplied and HTTP/hash-verified by parent; focused browser tests validate this public URL."
+}
