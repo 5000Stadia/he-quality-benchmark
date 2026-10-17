@@ -1,0 +1,425 @@
+{
+  "schema": "he-quality-phone-selected-transcript/1",
+  "source": "Selected fields from the complete he-quality-study/2 user-message JSON, startedUTC 2026-10-17T00:44:46.856Z. The exact complete export is preserved separately in the research workspace as iphone13-study-2026-10-16.json; this selected transcript is not that full export.",
+  "omittedFields": "Repeated per-asset hashes/descriptors, complete material descriptors, per-vote preparation/resource timings, extension list and repeated camera vectors. Consult the preserved full export for these fields; the manifest and frozen subjects preserve rendering inputs.",
+  "sourceSchema": "he-quality-study/2",
+  "sourceVersion": "2026-10-16-v2",
+  "buildId": "7f6a64196156a3d2",
+  "sessionSeed": 1725774111,
+  "startedUTC": "2026-10-17T00:44:46.856Z",
+  "updatedUTC": "2026-10-17T00:52:22.292Z",
+  "environment": {
+    "platform": "iPhone",
+    "gpu": "Apple GPU",
+    "devicePixelRatio": 3,
+    "firstStudyVisit": false,
+    "asynchronousGPUTime": false,
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.2 Mobile/15E148 Safari/604.1"
+  },
+  "commonSettings": {
+    "output": {
+      "width": 549,
+      "height": 620,
+      "cssWidth": 366,
+      "cssHeight": 414,
+      "dpr": 1.5
+    },
+    "lightSetup": "studio",
+    "motion": false,
+    "timeline": 0,
+    "finish": "satin",
+    "condition": "clean",
+    "shadows": false,
+    "wind": false,
+    "glassTransmission": false,
+    "exposure": 0.95,
+    "msaa": true
+  },
+  "firstSceneFrameMs": 165,
+  "firstUsefulSubjectFrameMs": 2997,
+  "firstUsefulSubjectAfterModuleMs": 2956,
+  "votes": [
+    {
+      "trialId": "trial-33d580d9",
+      "subjectId": "car",
+      "kind": "geometry",
+      "choice": "A",
+      "note": "",
+      "blind": true,
+      "votedUTC": "2026-10-17T00:45:24.819Z",
+      "mapping": {
+        "A": {
+          "textureTier": "reference",
+          "geometryTier": "master"
+        },
+        "B": {
+          "textureTier": "reference",
+          "geometryTier": "reduced"
+        }
+      },
+      "switchCheckUsedBeforeVote": false,
+      "viewId": "medium",
+      "metrics": {
+        "A": {
+          "triangles": 116464,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1929560
+        },
+        "B": {
+          "triangles": 20088,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1929560
+        }
+      },
+      "observedTextureFormats": {
+        "reference": 1023
+      }
+    },
+    {
+      "trialId": "trial-d92db54",
+      "subjectId": "car",
+      "kind": "texture",
+      "choice": "tie",
+      "note": "No difference ",
+      "blind": true,
+      "votedUTC": "2026-10-17T00:47:18.756Z",
+      "mapping": {
+        "A": {
+          "textureTier": "reference",
+          "geometryTier": "master"
+        },
+        "B": {
+          "textureTier": "uastc512",
+          "geometryTier": "master"
+        }
+      },
+      "switchCheckUsedBeforeVote": false,
+      "viewId": "close",
+      "metrics": {
+        "A": {
+          "triangles": 116464,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1929560
+        },
+        "B": {
+          "triangles": 116464,
+          "textureMipBytes": 1048656,
+          "encodedAssetBytes": 461403
+        }
+      },
+      "observedTextureFormats": {
+        "reference": 1023,
+        "uastc": 37808
+      }
+    },
+    {
+      "trialId": "trial-fb40a27d",
+      "subjectId": "tree",
+      "kind": "geometry",
+      "choice": "tie",
+      "note": "",
+      "blind": true,
+      "votedUTC": "2026-10-17T00:47:55.371Z",
+      "mapping": {
+        "A": {
+          "textureTier": "reference",
+          "geometryTier": "reduced"
+        },
+        "B": {
+          "textureTier": "reference",
+          "geometryTier": "master"
+        }
+      },
+      "switchCheckUsedBeforeVote": false,
+      "viewId": "close",
+      "metrics": {
+        "A": {
+          "triangles": 6150,
+          "textureMipBytes": 33554424,
+          "encodedAssetBytes": 3631048
+        },
+        "B": {
+          "triangles": 77872,
+          "textureMipBytes": 33554424,
+          "encodedAssetBytes": 3631048
+        }
+      },
+      "observedTextureFormats": {
+        "reference": 1023
+      }
+    },
+    {
+      "trialId": "trial-c8321e0",
+      "subjectId": "chair",
+      "kind": "geometry",
+      "choice": "B",
+      "note": "B has more arm chair arm shape that is rounded and better",
+      "blind": true,
+      "votedUTC": "2026-10-17T00:48:32.952Z",
+      "mapping": {
+        "A": {
+          "textureTier": "reference",
+          "geometryTier": "reduced"
+        },
+        "B": {
+          "textureTier": "reference",
+          "geometryTier": "master"
+        }
+      },
+      "switchCheckUsedBeforeVote": false,
+      "viewId": "close",
+      "metrics": {
+        "A": {
+          "triangles": 7960,
+          "textureMipBytes": 33554424,
+          "encodedAssetBytes": 4356148
+        },
+        "B": {
+          "triangles": 32280,
+          "textureMipBytes": 33554424,
+          "encodedAssetBytes": 4356148
+        }
+      },
+      "observedTextureFormats": {
+        "reference": 1023
+      }
+    },
+    {
+      "trialId": "trial-79992233",
+      "subjectId": "car",
+      "kind": "texture",
+      "choice": "tie",
+      "note": "",
+      "blind": true,
+      "votedUTC": "2026-10-17T00:48:48.462Z",
+      "mapping": {
+        "A": {
+          "textureTier": "reference",
+          "geometryTier": "master"
+        },
+        "B": {
+          "textureTier": "uastc1024",
+          "geometryTier": "master"
+        }
+      },
+      "switchCheckUsedBeforeVote": false,
+      "viewId": "close",
+      "metrics": {
+        "A": {
+          "triangles": 116464,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1929560
+        },
+        "B": {
+          "triangles": 116464,
+          "textureMipBytes": 4194384,
+          "encodedAssetBytes": 1947362
+        }
+      },
+      "observedTextureFormats": {
+        "reference": 1023,
+        "uastc": 37808
+      }
+    },
+    {
+      "trialId": "trial-43311555",
+      "subjectId": "chair",
+      "kind": "texture",
+      "choice": "tie",
+      "note": "",
+      "blind": true,
+      "votedUTC": "2026-10-17T00:49:02.485Z",
+      "mapping": {
+        "A": {
+          "textureTier": "uastc512",
+          "geometryTier": "master"
+        },
+        "B": {
+          "textureTier": "reference",
+          "geometryTier": "master"
+        }
+      },
+      "switchCheckUsedBeforeVote": false,
+      "viewId": "close",
+      "metrics": {
+        "A": {
+          "triangles": 32280,
+          "textureMipBytes": 2097312,
+          "encodedAssetBytes": 1013278
+        },
+        "B": {
+          "triangles": 32280,
+          "textureMipBytes": 33554424,
+          "encodedAssetBytes": 4356148
+        }
+      },
+      "observedTextureFormats": {
+        "reference": 1023,
+        "uastc": 37808
+      }
+    },
+    {
+      "trialId": "trial-f0cbb007",
+      "subjectId": "tree",
+      "kind": "texture",
+      "choice": "tie",
+      "note": "",
+      "blind": true,
+      "votedUTC": "2026-10-17T00:49:13.524Z",
+      "mapping": {
+        "A": {
+          "textureTier": "uastc1024",
+          "geometryTier": "master"
+        },
+        "B": {
+          "textureTier": "reference",
+          "geometryTier": "master"
+        }
+      },
+      "switchCheckUsedBeforeVote": false,
+      "viewId": "close",
+      "metrics": {
+        "A": {
+          "triangles": 77872,
+          "textureMipBytes": 8388768,
+          "encodedAssetBytes": 3983857
+        },
+        "B": {
+          "triangles": 77872,
+          "textureMipBytes": 33554424,
+          "encodedAssetBytes": 3631048
+        }
+      },
+      "observedTextureFormats": {
+        "reference": 1023,
+        "uastc": 37808
+      }
+    },
+    {
+      "trialId": "trial-69a8e28",
+      "subjectId": "chair",
+      "kind": "texture",
+      "choice": "tie",
+      "note": "",
+      "blind": true,
+      "votedUTC": "2026-10-17T00:49:23.977Z",
+      "mapping": {
+        "A": {
+          "textureTier": "uastc1024",
+          "geometryTier": "master"
+        },
+        "B": {
+          "textureTier": "reference",
+          "geometryTier": "master"
+        }
+      },
+      "switchCheckUsedBeforeVote": false,
+      "viewId": "close",
+      "metrics": {
+        "A": {
+          "triangles": 32280,
+          "textureMipBytes": 8388768,
+          "encodedAssetBytes": 3584476
+        },
+        "B": {
+          "triangles": 32280,
+          "textureMipBytes": 33554424,
+          "encodedAssetBytes": 4356148
+        }
+      },
+      "observedTextureFormats": {
+        "reference": 1023,
+        "uastc": 37808
+      }
+    },
+    {
+      "trialId": "trial-4ea1d840",
+      "subjectId": "tree",
+      "kind": "texture",
+      "choice": "tie",
+      "note": "",
+      "blind": true,
+      "votedUTC": "2026-10-17T00:49:30.683Z",
+      "mapping": {
+        "A": {
+          "textureTier": "uastc512",
+          "geometryTier": "master"
+        },
+        "B": {
+          "textureTier": "reference",
+          "geometryTier": "master"
+        }
+      },
+      "switchCheckUsedBeforeVote": false,
+      "viewId": "close",
+      "metrics": {
+        "A": {
+          "triangles": 77872,
+          "textureMipBytes": 2097312,
+          "encodedAssetBytes": 1161791
+        },
+        "B": {
+          "triangles": 77872,
+          "textureMipBytes": 33554424,
+          "encodedAssetBytes": 3631048
+        }
+      },
+      "observedTextureFormats": {
+        "reference": 1023,
+        "uastc": 37808
+      }
+    }
+  ],
+  "measurements": [],
+  "switchChecks": [],
+  "warnings": [],
+  "skips": [],
+  "explorations": [],
+  "interruptions": [
+    {
+      "trialId": "trial-33d580d9",
+      "phase": "ready",
+      "status": "invalid",
+      "reason": "Tab became hidden; comparison interrupted",
+      "atUTC": "2026-10-17T00:46:09.808Z",
+      "discardedTiming": false
+    },
+    {
+      "trialId": "trial-d92db54",
+      "phase": "preparing",
+      "status": "stopped",
+      "reason": "Stopped by the observer",
+      "atUTC": "2026-10-17T00:46:52.963Z",
+      "discardedTiming": false
+    },
+    {
+      "trialId": "trial-fb40a27d",
+      "phase": "ready",
+      "status": "stopped",
+      "reason": "Stopped by the observer",
+      "atUTC": "2026-10-17T00:50:29.813Z",
+      "discardedTiming": false
+    }
+  ],
+  "current": {
+    "trialId": "trial-fb40a27d",
+    "subjectId": "tree",
+    "kind": "geometry",
+    "status": "stopped",
+    "side": "B",
+    "viewId": "close"
+  },
+  "followUpComments": [
+    {
+      "words": "For what its worth one of the cars was notably better",
+      "reading": "Consistent with the saved car geometry preference for A/master; an after-export comment, not another independent vote."
+    }
+  ],
+  "limits": [
+    "One observer/phone, one saved choice per pair. All vote snapshots have motion=false.",
+    "Six texture ties do not prove equivalence for all scenes or materials.",
+    "No steady timing rows were supplied. First-useful-frame and preparation observations are not FPS or controlled per-method cold-start comparisons.",
+    "Comments and answer interactions were flawed; saved first choices remain recorded, while missing comments must not be inferred.",
+    "Independent review found that Next could leave the canvas above the viewport while answers stayed visible; whether this affected any supplied choice is unknown. Preserve choices, treat ties as provisional and do not claim verified inspection of both candidates."
+  ]
+}

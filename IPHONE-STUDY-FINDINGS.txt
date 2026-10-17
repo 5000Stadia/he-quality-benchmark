@@ -1,0 +1,132 @@
+IPHONE13 — NINE SUPPLIED BLIND CHOICES
+Session 2026-10-16 local / 2026-10-17 UTC; interpretation 2026-10-16.
+
+What these choices support
+--------------------------
+The observer reported no visible difference for all six texture pairs: authored
+lossless reference versus UASTC1024 and UASTC512, on car, tree and chair. The
+higher-detail car and chair geometry were preferred; tree geometry was a tie.
+For this observer and presentation, reducing texture payload was less visibly
+consequential than reducing the curved car/chair geometry. This supports keeping
+512 as a serious cheaper candidate while protecting salient nearby geometry;
+it does not establish universal equivalence or a production default.
+
+Source and verification
+-----------------------
+The research workspace archives the complete nine-answer user JSON as
+iphone13-study-2026-10-16.json. This public summary accompanies
+iphone13-study-2026-10-16.selected.json is explicitly a partial transcription.
+Every selected choice, note, mapping, timestamp, setting, triangle count and
+surface total was checked against that full export. Omitted fields remain in
+the research archive; no original vote was reconstructed or rewritten.
+The transcript records build 7f6a64196156a3d2, seed 1725774111, iPhone/Apple GPU,
+and Safari user agent identifying iPhone OS 18_7. iPhone13 is the person's device
+identification, not an independently verified model from that user agent.
+
+A deterministic Node check imported src/cases/protocol.js and called
+makeTrials(1725774111): all nine IDs, order, subjects, kinds and A/B mappings
+exactly match. Each ID occurs once. Manifest channel dimensions and sums match
+all nine reference/UASTC subject-and-tier surface totals in the transcript.
+Local package-lock pins Three 0.186.1. Its src/constants.js identifies observed
+format 37808 as RGBA_ASTC_4x4_Format; WebGLUtils selects the corresponding ASTC
+linear or sRGB GL format. UASTC is the delivery encoding; this phone's reported
+transcoded format is ASTC 4x4, whereas the earlier desktop evidence used BC7.
+
+The nine comparisons (saved order)
+----------------------------------
+ID suffix | subject / factor | A versus B | saved result | note
+33d580d9 | car geometry | master / reduced | A, master | none supplied
+d92db54 | car texture | reference / UASTC512 | tie | "No difference "
+fb40a27d | tree geometry | reduced / master | tie | none supplied
+c8321e0 | chair geometry | reduced / master | B, master | see exact note below
+79992233 | car texture | reference / UASTC1024 | tie | none supplied
+43311555 | chair texture | UASTC512 / reference | tie | none supplied
+f0cbb007 | tree texture | UASTC1024 / reference | tie | none supplied
+69a8e28 | chair texture | UASTC1024 / reference | tie | none supplied
+4ea1d840 | tree texture | UASTC512 / reference | tie | none supplied
+All exact IDs are trial- plus the printed suffix.
+
+Chair note: "B has more arm chair arm shape that is rounded and better".
+All texture pairs retain master geometry. All geometry pairs retain identical
+reference maps. Geometry triangle counts: car 116,464 versus 20,088; chair
+32,280 versus 7,960; tree 77,872 versus 6,150. Triangle reduction is not a
+measured proportional reduction in frame time or encoded geometry transfer.
+
+After export the person added: "For what its worth one of the cars was notably
+better". This is consistent with the recorded car geometry preference, but does
+not identify the pair independently and is not another vote or repetition.
+
+Meaningful surface savings
+--------------------------
+MiB below means 1,048,576 bytes. Encoded totals include the used material
+families' color, normal and roughness files: paint; bark+leaf; fabric+wood.
+They exclude shared renderer/recipe/transcoder and geometry. These are asset
+file bytes, not measured HTTP transfer with headers/cache/server compression.
+
+subject | encoded MiB reference / UASTC1024 / UASTC512 | mip MiB ref / 1024 / 512
+car     | 1.840 / 1.857 / 0.440 | 16 / 4 / 1
+tree    | 3.463 / 3.799 / 1.108 | 32 / 8 / 2
+chair   | 4.154 / 3.418 / 0.966 | 32 / 8 / 2
+
+UASTC512 saves encoded surface bytes by 76.09% car, 68.00% tree, 76.74% chair,
+and mip payload by approximately 93.75% for each. UASTC1024 saves approximately
+75% of mip payload, but encoded car/tree files grow 0.92%/9.72%; chair falls
+17.71%. Smaller GPU payload and smaller download are separate outcomes.
+Rounded mip figures include full chains; exact small-block overhead remains
+in the selected JSON. They describe one representation's surface payload,
+not measured driver VRAM, total CPU memory or a whole-scene residency budget.
+Shared materials across many instances can amortize these costs.
+
+Native reference maps are authored 1024x1024 channels; UASTC1024 changes encoding
+of all three channels, and UASTC512 also halves each dimension. These results
+compare those delivery pipelines; they do not isolate compression from
+resolution loss at 512. No AVIF, ETC1S, alternative model-generation pipeline,
+Photonic skin/hair/animated garment or combined reduced-geometry/texture pair
+was judged in this nine-pair session.
+
+Presentation and limits
+-----------------------
+All saved vote snapshots are static (motion=false, timeline=0): car geometry
+uses the medium view; the other eight use close. These snapshots do not prove
+which earlier views or motion the person may have inspected. No switch-check
+records were supplied. Common settings: studio, clean/satin, exposure .95,
+MSAA, shadows/wind/refraction off; output 549x620 pixels at capped DPR1.5
+(CSS 366x414), despite the phone reporting devicePixelRatio3.
+
+One observer/phone, one saved judgment per pair: ties are observations, not a
+population threshold or proof that no detail was lost. The phone UI sometimes
+prevented comments or answering; empty notes cannot be interpreted as absence
+of defects. Recorded choices are present, but no unrecorded intent is inferred.
+An independent UI review also found that Next could leave the new canvas wholly
+above the viewport while answer controls remained visible. Whether this affected
+any supplied judgment is unknown. Preserve all nine first choices, treat ties as
+provisional, and do not claim verified viewing of both candidates or motion.
+Repair build 7396763086827e49 brings each new pair canvas into view. Five
+automated desktop touch journeys passed; native Safari has not been retested.
+Three interruptions are separately recorded, including a hidden-tab event;
+none is counted as an additional vote. The final current trial is stopped.
+
+There are no steady measurements, FPS or GPU timestamp samples in this supplied
+result. Asynchronous GPU timing is reported unavailable. First useful subject
+was 2,997 ms from navigation (empty scene 165 ms); firstStudyVisit=false and
+initial assignment is randomized. This is one contextual startup observation,
+not a causal cold-load ranking of methods. Per-pair preparation/resource details
+remain in the full export and are omitted only from the selected transcript.
+Desktop timing remains separate.
+
+What to test next
+-----------------
+Keep these completed nine answers as evidence; repeating them merely to obtain
+the same static ties is not the next discriminating question. Inspect moving
+leaf edges/twigs, paint highlights and cloth seams at matched camera/light
+phases, especially UASTC512 and reduced tree geometry, and capture defect notes
+once comment entry is reliable. Protect the car/chair curves already preferred.
+Then measure the chosen candidates in a mixed scene with actual HE renderer
+paths and resource admission. HE already streams terrain/tree tiers, and
+Photonic already has its own surface and shared motion tiers; static prop ties
+cannot select animated-person tiers or reserve their runtime headroom.
+
+Recheck inputs: full and selected JSON; src/cases/protocol.js;
+assets/study/manifest.json; package-lock.json;
+node_modules/three/src/constants.js and renderers/webgl/WebGLUtils.js.
+No browser/GPU benchmark was run for this interpretation.

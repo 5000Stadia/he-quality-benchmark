@@ -33,3 +33,13 @@ python scripts/summarize-study.py. This preserves the original matrix; rerunning
 the browser matrix replaces evidence and requires reviewing the new report.
 The original matrix's c75c68663d9a3f0a bundle/build metadata are frozen alongside
 the evidence. Current interface revisions retain their own build identities.
+
+PHONE FOLLOW-UP AND FORM REPAIR
+All nine supplied iPhone13 first choices are preserved separately from desktop
+automation. See IPHONE-STUDY-FINDINGS.txt and the clearly labeled selected-field
+transcript; these static choices include no steady phone timing measurements.
+The current form keeps comments editable, resumes saved drafts/answers after a
+reload, shows finite progress/completion and brings each next model into view.
+The first blind answer is immutable; later notes are separate exported comments.
+tests/study-interaction.mjs covers these ordinary touch/keyboard journeys and
+interrupted timing recovery. Desktop emulation is not native Safari validation.

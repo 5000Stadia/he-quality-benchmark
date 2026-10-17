@@ -1,10 +1,22 @@
 HE + PHOTONIC — PROVISIONAL CONTROLLED SUBJECT STUDY
-Completed desktop evidence 2026-10-16; actual new-subject phone votes remain pending.
+Desktop matrix completed 2026-10-16; supplied phone choices are reported separately.
+
+Supplied iPhone follow-up
+-------------------------
+One iPhone 13 observer supplied all nine first choices: six texture ties,
+higher-detail car/chair geometry preferred, tree geometry tied.
+UASTC512 remains a cheaper candidate; preserve salient nearby curvature.
+All saved snapshots are static; no steady phone timings were supplied.
+UI failures and an offscreen-canvas navigation fault make ties provisional.
+Neither verified inspection of both sides nor population equivalence follows.
+See IPHONE-STUDY-FINDINGS.txt and the explicitly selected-field source
+iphone13-study-2026-10-16.selected.json. Full user JSON is archived in the research workspace.
+The completed nine need no blanket repeat; target motion and mixed scenes.
 
 Recommendation and confidence
 -----------------------------
 Keep a per-material delivery shortlist. UASTC1024 is a useful bounded-mip
-candidate to test on the iPhone, not an automatically selected universal tier.
+candidate alongside UASTC512; neither is a selected universal production tier.
 The AVIF routes here change color only and retain lossless normal/roughness;
 UASTC routes compress all channels, and 512 changes resolution as well.
 A smaller transfer, smaller mip payload and a preferred appearance are
@@ -14,7 +26,7 @@ UASTC512 used about 16× less. AVIF80 had the smaller encoded surface
 files than UASTC1024 for all three subjects, but retained full map residency.
 Every single-subject case remained near the desktop 60 Hz refresh plateau;
 this does not establish equal GPU cost or a production object budget.
-No human preference votes for these new subjects are claimed in this report.
+The desktop matrix summary counts zero human votes; the phone follow-up is separate.
 
 What was actually measured
 --------------------------
@@ -133,10 +145,10 @@ mixed scene with current renderer paths and actual resource admission.
 
 Next real-phone questions
 -------------------------
-Run the short study on the iPhone 13, including close and side views and motion.
-For each pair choose A, B or no visible difference and note any highlight,
-leaf/twig or seam/shimmer defect. Measure both versions when useful, then
-share the JSON. Power/thermal/cache/network conditions remain contextual
+The supplied nine first choices are complete and preserved. Next discriminate
+moving leaf/twig edges, paint highlights and cloth seams under matched motion,
+especially UASTC512 and reduced tree geometry. Do not repeat all nine just to
+obtain the same static observations. Power/thermal/cache/network remain contextual
 unknowns unless supplied; one phone/observer does not establish a universal
 default or safe production object budget. Future phases cover diverse mixed
 streaming, sustained motion and actual Photonic animation/contact behavior.
@@ -173,12 +185,21 @@ The included scientific figures compose the captured frames without
 retouching. Screenshot pixels are browser-composited at the simulated DPR;
 actual renderer-buffer dimensions remain separately recorded in raw rows.
 
-Public deployment checks
-------------------------
+Historical matrix deployment checks
+-----------------------------------
 Hosted browser acceptance: 10/10 groups passed, no browser errors.
 HTTP/content checks: 73 public paths matched the published source,
 including all 55 unique surfaces and Basis JS/WASM. This validates the
 desktop browser at the public URL, not actual iPhone quality or speed.
-Tested content commit: e2044911d708d8f162250358a820823b13205825; renderer build unchanged.
+Historical matrix content commit: e2044911d708d8f162250358a820823b13205825; current UI has its own build.
 Evidence: assets/study-evidence/browser-acceptance-public.json and
 assets/study-evidence/publication-validation.json.
+
+Phone form repair
+-----------------
+Current interaction build: 7396763086827e49; 5 ordinary touch journeys passed locally.
+Comments stay editable; first choices stay immutable; drafts and answers
+resume after reload; nine answers end explicitly; Next brings the model
+into view. Editing/resizing discards affected partial timing only.
+Desktop Chromium touch/viewport emulation is not native iPhone Safari.
+Evidence: assets/study-evidence/interaction-validation-local.json.

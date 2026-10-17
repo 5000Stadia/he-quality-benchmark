@@ -14,7 +14,7 @@
     button,select{padding:11px 14px;min-height:46px}button{cursor:pointer}button:disabled{opacity:.4;cursor:default}
     button.primary{background:#96d7b8;color:#112921;font-weight:700}button[aria-pressed=true]{outline:2px solid #c8e8dc;outline-offset:2px}
     .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0}label{display:flex;align-items:center;gap:8px}
-    #studyViewport{width:100%;height:min(56vh,520px);min-height:280px;background:#31423f;border-radius:12px;overflow:hidden;touch-action:none}
+    #studyViewport{width:100%;height:auto;aspect-ratio:366/473;max-height:520px;min-height:280px;background:#31423f;border-radius:12px;overflow:hidden;touch-action:none}
     canvas{display:block}#studyStatus{padding:12px;background:#20302e;border-radius:9px;min-height:3em;overflow-wrap:anywhere}
     #voteControls{padding:14px;background:#172b26;border-radius:12px}#voteControls button{flex:1;min-width:100px}
     textarea{width:100%;padding:10px;resize:vertical}#defectNote{min-height:65px}#studyJson{height:220px;font:12px/1.5 ui-monospace,monospace}
@@ -30,7 +30,8 @@
   <a href="./">← Original desk benchmark</a>
   <h1>How much detail can you see?</h1>
   <p>Inspect a car, a tree and an upholstered chair. Switch between A and B, then choose the version that looks better. Their identities and costs appear after your choice.</p>
-  <h2 id="subjectTitle">Preparing the first comparison…</h2>
+  <h2 id="subjectTitle" tabindex="-1">Preparing the first comparison…</h2>
+  <p id="studyProgress" role="status" aria-live="polite">Preparing your study…</p>
   <div id="studyViewport" aria-label="Matched 3D comparison"></div>
   <div class="controls">
     <button id="sideA" disabled aria-pressed="true">Show A</button>
@@ -52,13 +53,18 @@
   </details>
   <section id="voteControls">
     <p class="voteHint">Judge visible surface detail, highlights, edges and motion stability. A tie is useful too.</p>
-    <label for="defectNote">What caught your eye? <span class="muted">(optional)</span></label>
-    <textarea id="defectNote" placeholder="A broken highlight, missing twig, fabric shimmer…"></textarea>
+    <label for="defectNote">Comments <span class="muted">(optional · saved as you type)</span></label>
+    <textarea id="defectNote" disabled placeholder="A broken highlight, missing twig, fabric shimmer…"></textarea>
+    <p id="choiceStatus" class="muted" role="status" aria-live="polite">Preparing the comparison…</p>
     <div class="controls">
       <button id="voteA" disabled>A looks better</button>
       <button id="voteB" disabled>B looks better</button>
       <button id="voteTie" disabled>No visible difference</button>
     </div>
+  </section>
+  <section id="completionPanel" hidden>
+    <h2>Study complete</h2>
+    <p>All comparisons have an answer. Your comments and results are saved on this device. Share or download them below.</p>
   </section>
   <div class="controls">
     <button id="nextTrial" class="primary" disabled>Next comparison</button>
@@ -97,5 +103,5 @@
   </details>
   <footer><small>HE + Photonic research · controlled study v2 · Three.js r186.1 · direct WebGL · shadows and tree wind off in baseline comparisons.</small></footer>
   <noscript>This comparison needs JavaScript and WebGL.</noscript>
-</main><script type="module" src="study.js?v=20261016-ab1"></script></body>
+</main><script type="module" src="study.js?v=20261016-phone2"></script></body>
 </html>

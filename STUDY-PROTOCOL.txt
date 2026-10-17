@@ -56,6 +56,12 @@ The first choice is A better, B better or no visible difference, with optional
 defect notes. Formats, resolutions, bytes, timing and mapping remain hidden
 until that vote is saved. Public exports also omit unvoted candidate identities.
 The first vote remains immutable through restart and further inspection.
+Comments stay editable after choosing. Later edits are exported separately as
+after-first-vote or informed-exploration comments; they never rewrite that first
+choice or its original note. Drafts save as you type. Reload restores the same
+seed, current comparison, drafts and original answers, including legacy results.
+The page shows progress and ends after all nine (or fifteen) first choices.
+Next visits unanswered comparisons and brings the new model into view.
 Finish/condition controls are informed exploration and do not rewrite votes.
 A tie is not proof of equivalence; repeats from one person are not new people.
 Skipped, interrupted and failed trials are stored separately from quality votes.
@@ -93,6 +99,12 @@ submission is not full simulation time. Desktop mobile-viewport runs remain
 desktop GPU evidence. Actual phone results must come from the device.
 The study does not simulate network speed; optional separate network modeling
 uses 50/100/300 Mbps rather than DSL assumptions.
+Completed blind timing runs expose only neutral completion receipts until a
+first choice reveals numeric per-side results. Typing a comment or a real
+canvas-size change discards the affected partial timing without invalidating
+the prepared comparison. A stable aspect ratio avoids height-only keyboard or
+browser-chrome changes resizing the canvas; native Safari behavior still needs
+physical-device confirmation. Comment focus is not repeatedly forced.
 
 Validity and privacy
 --------------------
@@ -119,6 +131,9 @@ PLAYWRIGHT_MODULE/CHROMIUM_PATH make local tool locations configurable.
 tests/study-matrix.mjs records the controlled desktop matrix and images. It
 does not create human quality votes; any test votes are explicitly automation.
 tests/study-finishes.mjs records the separate informed feature checks.
+tests/study-interaction.mjs uses ordinary touch controls and actual keystrokes
+to cover comments, saved-session migration, completion, post-Next visibility
+and timing recovery. Its mobile emulation remains desktop browser evidence.
 scripts/summarize-study.py recomputes tables, crop/fidelity scores and figures
 from the saved matrix and exact PNGs. It includes the formula and constants.
 Install scripts/requirements.txt in an isolated Python environment; preparation
@@ -146,3 +161,10 @@ https://research.nvidia.com/sites/default/files/pubs/2017-02_Hashed-Alpha-Testin
 Browser visibility/context-loss handling informs validity and interruption.
 https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
 https://wikis.khronos.org/webgl/HandlingContextLost
+
+Phone form repair adopts element ResizeObserver, stable CSS aspect ratio and
+independent editable form state. It rejects global resize invalidation,
+keyboard-height guesses and VirtualKeyboard assumptions about Safari.
+https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver
+https://developer.mozilla.org/en-US/docs/Web/API/VisualViewport
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/aspect-ratio

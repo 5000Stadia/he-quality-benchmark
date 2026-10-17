@@ -1,4 +1,4 @@
-"""Build the provisional report from the controlled matrix, without human votes."""
+"""Build the desktop matrix report and link the separate supplied phone observations."""
 from pathlib import Path
 from datetime import datetime, timezone
 import json
@@ -148,11 +148,22 @@ def main():
     gpu_name=data['environments'][0]['gpu']
     page_times=[t['firstUsefulSubjectFrameMs'] for t in data['initialPageTimings']]
     lines=['HE + PHOTONIC — PROVISIONAL CONTROLLED SUBJECT STUDY',
-           'Completed desktop evidence 2026-10-16; actual new-subject phone votes remain pending.','',
+           'Desktop matrix completed 2026-10-16; supplied phone choices are reported separately.','',
+           'Supplied iPhone follow-up',
+           '-------------------------',
+           'One iPhone13 observer supplied all nine first choices: six texture ties,',
+           'higher-detail car/chair geometry preferred, tree geometry tied.',
+           'UASTC512 remains a cheaper candidate; preserve salient nearby curvature.',
+           'All saved snapshots are static; no steady phone timings were supplied.',
+           'UI failures and an offscreen-canvas navigation fault make ties provisional.',
+           'Neither verified inspection of both sides nor population equivalence follows.',
+           'See IPHONE-STUDY-FINDINGS.txt and the explicitly selected-field source',
+           'iphone13-study-2026-10-16.selected.json. Full user JSON is archived in the research workspace.',
+           'The completed nine need no blanket repeat; target motion and mixed scenes.','',
            'Recommendation and confidence',
            '-----------------------------',
            'Keep a per-material delivery shortlist. UASTC1024 is a useful bounded-mip',
-           'candidate to test on the iPhone, not an automatically selected universal tier.',
+           'candidate alongside UASTC512; neither is a selected universal production tier.',
            'The AVIF routes here change color only and retain lossless normal/roughness;',
            'UASTC routes compress all channels, and 512 changes resolution as well.',
            'A smaller transfer, smaller mip payload and a preferred appearance are',
@@ -162,7 +173,7 @@ def main():
            'files than UASTC1024 for all three subjects, but retained full map residency.',
            'Every single-subject case remained near the desktop60Hz refresh plateau;',
            'this does not establish equal GPU cost or a production object budget.',
-           'No human preference votes for these new subjects are claimed in this report.','',
+           'The desktop matrix summary counts zero human votes; the phone follow-up is separate.','',
            'What was actually measured',
            '--------------------------',gpu_name,
            f"{data['repetitions']} repetitions of 15 pairs = {len(data['records'])} pair runs / {len(data['records'])*2} timed candidate runs.",
@@ -257,10 +268,10 @@ def main():
       'mixed scene with current renderer paths and actual resource admission.','',
       'Next real-phone questions',
       '-------------------------',
-      'Run the short study on the iPhone13, including close and side views and motion.',
-      'For each pair choose A, B or no visible difference and note any highlight,',
-      'leaf/twig or seam/shimmer defect. Measure both versions when useful, then',
-      'share the JSON. Power/thermal/cache/network conditions remain contextual',
+      'The supplied nine first choices are complete and preserved. Next discriminate',
+      'moving leaf/twig edges, paint highlights and cloth seams under matched motion,',
+      'especially UASTC512 and reduced tree geometry. Do not repeat all nine just to',
+      'obtain the same static observations. Power/thermal/cache/network remain contextual',
       'unknowns unless supplied; one phone/observer does not establish a universal',
       'default or safe production object budget. Future phases cover diverse mixed',
       'streaming, sustained motion and actual Photonic animation/contact behavior.','',
@@ -293,19 +304,37 @@ def main():
     if public_path.exists() and http_path.exists():
         public=json.loads(public_path.read_text());http=json.loads(http_path.read_text())
         assert not public['errors'] and all(r['ok'] for r in public['results'])
-        lines.extend(['','Public deployment checks','------------------------',
+        lines.extend(['','Historical matrix deployment checks','-----------------------------------',
           f"Hosted browser acceptance: {len(public['results'])}/{len(public['results'])} groups passed, no browser errors.",
           f"HTTP/content checks: {len(http['checks'])} public paths matched the published source,",
           'including all 55 unique surfaces and Basis JS/WASM. This validates the',
           'desktop browser at the public URL, not actual iPhone quality or speed.',
-          f"Tested content commit: {http['deployedContentCommit']}; renderer build unchanged.",
+          f"Historical matrix content commit: {http['deployedContentCommit']}; current UI has its own build.",
           'Evidence: assets/study-evidence/browser-acceptance-public.json and',
           'assets/study-evidence/publication-validation.json.'])
+    interaction_path=EVIDENCE/'interaction-validation-local.json'
+    if interaction_path.exists():
+        interaction=json.loads(interaction_path.read_text())
+        assert not interaction['pageErrors'] and all(j['ok'] for j in interaction['journeys'])
+        lines.extend(['','Phone form repair','-----------------',
+          f"Current interaction build: {interaction['buildId']}; {len(interaction['journeys'])} ordinary touch journeys passed locally.",
+          'Comments stay editable; first choices stay immutable; drafts and answers',
+          'resume after reload; nine answers end explicitly; Next brings the model',
+          'into view. Editing/resizing discards affected partial timing only.',
+          'Desktop Chromium touch/viewport emulation is not native iPhone Safari.',
+          'Evidence: assets/study-evidence/interaction-validation-local.json.'])
+        hosted_path=EVIDENCE/'interaction-validation-public.json'
+        if hosted_path.exists():
+            hosted=json.loads(hosted_path.read_text())
+            assert hosted['buildId']==interaction['buildId']
+            assert not hosted['pageErrors'] and all(j['ok'] for j in hosted['journeys'])
+            lines.extend([f"The same {len(hosted['journeys'])} journeys also passed at the public URL on this build.",
+              'Evidence: assets/study-evidence/interaction-validation-public.json.'])
     text='\n'.join(lines)+'\n'
     for a,b in [('about4x','about 4×'),('about16x','about 16×'),('desktop60Hz','desktop 60 Hz'),('DPR3','DPR 3'),('to1.5','to 1.5'),('about2seconds','about 2 seconds'),('phase0','phase 0'),('central80%width/70%height','central 80% width / 70% height'),('an8x8-block','an 8×8 block'),('the8x8','the 8×8'),('All55','All 55'),('within8-bit','within 8-bit'),('NumPy2.5.4','NumPy 2.5.4'),('Pillow12.3.0','Pillow 12.3.0'),('Software4.4.2','Software 4.4.2'),('Three0.186.1','Three 0.186.1'),('iPhone13','iPhone 13')]:text=text.replace(a,b)
     (SITE/'STUDY-FINDINGS.txt').write_text(text)
     images=''.join(f'<section><h2>{s.title()}</h2><a href="assets/study-evidence/{s}-comparison.jpg"><img src="assets/study-evidence/{s}-comparison.jpg" alt="Matched {s} close views across delivery and geometry tiers"></a></section>' for s in ('car','tree','chair'))
-    body='<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>HE + Photonic · provisional subject findings</title><style>body{background:#101b1d;color:#edf4ef;font:16px/1.5 system-ui;max-width:1100px;margin:20px auto;padding:16px}a{color:#a6dfc4}img{max-width:100%}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.5 ui-monospace,monospace}</style><a href="study.html">Open the blind study</a><h1>Three subjects, measured costs</h1><p>Desktop evidence; new-subject phone quality choices remain open. Read this after your blind choices to avoid format/cost cues.</p>'+images+'<pre>'+html.escape(text)+'</pre><p><a href="assets/study-evidence/summary.json">Summary JSON</a> · <a href="assets/study-evidence/desktop-matrix.json">Raw matrix</a> · <a href="assets/study-evidence/browser-acceptance-public.json">Public browser checks</a> · <a href="assets/study-evidence/publication-validation.json">Public asset checks</a></p></html>'
+    body='<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>HE + Photonic · provisional subject findings</title><style>body{background:#101b1d;color:#edf4ef;font:16px/1.5 system-ui;max-width:1100px;margin:20px auto;padding:16px}a{color:#a6dfc4}img{max-width:100%}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.5 ui-monospace,monospace}</style><a href="study.html">Open the blind study</a><h1>Three subjects, measured costs</h1><p>Desktop matrix and nine supplied iPhone choices. Read this after your blind choices to avoid format/cost cues.</p><p><a href="IPHONE-STUDY-FINDINGS.txt">iPhone findings and limits</a> · <a href="iphone13-study-2026-10-16.selected.json">Selected phone source fields</a></p>'+images+'<pre>'+html.escape(text)+'</pre><p><a href="assets/study-evidence/summary.json">Summary JSON</a> · <a href="assets/study-evidence/desktop-matrix.json">Raw matrix</a> · <a href="assets/study-evidence/browser-acceptance-public.json">Public browser checks</a> · <a href="assets/study-evidence/publication-validation.json">Public asset checks</a></p></html>'
     (SITE/'study-findings.html').write_text(body)
     print('Wrote provisional report, summary and three standalone comparison figures.')
 
