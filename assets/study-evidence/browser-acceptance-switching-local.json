@@ -1,0 +1,50 @@
+{
+  "url": "http://127.0.0.1:8770/quality-lab/phone-site/study.html?debug=1",
+  "executablePath": "/opt/google/chrome/chrome",
+  "viewport": "390x844 DPR3 (desktop GPU)",
+  "results": [
+    {
+      "name": "ready pair is blind in UI and public export",
+      "ok": true
+    },
+    {
+      "name": "paused A/B share exact pose, lighting and timeline in all views",
+      "ok": true
+    },
+    {
+      "name": "first tie is saved before reveal and remains immutable",
+      "ok": true
+    },
+    {
+      "name": "geometry comparisons hold texture constant; texture comparisons hold geometry constant",
+      "ok": true
+    },
+    {
+      "name": "measurement contains real rAF samples and numerical camera evidence",
+      "ok": true
+    },
+    {
+      "name": "hidden-tab interruption requires explicit restart",
+      "ok": true
+    },
+    {
+      "name": "context loss invalidates trial and records interruption",
+      "ok": true
+    },
+    {
+      "name": "stopped asynchronous asset load cannot revive trial",
+      "ok": true
+    },
+    {
+      "name": "storage, clipboard and share failures preserve raw/download evidence",
+      "ok": true
+    },
+    {
+      "name": "next/restart plus desktop viewport remain usable",
+      "ok": true
+    }
+  ],
+  "errors": [],
+  "buildId": "7f6a64196156a3d2",
+  "buildIdentitySource": "Verified release bundle/build metadata; source unchanged during test"
+}

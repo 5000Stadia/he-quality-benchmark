@@ -26,6 +26,10 @@ tests/study-matrix.mjs; informed finish checks: tests/study-finishes.mjs.
 Supply PLAYWRIGHT_MODULE and CHROMIUM_PATH for the local
 Playwright/Chromium installation, and STUDY_URL for the served study URL.
 The matrix never supplies or counts human preference votes.
+Switching regression: tests/study-switching.mjs verifies actual canvas pixels,
+an orange/blue diagnostic on the candidate objects, and exact material restoration.
 Reproduce summary tables, fidelity scores and figures from the captured evidence:
 python scripts/summarize-study.py. This preserves the original matrix; rerunning
 the browser matrix replaces evidence and requires reviewing the new report.
+The original matrix's c75c68663d9a3f0a bundle/build metadata are frozen alongside
+the evidence. Current interface revisions retain their own build identities.

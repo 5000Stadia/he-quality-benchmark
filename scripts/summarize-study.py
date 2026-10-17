@@ -81,18 +81,27 @@ def main():
     manifest=json.loads((SITE/'assets/study/manifest.json').read_text())
     build=json.loads((SITE/'src/cases/build-info.json').read_text())
     bundle=SITE/'study.js'
-    bundle_sha=hashlib.sha256(bundle.read_bytes()).hexdigest()
     archived=json.loads((EVIDENCE/'summary.json').read_text()) if (EVIDENCE/'summary.json').exists() else {}
-    matching_archive=archived.get('rendererBundleVerification',{}).get('sha256')==bundle_sha
-    assert matching_archive or bundle.stat().st_mtime <= datetime.fromisoformat(data['startedUTC']).timestamp(), 'Renderer bundle differs from archived evidence; revalidate before summarizing'
+    previous=archived.get('rendererBundleVerification',{})
+    runtime_ids=set(data.get('buildIds',[]))
+    if runtime_ids:
+        assert runtime_ids=={build['buildId']}, 'Matrix runtime identity differs from current build'
+    elif previous.get('sha256') and hashlib.sha256(bundle.read_bytes()).hexdigest()!=previous['sha256']:
+        # UI revisions must not relabel historical timing evidence as a newer build.
+        frozen=EVIDENCE/'frozen-build'
+        bundle=frozen/f"study-{previous['buildId']}.js"
+        build=json.loads((frozen/f"build-{previous['buildId']}.json").read_text())
+    bundle_sha=hashlib.sha256(bundle.read_bytes()).hexdigest()
+    matching_archive=previous.get('sha256')==bundle_sha
+    assert runtime_ids or matching_archive or bundle.stat().st_mtime <= datetime.fromisoformat(data['startedUTC']).timestamp(), 'Renderer bundle differs from recorded evidence; revalidate before summarizing'
     summary={'schema':'he-quality-provisional-summary/1','createdUTC':datetime.now(timezone.utc).isoformat(),
              'humanVotes':0,'desktopRepetitions':data['repetitions'],'environment':data['environments'][0],
              'rows':rows,'renderedFidelity':quality_rows,'initialPageTimings':data['initialPageTimings'],
              'surfacePreparationSeconds':manifest['elapsedSeconds'],
-             'sharedStudyBundleBytes':(SITE/'study.js').stat().st_size,
-             'sharedStudyBundleGzipBytes':len(gzip.compress((SITE/'study.js').read_bytes())),
-             'subjectRecipeBytesShared':(SITE/'src/cases/subjects.js').stat().st_size,
-             'materialRecipeBytesShared':(SITE/'src/cases/materials.js').stat().st_size}
+             'sharedStudyBundleBytes':bundle.stat().st_size,
+             'sharedStudyBundleGzipBytes':len(gzip.compress(bundle.read_bytes())),
+             'subjectRecipeBytesShared':build['subjectRecipeBytes'],
+             'materialRecipeBytesShared':build['materialRecipeBytes']}
     summary['rendererBundleVerification']={'buildId':build['buildId'],'sha256':bundle_sha,
       'method':'Bundle matches archived evidence SHA256, or its modification preceded original matrix start; renderer inputs were frozen throughout. Runtime IDs are recorded by newer driver revisions.'}
     summary['commonTranscoderFileBytes']={p.name:p.stat().st_size for p in (SITE/'assets/basis').iterdir() if p.is_file()}

@@ -10,7 +10,7 @@ import BUILD from './cases/build-info.json';
 
 const $=id=>document.getElementById(id), frame=()=>new Promise(r=>requestAnimationFrame(r));
 const clone=value=>JSON.parse(JSON.stringify(value));
-const debugEnabled=new URLSearchParams(location.search).get('debug')==='1';
+const query=new URLSearchParams(location.search),debugEnabled=query.get('debug')==='1';
 const sessionSeed=crypto.getRandomValues(new Uint32Array(1))[0];
 const started=performance.now(),longTasks=[];
 const DESK={label:'Desk finish control',seed:0,roles:['wood','leather','brass','dark'],dimensions:[1.56,.78,.70],
@@ -20,6 +20,8 @@ let renderer,gl,scene,camera,controls,environment,root,ktxManifest,keyLight,fill
 let current=null,resources=null,generation=0,queue=makeTrials(sessionSeed),queueIndex=0;
 let activeSide='A',status='preparing',timeline=0,lastFrame=0,basePose=null,contextLost=false,measureJob=null;
 let visibilityOverride=null,latestShaderError=null,exploring=false;
+let switchCheck=null;
+if(SUBJECTS[query.get('subject')])queueIndex=queue.findIndex(t=>t.subjectId===query.get('subject'));
 let lastVisit=null;
 try{lastVisit=!!localStorage.getItem('he-study-visited');localStorage.setItem('he-study-visited','1');}catch{}
 const result={schema:'he-quality-study/2',version:'2026-10-16-v2',buildId:BUILD.buildId,
@@ -29,7 +31,7 @@ const result={schema:'he-quality-study/2',version:'2026-10-16-v2',buildId:BUILD.
     deviceMemoryGiB:navigator.deviceMemory||null,network:navigator.connection?{effectiveType:navigator.connection.effectiveType,downlink:navigator.connection.downlink,rtt:navigator.connection.rtt}:null},
   baseline:{benchmarkCommit:'2b0d25db1b9e956a04a634dd595e552d4b9427a1',realPhoneEvidence:'STUDY-IPHONE13-BASELINE.txt',
     note:'The v1 automatic close scene label means overview; this version records actual poses.'},
-  votes:[],measurements:[],interruptions:[],skips:[],explorations:[],warnings:[],
+  votes:[],measurements:[],interruptions:[],skips:[],explorations:[],switchChecks:[],warnings:[],
   limitations:['Authored diagnostic masters/channels, not scanned material truth or a production engine.',
     'One observer; a tie does not establish population equivalence.',
     'Texture mip and geometry payload bytes are accounting, not driver VRAM.',
@@ -62,23 +64,59 @@ function update(){
 function enableUI(){
   const ready=status==='ready'&&!contextLost,hasVote=current&&!!voteFor(current.definition.id);
   window.studyReady=ready;
-  for(const id of ['sideA','sideB','runMeasure'])$(id).disabled=!ready;
-  for(const id of ['voteA','voteB','voteTie'])$(id).disabled=!ready||hasVote||exploring;
-  for(const id of ['view','lightSetup','motion','trialSet'])$(id).disabled=!ready;
-  for(const id of ['finish','condition','glass','finishSubject'])$(id).disabled=!ready||!hasVote&&!exploring;
+  for(const id of ['sideA','sideB','switchCheck'])$(id).disabled=!ready;
+  $('runMeasure').disabled=!ready||!!switchCheck;
+  for(const id of ['voteA','voteB','voteTie'])$(id).disabled=!ready||hasVote||exploring||!!switchCheck;
+  for(const id of ['view','lightSetup','motion','trialSet'])$(id).disabled=!ready||!!switchCheck;
+  for(const id of ['finish','condition','glass','finishSubject'])$(id).disabled=!ready||!!switchCheck||!hasVote&&!exploring;
   $('glass').disabled=$('glass').disabled||current?.definition.subjectId!=='car';
-  $('nextTrial').disabled=!ready&&!['stopped','invalid'].includes(status);
+  $('nextTrial').disabled=!!switchCheck||!ready&&!['stopped','invalid'].includes(status);
   $('restartTrial').disabled=contextLost||status==='preparing'||status==='measuring';
   $('stopStudy').disabled=['stopped','invalid'].includes(status);
-  $('defectNote').readOnly=hasVote||exploring;
+  $('defectNote').readOnly=hasVote||exploring||!!switchCheck;
+  $('switchCheck').textContent=switchCheck?'Return to comparison':'Start color check';
 }
 function setSide(side){
   if(!current?.groups||contextLost)return;
   activeSide=side;current.groups.A.visible=side==='A';current.groups.B.visible=side==='B';
   for(const s of ['A','B'])$(`side${s}`).setAttribute('aria-pressed',String(s===side));
+  $('sideStatus').textContent=`Showing ${side}${switchCheck?` · color check: ${side==='A'?'orange':'blue'}`:''}`;
   applyTimeline(timeline);render();
+  if(switchCheck)switchCheck.record.sidesShown.push({side,atUTC:new Date().toISOString(),renderFrame:renderer.info.render.frame});
 }
 function render(){if(!contextLost&&renderer&&scene&&camera)renderer.render(scene,camera);}
+function leaveSwitchCheck(reason='Returned to the original comparison'){
+  if(!switchCheck)return;
+  for(const [mesh,material] of switchCheck.originalMaterials)mesh.material=material;
+  for(const material of switchCheck.materials)material.dispose();
+  $('motion').checked=switchCheck.motion;timeline=switchCheck.timeline;
+  switchCheck.record.finishedUTC=new Date().toISOString();switchCheck.record.endReason=reason;
+  switchCheck.record.originalMaterialsRestored=true;switchCheck=null;
+}
+function toggleSwitchCheck(){
+  if(status!=='ready'||!current?.valid)return;
+  if(switchCheck){
+    leaveSwitchCheck();setSide(activeSide);enableUI();update();
+    say('Original comparison restored. The color check did not record a quality vote.');return;
+  }
+  const record={trialId:current.definition.id,subjectId:current.definition.subjectId,
+    startedUTC:new Date().toISOString(),beforeFirstVote:!voteFor(current.definition.id),
+    meaning:'Temporary orange A and blue B on the actual candidate meshes through the normal visibility/button path; not a quality or timing trial',sidesShown:[]};
+  result.switchChecks.push(record);
+  switchCheck={originalMaterials:new Map(),materials:[],motion:$('motion').checked,timeline,record};
+  for(const side of ['A','B']){
+    const material=new THREE.MeshBasicMaterial({color:side==='A'?0xff651f:0x16baff,side:THREE.DoubleSide,toneMapped:false});
+    switchCheck.materials.push(material);
+    current.groups[side].traverse(mesh=>{
+      if(!mesh.isMesh)return;
+      switchCheck.originalMaterials.set(mesh,mesh.material);
+      mesh.material=Array.isArray(mesh.material)?mesh.material.map(()=>material):material;
+    });
+  }
+  $('motion').checked=false;$('switchCheckDetails').open=true;
+  setSide('A');enableUI();update();
+  say('Color check: Show A must make the object orange; Show B must make it blue. Use Return to comparison when finished. Voting and timing are paused.');
+}
 function lightState(){
   const raking=$('lightSetup').value==='raking';
   keyLight.intensity=raking?3.5:3.2;fillLight.intensity=raking?.35:1.1;
@@ -144,6 +182,7 @@ async function makeGroup(id,materials,geometryTier,pool){
   return group;
 }
 function clearPair(){
+  leaveSwitchCheck('Comparison ended during the color check');
   if(current?.groups)for(const group of Object.values(current.groups))root.remove(group);
   resources?.dispose();resources=null;
   if(current)current.groups=null;
@@ -239,10 +278,11 @@ function reveal(){
   $('variantCosts').textContent=lines.join('\n');
 }
 function castVote(choice){
-  if(status!=='ready'||!current?.valid||exploring||voteFor(current.definition.id))return;
+  if(status!=='ready'||!current?.valid||exploring||switchCheck||voteFor(current.definition.id))return;
   const urls=new Set(Object.values(current.metrics).flatMap(m=>m.assets.map(a=>a.url)));
   const vote={trialId:current.definition.id,subjectId:current.definition.subjectId,kind:current.definition.kind,
     choice,note:$('defectNote').value,blind:true,votedUTC:new Date().toISOString(),mapping:clone(current.definition.mapping),
+    switchCheckUsedBeforeVote:result.switchChecks.some(c=>c.trialId===current.definition.id&&c.beforeFirstVote),
     settings:settings(),metrics:clone(current.metrics),preparation:clone(current.preparation),resourceTimings:resourceTimings(urls),
     sourceManifestVersion:ktxManifest.version,observerMeaning:'One local browser session, not an independent observer for every trial'};
   result.votes.push(vote);
@@ -283,7 +323,7 @@ async function measureSide(side,token){
   }
 }
 async function runMeasurement(){
-  if(status!=='ready'||!current?.valid)return;
+  if(status!=='ready'||!current?.valid||switchCheck)return;
   const token=generation,priorSide=activeSide,priorTimeline=timeline;
   status='measuring';measureJob={token};enableUI();say('Measuring A, then B with the same motion. Keep this tab visible.');
   let wake;
@@ -303,13 +343,14 @@ function next(){
   queueIndex=(queueIndex+1)%queue.length;return beginTrial(queue[queueIndex]);
 }
 async function appearanceChange(){
-  if(!current?.valid||!voteFor(current.definition.id)&&!exploring)return;
+  if(!current?.valid||switchCheck||!voteFor(current.definition.id)&&!exploring)return;
   const def=clone(current.definition);return beginTrial(def,{keepAppearance:true,informed:true});
 }
 function file(){return new File([JSON.stringify(result,null,2)],'he-quality-study.json',{type:'application/json'});}
 function download(){update();const url=URL.createObjectURL(file()),a=document.createElement('a');a.href=url;a.download='he-quality-study.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);}
 
 $('sideA').onclick=()=>{setSide('A');update();};$('sideB').onclick=()=>{setSide('B');update();};
+$('switchCheck').onclick=toggleSwitchCheck;
 $('voteA').onclick=()=>castVote('A');$('voteB').onclick=()=>castVote('B');$('voteTie').onclick=()=>castVote('tie');
 $('nextTrial').onclick=next;$('stopStudy').onclick=()=>stop();
 $('restartTrial').onclick=()=>{if(current&&!contextLost)beginTrial(current.definition,{keepAppearance:exploring,informed:exploring});};
@@ -370,11 +411,12 @@ async function init(){
   if(debugEnabled)window.studyDebug={state:()=>({status,side:activeSide,trialId:current?.definition.id,subjectId:current?.definition.subjectId,
     geometryTiers:current?Object.fromEntries(Object.entries(current.definition.mapping).map(([s,v])=>[s,v.geometryTier])):null,
     textureTiers:current?Object.fromEntries(Object.entries(current.definition.mapping).map(([s,v])=>[s,v.textureTier])):null,
-    pose:basePose?pose():null,lightPhase:timeline,timeline,contextLost,valid:!!current?.valid,
+    pose:basePose?pose():null,lightPhase:timeline,timeline,contextLost,valid:!!current?.valid,switchCheckActive:!!switchCheck,
     measurements:current?clone(current.measurements):[],metrics:current?.valid?clone(current.metrics):{},preparation:current?clone(current.preparation):{},bounds:current?.bounds?{min:current.bounds.min.toArray(),max:current.bounds.max.toArray()}:null}),
     selectTrial:({subjectId,kind='texture',candidate='uastc1024'})=>beginTrial(trialDefinition(subjectId,kind,candidate,randomSource(sessionSeed+42))),
     abort:reason=>stop(reason),setVisibilityForTest:value=>{visibilityOverride=value;if(value)stop('Tab became hidden; comparison interrupted','invalid');},
     setTimeline:(value,forceMotion=false)=>{timeline=value;applyTimeline(value,forceMotion);render();},result:()=>clone(result)};
-  await beginTrial(queue[0]);
+  await beginTrial(queue[queueIndex]);
+  if(query.get('switchcheck')==='1')toggleSwitchCheck();
 }
 init().catch(error=>{result.warnings.push(String(error));status='invalid';window.studyReady=false;update();say('Unable to initialize the study: '+error.message);});

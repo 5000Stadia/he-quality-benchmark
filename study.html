@@ -38,12 +38,18 @@
     <button id="stopStudy">Stop</button>
     <button id="restartTrial" disabled>Restart comparison</button>
   </div>
+  <p id="sideStatus" class="muted" role="status" aria-live="polite">Preparing A and B…</p>
   <div class="controls viewControls">
     <label>View <select id="view"><option value="close">Close detail</option><option value="medium">Whole subject</option><option value="silhouette">Side / silhouette</option></select></label>
     <label>Light <select id="lightSetup"><option value="studio">Studio</option><option value="raking">Raking light</option></select></label>
     <label><input id="motion" type="checkbox"> Synchronized motion + light sweep</label>
   </div>
   <p id="studyStatus" role="status" aria-live="polite">Preparing both versions…</p>
+  <details id="switchCheckDetails">
+    <summary>Check that A/B switching works</summary>
+    <p>This temporarily paints the actual A object orange and B blue. Switch with the same Show A / Show B buttons, then return to the original comparison. This check does not record a quality vote.</p>
+    <button id="switchCheck" disabled>Start color check</button>
+  </details>
   <section id="voteControls">
     <p class="voteHint">Judge visible surface detail, highlights, edges and motion stability. A tie is useful too.</p>
     <label for="defectNote">What caught your eye? <span class="muted">(optional)</span></label>
@@ -91,5 +97,5 @@
   </details>
   <footer><small>HE + Photonic research · controlled study v2 · Three.js r186.1 · direct WebGL · shadows and tree wind off in baseline comparisons.</small></footer>
   <noscript>This comparison needs JavaScript and WebGL.</noscript>
-</main><script type="module" src="study.js"></script></body>
+</main><script type="module" src="study.js?v=20261016-ab1"></script></body>
 </html>

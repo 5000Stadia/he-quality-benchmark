@@ -60,6 +60,15 @@ Finish/condition controls are informed exploration and do not rewrite votes.
 A tie is not proof of equivalence; repeats from one person are not new people.
 Skipped, interrupted and failed trials are stored separately from quality votes.
 
+The optional switching check temporarily gives the actual A meshes an unlit
+orange material and the B meshes a blue material. The same visibility and button
+path switches them. Voting, timing and appearance editing pause during this
+diagnostic; returning restores every original material reference and prior motion.
+Check use is exported separately, including whether it preceded the first vote.
+This establishes an obvious device-local switching check without selecting a
+quality winner. An indistinguishable normal pair still requires a device check
+before interpreting that observation as a quality tie.
+
 Base material, coating and condition are separate descriptors. Matte/satin/
 glossy coatings apply to painted metal and wood without changing metalness.
 Incompatible bases retain their native response and record that fallback.
@@ -101,6 +110,10 @@ Reproduction
 npm ci && npm run build; serve this repository via HTTP(S); open study.html.
 The build uses the existing locked Three.js 0.186.1/esbuild versions. It emits
 the unchanged v1 bundle and a separate study bundle with a content-derived ID.
+The published 45-pair desktop matrix used build c75c68663d9a3f0a. Its bundle and
+build metadata are preserved in assets/study-evidence/frozen-build, so later UI
+changes do not relabel those measurements. Source is preserved at commit e204491.
+The summary script selects that verified frozen bundle for the original matrix.
 Run tests/study-browser.mjs with Playwright and STUDY_URL pointing to the page;
 PLAYWRIGHT_MODULE/CHROMIUM_PATH make local tool locations configurable.
 tests/study-matrix.mjs records the controlled desktop matrix and images. It

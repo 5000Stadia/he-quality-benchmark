@@ -1,0 +1,201 @@
+{
+  "method": "PIL exact RGB PNG difference. Mean absolute RGB delta uses 0..255 channel scale; greater-than10 tests maximum channel per pixel. Identical A roundtrip excludes drift. Desktop AMD RX460, mobile viewport, not iPhone Safari.",
+  "results": [
+    {
+      "name": "ordinary-entry",
+      "subject": "tree",
+      "width": 1098,
+      "height": 1422,
+      "pixels": 1561356,
+      "changedPixels": 991609,
+      "pixelsOver10ChannelLevels": 4610,
+      "meanAbsoluteRGBDelta": 0.5208803544269639,
+      "maxChannelDelta": 82,
+      "changedBBox": [
+        0,
+        0,
+        1098,
+        1419
+      ],
+      "bboxMeanAbsoluteRGBDelta": 0.5219815813919259,
+      "roundtripIdentical": true
+    },
+    {
+      "name": "car-geometry",
+      "subject": "car",
+      "width": 1098,
+      "height": 1422,
+      "pixels": 1561356,
+      "changedPixels": 119345,
+      "pixelsOver10ChannelLevels": 14811,
+      "meanAbsoluteRGBDelta": 0.3270332540005824,
+      "maxChannelDelta": 176,
+      "changedBBox": [
+        79,
+        570,
+        1023,
+        877
+      ],
+      "bboxMeanAbsoluteRGBDelta": 1.761909034027126,
+      "roundtripIdentical": true
+    },
+    {
+      "name": "car-uastc1024",
+      "subject": "car",
+      "width": 1098,
+      "height": 1422,
+      "pixels": 1561356,
+      "changedPixels": 384700,
+      "pixelsOver10ChannelLevels": 5,
+      "meanAbsoluteRGBDelta": 0.17357519147885983,
+      "maxChannelDelta": 12,
+      "changedBBox": [
+        0,
+        105,
+        1098,
+        1395
+      ],
+      "bboxMeanAbsoluteRGBDelta": 0.19133637386274316,
+      "roundtripIdentical": true
+    },
+    {
+      "name": "car-uastc512",
+      "subject": "car",
+      "width": 1098,
+      "height": 1422,
+      "pixels": 1561356,
+      "changedPixels": 396503,
+      "pixelsOver10ChannelLevels": 14,
+      "meanAbsoluteRGBDelta": 0.1846401461293901,
+      "maxChannelDelta": 12,
+      "changedBBox": [
+        0,
+        105,
+        1098,
+        1400
+      ],
+      "bboxMeanAbsoluteRGBDelta": 0.20274771258377813,
+      "roundtripIdentical": true
+    },
+    {
+      "name": "tree-geometry",
+      "subject": "tree",
+      "width": 1098,
+      "height": 1422,
+      "pixels": 1561356,
+      "changedPixels": 308629,
+      "pixelsOver10ChannelLevels": 183689,
+      "meanAbsoluteRGBDelta": 3.196732412936789,
+      "maxChannelDelta": 142,
+      "changedBBox": [
+        171,
+        119,
+        939,
+        1231
+      ],
+      "bboxMeanAbsoluteRGBDelta": 5.844430705435651,
+      "roundtripIdentical": true
+    },
+    {
+      "name": "tree-uastc1024",
+      "subject": "tree",
+      "width": 1098,
+      "height": 1422,
+      "pixels": 1561356,
+      "changedPixels": 974053,
+      "pixelsOver10ChannelLevels": 2018,
+      "meanAbsoluteRGBDelta": 0.44325317224258914,
+      "maxChannelDelta": 46,
+      "changedBBox": [
+        0,
+        0,
+        1098,
+        1419
+      ],
+      "bboxMeanAbsoluteRGBDelta": 0.44419028254331344,
+      "roundtripIdentical": true
+    },
+    {
+      "name": "tree-uastc512",
+      "subject": "tree",
+      "width": 1098,
+      "height": 1422,
+      "pixels": 1561356,
+      "changedPixels": 991612,
+      "pixelsOver10ChannelLevels": 4610,
+      "meanAbsoluteRGBDelta": 0.5208812083855315,
+      "maxChannelDelta": 82,
+      "changedBBox": [
+        0,
+        0,
+        1098,
+        1419
+      ],
+      "bboxMeanAbsoluteRGBDelta": 0.5219824371559026,
+      "roundtripIdentical": true
+    },
+    {
+      "name": "chair-geometry",
+      "subject": "chair",
+      "width": 1098,
+      "height": 1422,
+      "pixels": 1561356,
+      "changedPixels": 332561,
+      "pixelsOver10ChannelLevels": 87489,
+      "meanAbsoluteRGBDelta": 1.4504417954649675,
+      "maxChannelDelta": 184,
+      "changedBBox": [
+        87,
+        195,
+        999,
+        1272
+      ],
+      "bboxMeanAbsoluteRGBDelta": 2.305641075762759,
+      "roundtripIdentical": true
+    },
+    {
+      "name": "chair-uastc1024",
+      "subject": "chair",
+      "width": 1098,
+      "height": 1422,
+      "pixels": 1561356,
+      "changedPixels": 871688,
+      "pixelsOver10ChannelLevels": 389,
+      "meanAbsoluteRGBDelta": 0.40236713045156475,
+      "maxChannelDelta": 19,
+      "changedBBox": [
+        0,
+        0,
+        1098,
+        1419
+      ],
+      "bboxMeanAbsoluteRGBDelta": 0.4032178009176357,
+      "roundtripIdentical": true
+    },
+    {
+      "name": "chair-uastc512",
+      "subject": "chair",
+      "width": 1098,
+      "height": 1422,
+      "pixels": 1561356,
+      "changedPixels": 880287,
+      "pixelsOver10ChannelLevels": 485,
+      "meanAbsoluteRGBDelta": 0.4082342527905231,
+      "maxChannelDelta": 20,
+      "changedBBox": [
+        0,
+        0,
+        1098,
+        1419
+      ],
+      "bboxMeanAbsoluteRGBDelta": 0.40909732732073567,
+      "roundtripIdentical": true
+    }
+  ],
+  "browserErrors": [],
+  "schema": "he-quality-ab-pixel-audit/1",
+  "testedBuildId": "c75c68663d9a3f0a",
+  "url": "https://5000stadia.github.io/he-quality-benchmark/study.html",
+  "trigger": "Observer on iPhone 13 reported A/B chair images indistinguishable and suspected no switch",
+  "scope": "Independent public desktop GPU capture; not a physical iPhone confirmation"
+}
