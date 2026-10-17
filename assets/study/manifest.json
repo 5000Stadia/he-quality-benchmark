@@ -1,0 +1,1570 @@
+{
+  "schema": "he-quality-surfaces/1",
+  "version": "analytic-1024-v1",
+  "startedUTC": "2026-10-16T23:27:07.392913+00:00",
+  "seed": 192706,
+  "nativeSize": 1024,
+  "provenance": "Original analytic authored channels; not scanned or measured material data.",
+  "normalConvention": "OpenGL tangent +Y; derived from authored height, independent of albedo.",
+  "encoder": "KTX Software 4.4.2 toktx UASTC quality 2 + zstd 10; Pillow AVIF speed 6 4:4:4",
+  "roles": {
+    "paint": {
+      "tileMetres": 0.25,
+      "alpha": false,
+      "tiers": {
+        "reference": {
+          "channels": {
+            "color": {
+              "url": "assets/study/paint/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 218406,
+              "sha256": "b1c280faa4c086bf53da09225dc4b3619a61a4456bf17f0f4355dd9d23fbaa55",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/paint/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 713230,
+              "sha256": "23ccc207090f229056e41add2b802640c8995d0f897de0bdfd993d2b3f54f3ba",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/paint/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 997924,
+              "sha256": "4af70ff2da9f60e56db21324caaeb1ae6baeca97cd089d7f82a1453e70de3da6",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "lossless native authored channels"
+        },
+        "avif90": {
+          "channels": {
+            "color": {
+              "url": "assets/study/paint/avif90-color.avif",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 6490,
+              "sha256": "c01cc0bebd9b4f9053c791e9fb720cd193e0238b37dd1ae4af7dfd81e7416c09",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/paint/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 713230,
+              "sha256": "23ccc207090f229056e41add2b802640c8995d0f897de0bdfd993d2b3f54f3ba",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/paint/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 997924,
+              "sha256": "4af70ff2da9f60e56db21324caaeb1ae6baeca97cd089d7f82a1453e70de3da6",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "color encoding only; lossless reference normal/roughness unchanged"
+        },
+        "avif80": {
+          "channels": {
+            "color": {
+              "url": "assets/study/paint/avif80-color.avif",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 3463,
+              "sha256": "1565e88d66e6c369657cb191ed2b03f09a22ae4a7e119270c54ce8fd4db6c5e1",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/paint/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 713230,
+              "sha256": "23ccc207090f229056e41add2b802640c8995d0f897de0bdfd993d2b3f54f3ba",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/paint/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 997924,
+              "sha256": "4af70ff2da9f60e56db21324caaeb1ae6baeca97cd089d7f82a1453e70de3da6",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "color encoding only; lossless reference normal/roughness unchanged"
+        },
+        "uastc1024": {
+          "channels": {
+            "color": {
+              "url": "assets/study/paint/uastc1024-color.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 298413,
+              "sha256": "7df99438e65271e8f55759bc36eab62b4e42339b20b75ba5434059c11ee5460e",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/paint/uastc1024-normal.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 708875,
+              "sha256": "2c52b394e5838058901308a72f398046e2891c2c62d007928bcf1c499ce0197a",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/paint/uastc1024-roughness.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 940074,
+              "sha256": "e40c9e20ff60e0f6da2ead8522374f9f3dec1112995777db60223a85eaf12793",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "all three channels UASTC 1024; resolution and encoding when 512"
+        },
+        "uastc512": {
+          "channels": {
+            "color": {
+              "url": "assets/study/paint/uastc512-color.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 81651,
+              "sha256": "05d494d3daf0730d60e40db812dba21f97d47eb9e15528f906344e5502aabee4",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/paint/uastc512-normal.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 150772,
+              "sha256": "876129d84f84bcbeed0656d73ff1254509fc7470c78d959994f35d9513feaae7",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/paint/uastc512-roughness.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 228980,
+              "sha256": "5940ade5df55c0e879144a0d0f0b3dfdc583e0dc6c5d2773798d5fe0ce49c5d8",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "all three channels UASTC 512; resolution and encoding when 512"
+        }
+      }
+    },
+    "bark": {
+      "tileMetres": 0.45,
+      "alpha": false,
+      "tiers": {
+        "reference": {
+          "channels": {
+            "color": {
+              "url": "assets/study/bark/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 1205539,
+              "sha256": "fc3ba09d6e4a1a52370067d0c4bb95fc8b65dac81ad14b8be1e01b9c28bb4f4d",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/bark/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 768626,
+              "sha256": "4e204d0ebc18cb1a672ab3d1e37c56ac82b3076ef2902c045c1436968cc7382c",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/bark/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 223123,
+              "sha256": "1a38c29391686ee717602be0dbce7f3ad07962e4657a8539e9546ddd59078af2",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "lossless native authored channels"
+        },
+        "avif90": {
+          "channels": {
+            "color": {
+              "url": "assets/study/bark/avif90-color.avif",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 218182,
+              "sha256": "0b22878fb2563e3918c914c070b0e01345c8521c83cf8a8c2a6c6e30f0feb20f",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/bark/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 768626,
+              "sha256": "4e204d0ebc18cb1a672ab3d1e37c56ac82b3076ef2902c045c1436968cc7382c",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/bark/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 223123,
+              "sha256": "1a38c29391686ee717602be0dbce7f3ad07962e4657a8539e9546ddd59078af2",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "color encoding only; lossless reference normal/roughness unchanged"
+        },
+        "avif80": {
+          "channels": {
+            "color": {
+              "url": "assets/study/bark/avif80-color.avif",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 120506,
+              "sha256": "11711c640f2320eafaa6ea0fa8511b645f4bde59eb8a22726913dc805b6cf159",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/bark/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 768626,
+              "sha256": "4e204d0ebc18cb1a672ab3d1e37c56ac82b3076ef2902c045c1436968cc7382c",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/bark/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 223123,
+              "sha256": "1a38c29391686ee717602be0dbce7f3ad07962e4657a8539e9546ddd59078af2",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "color encoding only; lossless reference normal/roughness unchanged"
+        },
+        "uastc1024": {
+          "channels": {
+            "color": {
+              "url": "assets/study/bark/uastc1024-color.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 982192,
+              "sha256": "66748e825f811c5de5a759614b80b0829e6d80b0cc94aa57df36de4e49e6b1c4",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/bark/uastc1024-normal.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 838751,
+              "sha256": "974c777af010eea83aee370d0174aa0b8e28bb12e2f115415dbf3579eeae794d",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/bark/uastc1024-roughness.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 537512,
+              "sha256": "5f681ea242f6e82f0923d6bac01e422d593d9d561742716a0de0d4ba05c9f2f8",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "all three channels UASTC 1024; resolution and encoding when 512"
+        },
+        "uastc512": {
+          "channels": {
+            "color": {
+              "url": "assets/study/bark/uastc512-color.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 262470,
+              "sha256": "4f93b4dafb8c686c6e30608996a2fe421bdaba87636a33f68d92628a946b2400",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/bark/uastc512-normal.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 255523,
+              "sha256": "6113d187bd0fd113a2a5e46ed43fde5a1d7423a158bd01fd0124af46ddb10ef2",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/bark/uastc512-roughness.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 200797,
+              "sha256": "d952254d99ad25f3ff4029a97f055c3e442f48ec163d161994b68ed0a563ffad",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "all three channels UASTC 512; resolution and encoding when 512"
+        }
+      }
+    },
+    "leaf": {
+      "tileMetres": 0.2,
+      "alpha": true,
+      "tiers": {
+        "reference": {
+          "channels": {
+            "color": {
+              "url": "assets/study/leaf/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 1060649,
+              "sha256": "f7029296ff42506ab11b907cf09a96c50bd2adc5b807d9c14bc9be40f384ef69",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/leaf/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 201324,
+              "sha256": "0dadba80e8e260ca703c06e10082dc0e077f5d4f8900ceb177c41d7880f0881f",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/leaf/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 171787,
+              "sha256": "dbb13906f0f33aa9891af7bf78cede00d0d86bc765b7b72beefd7f8d4fbc7fa3",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "lossless native authored channels"
+        },
+        "avif90": {
+          "channels": {
+            "color": {
+              "url": "assets/study/leaf/avif90-color.avif",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 147897,
+              "sha256": "0fe4b8622e42f4e7013cfea4a1813eff320f8a5503049689c804e38e2057a873",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/leaf/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 201324,
+              "sha256": "0dadba80e8e260ca703c06e10082dc0e077f5d4f8900ceb177c41d7880f0881f",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/leaf/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 171787,
+              "sha256": "dbb13906f0f33aa9891af7bf78cede00d0d86bc765b7b72beefd7f8d4fbc7fa3",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "color encoding only; lossless reference normal/roughness unchanged"
+        },
+        "avif80": {
+          "channels": {
+            "color": {
+              "url": "assets/study/leaf/avif80-color.avif",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 72280,
+              "sha256": "ce1b939585f13199836303abf3ef3b95d98bcc5b19781afe3c64855997117cbf",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/leaf/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 201324,
+              "sha256": "0dadba80e8e260ca703c06e10082dc0e077f5d4f8900ceb177c41d7880f0881f",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/leaf/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 171787,
+              "sha256": "dbb13906f0f33aa9891af7bf78cede00d0d86bc765b7b72beefd7f8d4fbc7fa3",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "color encoding only; lossless reference normal/roughness unchanged"
+        },
+        "uastc1024": {
+          "channels": {
+            "color": {
+              "url": "assets/study/leaf/uastc1024-color.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 893778,
+              "sha256": "b6ccb6c561e5e0eb3ca71fe6596f39877c29a52e5a8250009654d073a3d64bc0",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/leaf/uastc1024-normal.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 335550,
+              "sha256": "e065fc23210f8403bd195e6356778341b27e687f2a369c3ddbdc829b3fac6414",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/leaf/uastc1024-roughness.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 396074,
+              "sha256": "36aedffcbd079f4fe5d1c8979a7c025c1dd931c2e5fd50d3e9538b7b3e171a07",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "all three channels UASTC 1024; resolution and encoding when 512"
+        },
+        "uastc512": {
+          "channels": {
+            "color": {
+              "url": "assets/study/leaf/uastc512-color.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 154793,
+              "sha256": "7378f1576b44f692aaab9725e2b11dfde0fb98af2c7e4b2647428491e7054d1d",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/leaf/uastc512-normal.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 126390,
+              "sha256": "a68d59f5cfcb4724fc01c9ff1925a2010b49dbe8caa66c46993357137663e149",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/leaf/uastc512-roughness.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 161818,
+              "sha256": "29f5f7de4186daaf3bef7673dea15e55d481b012a94eede847b7ebea649a6c76",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "all three channels UASTC 512; resolution and encoding when 512"
+        }
+      }
+    },
+    "fabric": {
+      "tileMetres": 0.2,
+      "alpha": false,
+      "tiers": {
+        "reference": {
+          "channels": {
+            "color": {
+              "url": "assets/study/fabric/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 667505,
+              "sha256": "44cb24da5985847f9d6d19525c7e9e719dd49ce594ee73d1f06aa1679f26df49",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/fabric/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 2061856,
+              "sha256": "bf362e07e19d368a3391bdee9669ac3e56e195068af0536883025f08911482f4",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/fabric/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 379182,
+              "sha256": "7bfd89ef255fdead0a49f532dad2b51fa012cc7ba431ea68613300f86361467e",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "lossless native authored channels"
+        },
+        "avif90": {
+          "channels": {
+            "color": {
+              "url": "assets/study/fabric/avif90-color.avif",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 206130,
+              "sha256": "2a3b3cf07d68d90eba4e69d9eb5752522f09000551506dba47bf11a19d4fec98",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/fabric/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 2061856,
+              "sha256": "bf362e07e19d368a3391bdee9669ac3e56e195068af0536883025f08911482f4",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/fabric/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 379182,
+              "sha256": "7bfd89ef255fdead0a49f532dad2b51fa012cc7ba431ea68613300f86361467e",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "color encoding only; lossless reference normal/roughness unchanged"
+        },
+        "avif80": {
+          "channels": {
+            "color": {
+              "url": "assets/study/fabric/avif80-color.avif",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 128655,
+              "sha256": "94183a497516c4a8cd07e1879d5ae799e3ded6e811979ce50ac03756abb0ea3a",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/fabric/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 2061856,
+              "sha256": "bf362e07e19d368a3391bdee9669ac3e56e195068af0536883025f08911482f4",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/fabric/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 379182,
+              "sha256": "7bfd89ef255fdead0a49f532dad2b51fa012cc7ba431ea68613300f86361467e",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "color encoding only; lossless reference normal/roughness unchanged"
+        },
+        "uastc1024": {
+          "channels": {
+            "color": {
+              "url": "assets/study/fabric/uastc1024-color.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 872731,
+              "sha256": "ccb0797fddb014a5678fdbc38f4876af0c4a7eca14d06f4a3a911fe65cbb2a17",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/fabric/uastc1024-normal.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 588496,
+              "sha256": "5d3a34b04da102a7b647126de98a20ef5e6624a7daf80a11913a4ffbd51b61f4",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/fabric/uastc1024-roughness.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 418781,
+              "sha256": "be03bef13a92b1106e940ddec1c02deafcc85bfd7187fcf378667a266b360490",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "all three channels UASTC 1024; resolution and encoding when 512"
+        },
+        "uastc512": {
+          "channels": {
+            "color": {
+              "url": "assets/study/fabric/uastc512-color.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 214121,
+              "sha256": "66606a87b9dbd7d92bd9f9096134606483f780b5d1f8b6ea92997657b60fe309",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/fabric/uastc512-normal.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 144292,
+              "sha256": "c8d46a2e986de784c37ad963b5adc9a4111873c919923576603f22af0e93e99c",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/fabric/uastc512-roughness.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 148678,
+              "sha256": "85bd32517c69f941f7840000d4cc83a17d6cf290a5ffb36c520b2e2c7defa0ea",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "all three channels UASTC 512; resolution and encoding when 512"
+        }
+      }
+    },
+    "wood": {
+      "tileMetres": 0.5,
+      "alpha": false,
+      "tiers": {
+        "reference": {
+          "channels": {
+            "color": {
+              "url": "assets/study/wood/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 862220,
+              "sha256": "68c52f7a84968bc56e7b4d44c561649beb8d46db5db2803544ae4c12a1a632ab",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/wood/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 220757,
+              "sha256": "f75932f6586b7e85137364ab815e25af26a64e5e1a715bcb53f31da3a57150a5",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/wood/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 164628,
+              "sha256": "a4c9fbb8163fc779957dfbaf3580ac68562fe450a02d6f640871953d46ac03c5",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "lossless native authored channels"
+        },
+        "avif90": {
+          "channels": {
+            "color": {
+              "url": "assets/study/wood/avif90-color.avif",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 125726,
+              "sha256": "3cfcd96444a769bd45b092794e8f2d81acd409a867c0b4f282c64dfa6c0af1ee",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/wood/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 220757,
+              "sha256": "f75932f6586b7e85137364ab815e25af26a64e5e1a715bcb53f31da3a57150a5",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/wood/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 164628,
+              "sha256": "a4c9fbb8163fc779957dfbaf3580ac68562fe450a02d6f640871953d46ac03c5",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "color encoding only; lossless reference normal/roughness unchanged"
+        },
+        "avif80": {
+          "channels": {
+            "color": {
+              "url": "assets/study/wood/avif80-color.avif",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 51236,
+              "sha256": "89a050aa445721fcf0d8931719ec30449ab6e7795f93684378e4de15c4d64a85",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/wood/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 220757,
+              "sha256": "f75932f6586b7e85137364ab815e25af26a64e5e1a715bcb53f31da3a57150a5",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/wood/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 164628,
+              "sha256": "a4c9fbb8163fc779957dfbaf3580ac68562fe450a02d6f640871953d46ac03c5",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "color encoding only; lossless reference normal/roughness unchanged"
+        },
+        "uastc1024": {
+          "channels": {
+            "color": {
+              "url": "assets/study/wood/uastc1024-color.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 943066,
+              "sha256": "c22698bc575da3194f923c4d584f5247e7a11614a14d0ce2d1c8308a8f1b36e4",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/wood/uastc1024-normal.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 318613,
+              "sha256": "53aa6f09c13504349366003c86d4119f0af69cd059b72961e9d95f3fcc8ef92a",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/wood/uastc1024-roughness.ktx2",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 442789,
+              "sha256": "9138df67e5fc87ad45b845d0f665350f73c0ccd1e5a3cbefd77c6f9d728769a4",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "all three channels UASTC 1024; resolution and encoding when 512"
+        },
+        "uastc512": {
+          "channels": {
+            "color": {
+              "url": "assets/study/wood/uastc512-color.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 245461,
+              "sha256": "c7c1c5f965193ba67ff6333a7409fac4012a4252457cbfeda5ff04131f794caa",
+              "colorSpace": "srgb"
+            },
+            "normal": {
+              "url": "assets/study/wood/uastc512-normal.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 119320,
+              "sha256": "71c6d47404e659b81b85415dbf99c0f7ddb623ff8f65ce3dce6cb28c31306f22",
+              "colorSpace": "linear"
+            },
+            "roughness": {
+              "url": "assets/study/wood/uastc512-roughness.ktx2",
+              "width": 512,
+              "height": 512,
+              "bytes": 141406,
+              "sha256": "92ce6e53fda7122f041a06cc076d9496d6c27ef931952519bbfba3af3b4fd8bb",
+              "colorSpace": "linear"
+            }
+          },
+          "factor": "all three channels UASTC 512; resolution and encoding when 512"
+        }
+      }
+    }
+  },
+  "timings": [
+    {
+      "role": "paint",
+      "step": "authored-channel-generation",
+      "seconds": 8.380693405400962
+    },
+    {
+      "role": "paint",
+      "step": "avif90",
+      "seconds": 0.2817035671323538
+    },
+    {
+      "role": "paint",
+      "step": "avif80",
+      "seconds": 0.13218981213867664
+    },
+    {
+      "role": "paint",
+      "step": "uastc1024",
+      "channel": "color",
+      "seconds": 2.3377794958651066,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "srgb",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/paint/uastc1024-color.ktx2",
+        "./phone-site/assets/study/paint/input-1024-color.png"
+      ]
+    },
+    {
+      "role": "paint",
+      "step": "uastc1024",
+      "channel": "normal",
+      "seconds": 2.694582721684128,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/paint/uastc1024-normal.ktx2",
+        "./phone-site/assets/study/paint/input-1024-normal.png"
+      ]
+    },
+    {
+      "role": "paint",
+      "step": "uastc1024",
+      "channel": "roughness",
+      "seconds": 5.345011099241674,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/paint/uastc1024-roughness.ktx2",
+        "./phone-site/assets/study/paint/input-1024-roughness.png"
+      ]
+    },
+    {
+      "role": "paint",
+      "step": "uastc512",
+      "channel": "color",
+      "seconds": 0.6187669560313225,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "srgb",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/paint/uastc512-color.ktx2",
+        "./phone-site/assets/study/paint/input-512-color.png"
+      ]
+    },
+    {
+      "role": "paint",
+      "step": "uastc512",
+      "channel": "normal",
+      "seconds": 0.7059848210774362,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/paint/uastc512-normal.ktx2",
+        "./phone-site/assets/study/paint/input-512-normal.png"
+      ]
+    },
+    {
+      "role": "paint",
+      "step": "uastc512",
+      "channel": "roughness",
+      "seconds": 1.3471968490630388,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/paint/uastc512-roughness.ktx2",
+        "./phone-site/assets/study/paint/input-512-roughness.png"
+      ]
+    },
+    {
+      "role": "bark",
+      "step": "authored-channel-generation",
+      "seconds": 5.528232077602297
+    },
+    {
+      "role": "bark",
+      "step": "avif90",
+      "seconds": 0.7461044597439468
+    },
+    {
+      "role": "bark",
+      "step": "avif80",
+      "seconds": 0.526974777225405
+    },
+    {
+      "role": "bark",
+      "step": "uastc1024",
+      "channel": "color",
+      "seconds": 3.6411328190006316,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "srgb",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/bark/uastc1024-color.ktx2",
+        "./phone-site/assets/study/bark/input-1024-color.png"
+      ]
+    },
+    {
+      "role": "bark",
+      "step": "uastc1024",
+      "channel": "normal",
+      "seconds": 3.1422239639796317,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/bark/uastc1024-normal.ktx2",
+        "./phone-site/assets/study/bark/input-1024-normal.png"
+      ]
+    },
+    {
+      "role": "bark",
+      "step": "uastc1024",
+      "channel": "roughness",
+      "seconds": 3.5720577128231525,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/bark/uastc1024-roughness.ktx2",
+        "./phone-site/assets/study/bark/input-1024-roughness.png"
+      ]
+    },
+    {
+      "role": "bark",
+      "step": "uastc512",
+      "channel": "color",
+      "seconds": 0.932267724070698,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "srgb",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/bark/uastc512-color.ktx2",
+        "./phone-site/assets/study/bark/input-512-color.png"
+      ]
+    },
+    {
+      "role": "bark",
+      "step": "uastc512",
+      "channel": "normal",
+      "seconds": 0.8239637957885861,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/bark/uastc512-normal.ktx2",
+        "./phone-site/assets/study/bark/input-512-normal.png"
+      ]
+    },
+    {
+      "role": "bark",
+      "step": "uastc512",
+      "channel": "roughness",
+      "seconds": 1.1397712263278663,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/bark/uastc512-roughness.ktx2",
+        "./phone-site/assets/study/bark/input-512-roughness.png"
+      ]
+    },
+    {
+      "role": "leaf",
+      "step": "authored-channel-generation",
+      "seconds": 6.418395115062594
+    },
+    {
+      "role": "leaf",
+      "step": "avif90",
+      "seconds": 0.6478389790281653
+    },
+    {
+      "role": "leaf",
+      "step": "avif80",
+      "seconds": 0.5029085939750075
+    },
+    {
+      "role": "leaf",
+      "step": "uastc1024",
+      "channel": "color",
+      "seconds": 5.769884112756699,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "srgb",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/leaf/uastc1024-color.ktx2",
+        "./phone-site/assets/study/leaf/input-1024-color.png"
+      ]
+    },
+    {
+      "role": "leaf",
+      "step": "uastc1024",
+      "channel": "normal",
+      "seconds": 1.7686954271048307,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/leaf/uastc1024-normal.ktx2",
+        "./phone-site/assets/study/leaf/input-1024-normal.png"
+      ]
+    },
+    {
+      "role": "leaf",
+      "step": "uastc1024",
+      "channel": "roughness",
+      "seconds": 2.151272565126419,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/leaf/uastc1024-roughness.ktx2",
+        "./phone-site/assets/study/leaf/input-1024-roughness.png"
+      ]
+    },
+    {
+      "role": "leaf",
+      "step": "uastc512",
+      "channel": "color",
+      "seconds": 0.704920660238713,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "srgb",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/leaf/uastc512-color.ktx2",
+        "./phone-site/assets/study/leaf/input-512-color.png"
+      ]
+    },
+    {
+      "role": "leaf",
+      "step": "uastc512",
+      "channel": "normal",
+      "seconds": 0.5606383248232305,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/leaf/uastc512-normal.ktx2",
+        "./phone-site/assets/study/leaf/input-512-normal.png"
+      ]
+    },
+    {
+      "role": "leaf",
+      "step": "uastc512",
+      "channel": "roughness",
+      "seconds": 0.7821468426845968,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/leaf/uastc512-roughness.ktx2",
+        "./phone-site/assets/study/leaf/input-512-roughness.png"
+      ]
+    },
+    {
+      "role": "fabric",
+      "step": "authored-channel-generation",
+      "seconds": 3.619517124723643
+    },
+    {
+      "role": "fabric",
+      "step": "avif90",
+      "seconds": 0.3578186519443989
+    },
+    {
+      "role": "fabric",
+      "step": "avif80",
+      "seconds": 0.34280597791075706
+    },
+    {
+      "role": "fabric",
+      "step": "uastc1024",
+      "channel": "color",
+      "seconds": 2.6385693019255996,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "srgb",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/fabric/uastc1024-color.ktx2",
+        "./phone-site/assets/study/fabric/input-1024-color.png"
+      ]
+    },
+    {
+      "role": "fabric",
+      "step": "uastc1024",
+      "channel": "normal",
+      "seconds": 2.6782668121159077,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/fabric/uastc1024-normal.ktx2",
+        "./phone-site/assets/study/fabric/input-1024-normal.png"
+      ]
+    },
+    {
+      "role": "fabric",
+      "step": "uastc1024",
+      "channel": "roughness",
+      "seconds": 3.85239449609071,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/fabric/uastc1024-roughness.ktx2",
+        "./phone-site/assets/study/fabric/input-1024-roughness.png"
+      ]
+    },
+    {
+      "role": "fabric",
+      "step": "uastc512",
+      "channel": "color",
+      "seconds": 0.780559394042939,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "srgb",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/fabric/uastc512-color.ktx2",
+        "./phone-site/assets/study/fabric/input-512-color.png"
+      ]
+    },
+    {
+      "role": "fabric",
+      "step": "uastc512",
+      "channel": "normal",
+      "seconds": 0.8474774281494319,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/fabric/uastc512-normal.ktx2",
+        "./phone-site/assets/study/fabric/input-512-normal.png"
+      ]
+    },
+    {
+      "role": "fabric",
+      "step": "uastc512",
+      "channel": "roughness",
+      "seconds": 1.1605296372435987,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/fabric/uastc512-roughness.ktx2",
+        "./phone-site/assets/study/fabric/input-512-roughness.png"
+      ]
+    },
+    {
+      "role": "wood",
+      "step": "authored-channel-generation",
+      "seconds": 5.984082999173552
+    },
+    {
+      "role": "wood",
+      "step": "avif90",
+      "seconds": 0.47640017606317997
+    },
+    {
+      "role": "wood",
+      "step": "avif80",
+      "seconds": 0.3797184149734676
+    },
+    {
+      "role": "wood",
+      "step": "uastc1024",
+      "channel": "color",
+      "seconds": 3.582241514697671,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "srgb",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/wood/uastc1024-color.ktx2",
+        "./phone-site/assets/study/wood/input-1024-color.png"
+      ]
+    },
+    {
+      "role": "wood",
+      "step": "uastc1024",
+      "channel": "normal",
+      "seconds": 3.0511476267129183,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/wood/uastc1024-normal.ktx2",
+        "./phone-site/assets/study/wood/input-1024-normal.png"
+      ]
+    },
+    {
+      "role": "wood",
+      "step": "uastc1024",
+      "channel": "roughness",
+      "seconds": 4.2254606620408595,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/wood/uastc1024-roughness.ktx2",
+        "./phone-site/assets/study/wood/input-1024-roughness.png"
+      ]
+    },
+    {
+      "role": "wood",
+      "step": "uastc512",
+      "channel": "color",
+      "seconds": 0.9625756707973778,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "srgb",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/wood/uastc512-color.ktx2",
+        "./phone-site/assets/study/wood/input-512-color.png"
+      ]
+    },
+    {
+      "role": "wood",
+      "step": "uastc512",
+      "channel": "normal",
+      "seconds": 0.7753216568380594,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/wood/uastc512-normal.ktx2",
+        "./phone-site/assets/study/wood/input-512-normal.png"
+      ]
+    },
+    {
+      "role": "wood",
+      "step": "uastc512",
+      "channel": "roughness",
+      "seconds": 1.176657706964761,
+      "command": [
+        "tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx",
+        "--t2",
+        "--genmipmap",
+        "--lower_left_maps_to_s0t0",
+        "--assign_oetf",
+        "linear",
+        "--threads",
+        "2",
+        "--encode",
+        "uastc",
+        "--uastc_quality",
+        "2",
+        "--zcmp",
+        "10",
+        "./phone-site/assets/study/wood/uastc512-roughness.ktx2",
+        "./phone-site/assets/study/wood/input-512-roughness.png"
+      ]
+    }
+  ],
+  "finishedUTC": "2026-10-16T23:28:52.439943+00:00",
+  "elapsedSeconds": 98.094883157406,
+  "reproductionScript": "scripts/prepare-study.py",
+  "originalGenerationScriptSha256": "5c33d4f712cb9eba53aa142f5efdcb5b20b39231e0c2544813b8d0ffdefa95ff",
+  "publishedScriptSha256": "6b0697985a76b4cdab39e4b96dbb8073a7639463989865fde4abd8aae2afa6e3",
+  "scriptPortabilityNote": "Published source changes only root-path discovery and portable command recording; channel formulas unchanged."
+}

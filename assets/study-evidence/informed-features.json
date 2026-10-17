@@ -1,0 +1,3760 @@
+{
+  "schema": "he-quality-informed-features/1",
+  "humanVotes": 0,
+  "meaning": "Automated informed appearance/feature checks, one pass per setting, not blind preferences or a cold-start comparison",
+  "records": [
+    {
+      "name": "car-matte-clean",
+      "subject": "car",
+      "finish": "matte",
+      "condition": "clean",
+      "glass": false,
+      "status": "ready",
+      "side": "A",
+      "trialId": "car:explore:control",
+      "subjectId": "car",
+      "geometryTiers": {
+        "A": "master",
+        "B": "master"
+      },
+      "textureTiers": {
+        "A": "reference",
+        "B": "reference"
+      },
+      "pose": {
+        "position": [
+          6.630334673997811,
+          3.8051353176969407,
+          8.524716009425756
+        ],
+        "target": [
+          0,
+          0.72,
+          0
+        ],
+        "fov": 35,
+        "near": 0.01,
+        "far": 200
+      },
+      "lightPhase": 0,
+      "timeline": 0,
+      "contextLost": false,
+      "valid": true,
+      "measurements": [
+        {
+          "side": "A",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999891,
+            "p95": 16.700000000000728,
+            "p99": 16.80000000000109,
+            "max": 16.80000000000109
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.5,
+            "p95": 0.9000000953674316,
+            "p99": 1.0999999046325684,
+            "max": 1.1000003814697266
+          },
+          "gpuMs": {
+            "p50": 0.54816,
+            "p95": 0.92048,
+            "p99": 0.92048,
+            "max": 0.92208,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              6.630334673997811,
+              3.8051353176969407,
+              8.524716009425756
+            ],
+            "target": [
+              0,
+              0.72,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "matte",
+          "condition": "clean",
+          "glassTransmission": false,
+          "draws": 6,
+          "triangles": 116466,
+          "longTasks": [],
+          "valid": true
+        },
+        {
+          "side": "B",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999891,
+            "p95": 16.799999999999272,
+            "p99": 16.80000000000109,
+            "max": 16.80000000000109
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.40000009536743164,
+            "p95": 0.5,
+            "p99": 0.5999999046325684,
+            "max": 0.6000003814697266
+          },
+          "gpuMs": {
+            "p50": 0.55168,
+            "p95": 0.92048,
+            "p99": 0.92048,
+            "max": 0.94096,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              6.630334673997811,
+              3.8051353176969407,
+              8.524716009425756
+            ],
+            "target": [
+              0,
+              0.72,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "matte",
+          "condition": "clean",
+          "glassTransmission": false,
+          "draws": 6,
+          "triangles": 116466,
+          "longTasks": [],
+          "valid": true
+        }
+      ],
+      "metrics": {
+        "A": {
+          "triangles": 116464,
+          "drawMeshes": 5,
+          "geometryBufferBytes": 3797568,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1929560,
+          "assets": [
+            {
+              "url": "assets/study/paint/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 218406,
+              "sha256": "b1c280faa4c086bf53da09225dc4b3619a61a4456bf17f0f4355dd9d23fbaa55",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/paint/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 713230,
+              "sha256": "23ccc207090f229056e41add2b802640c8995d0f897de0bdfd993d2b3f54f3ba",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/paint/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 997924,
+              "sha256": "4af70ff2da9f60e56db21324caaeb1ae6baeca97cd089d7f82a1453e70de3da6",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "paint",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "chrome": {
+              "baseId": "chrome",
+              "finishId": "matte",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 1,
+              "tier": "reference",
+              "substrate": "metal",
+              "source": "Scalar authored control"
+            },
+            "rubber": {
+              "baseId": "rubber",
+              "finishId": "matte",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "rubber",
+              "source": "Scalar authored control"
+            },
+            "glass": {
+              "baseId": "glass",
+              "finishId": "matte",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "opaque glazing control",
+              "source": "Scalar authored control"
+            },
+            "light": {
+              "baseId": "light",
+              "finishId": "matte",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "lamp cover",
+              "source": "Scalar authored control"
+            },
+            "paint": {
+              "baseId": "paint",
+              "finishId": "matte",
+              "conditionId": "clean",
+              "physicalScale": 0.25,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "painted metal",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 23646,
+          "sharedRecipeMeaning": "Shared recipe module contains all three subjects; not standalone render-ready bytes"
+        },
+        "B": {
+          "triangles": 116464,
+          "drawMeshes": 5,
+          "geometryBufferBytes": 3797568,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1929560,
+          "assets": [
+            {
+              "url": "assets/study/paint/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 218406,
+              "sha256": "b1c280faa4c086bf53da09225dc4b3619a61a4456bf17f0f4355dd9d23fbaa55",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/paint/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 713230,
+              "sha256": "23ccc207090f229056e41add2b802640c8995d0f897de0bdfd993d2b3f54f3ba",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/paint/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 997924,
+              "sha256": "4af70ff2da9f60e56db21324caaeb1ae6baeca97cd089d7f82a1453e70de3da6",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "paint",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "chrome": {
+              "baseId": "chrome",
+              "finishId": "matte",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 1,
+              "tier": "reference",
+              "substrate": "metal",
+              "source": "Scalar authored control"
+            },
+            "rubber": {
+              "baseId": "rubber",
+              "finishId": "matte",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "rubber",
+              "source": "Scalar authored control"
+            },
+            "glass": {
+              "baseId": "glass",
+              "finishId": "matte",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "opaque glazing control",
+              "source": "Scalar authored control"
+            },
+            "light": {
+              "baseId": "light",
+              "finishId": "matte",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "lamp cover",
+              "source": "Scalar authored control"
+            },
+            "paint": {
+              "baseId": "paint",
+              "finishId": "matte",
+              "conditionId": "clean",
+              "physicalScale": 0.25,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "painted metal",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 23646,
+          "sharedRecipeMeaning": "Shared recipe module contains all three subjects; not standalone render-ready bytes"
+        }
+      },
+      "preparation": {
+        "materialAndGeometryReadyMs": 2039.2999997138977,
+        "compressedFormatPolicy": "BC7 on the previously tested AMD desktop path",
+        "A": {
+          "firstRenderAndGPUCompletionMs": 95.2999997138977
+        },
+        "B": {
+          "firstRenderAndGPUCompletionMs": 4.300000190734863
+        },
+        "pairReadyMs": 2145,
+        "cacheState": "New pair resource wrappers; HTTP/decoder/shader/OS state may be warm. See resource timings."
+      },
+      "bounds": {
+        "min": [
+          -1.0744999647140503,
+          0.00012518191942945123,
+          -2.2074999809265137
+        ],
+        "max": [
+          1.0744999647140503,
+          1.391554832458496,
+          2.2300000190734863
+        ]
+      }
+    },
+    {
+      "name": "car-glossy-clean",
+      "subject": "car",
+      "finish": "glossy",
+      "condition": "clean",
+      "glass": false,
+      "status": "ready",
+      "side": "A",
+      "trialId": "car:explore:control",
+      "subjectId": "car",
+      "geometryTiers": {
+        "A": "master",
+        "B": "master"
+      },
+      "textureTiers": {
+        "A": "reference",
+        "B": "reference"
+      },
+      "pose": {
+        "position": [
+          6.630334673997811,
+          3.8051353176969407,
+          8.524716009425756
+        ],
+        "target": [
+          0,
+          0.72,
+          0
+        ],
+        "fov": 35,
+        "near": 0.01,
+        "far": 200
+      },
+      "lightPhase": 0,
+      "timeline": 0,
+      "contextLost": false,
+      "valid": true,
+      "measurements": [
+        {
+          "side": "A",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.700000000000728,
+            "p95": 16.700000000000728,
+            "p99": 16.700000000000728,
+            "max": 16.799999999999272
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.40000009536743164,
+            "p95": 0.6000003814697266,
+            "p99": 0.8000001907348633,
+            "max": 1.200000286102295
+          },
+          "gpuMs": {
+            "p50": 0.60416,
+            "p95": 0.98192,
+            "p99": 0.98192,
+            "max": 1.00752,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              6.630334673997811,
+              3.8051353176969407,
+              8.524716009425756
+            ],
+            "target": [
+              0,
+              0.72,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "glossy",
+          "condition": "clean",
+          "glassTransmission": false,
+          "draws": 6,
+          "triangles": 116466,
+          "longTasks": [],
+          "valid": true
+        },
+        {
+          "side": "B",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999709,
+            "p95": 16.700000000000728,
+            "p99": 16.799999999999272,
+            "max": 16.799999999999272
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.40000009536743164,
+            "p95": 0.5999999046325684,
+            "p99": 0.6000003814697266,
+            "max": 0.7000002861022949
+          },
+          "gpuMs": {
+            "p50": 0.60368,
+            "p95": 0.97168,
+            "p99": 0.97168,
+            "max": 1.10608,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              6.630334673997811,
+              3.8051353176969407,
+              8.524716009425756
+            ],
+            "target": [
+              0,
+              0.72,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "glossy",
+          "condition": "clean",
+          "glassTransmission": false,
+          "draws": 6,
+          "triangles": 116466,
+          "longTasks": [],
+          "valid": true
+        }
+      ],
+      "metrics": {
+        "A": {
+          "triangles": 116464,
+          "drawMeshes": 5,
+          "geometryBufferBytes": 3797568,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1929560,
+          "assets": [
+            {
+              "url": "assets/study/paint/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 218406,
+              "sha256": "b1c280faa4c086bf53da09225dc4b3619a61a4456bf17f0f4355dd9d23fbaa55",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/paint/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 713230,
+              "sha256": "23ccc207090f229056e41add2b802640c8995d0f897de0bdfd993d2b3f54f3ba",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/paint/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 997924,
+              "sha256": "4af70ff2da9f60e56db21324caaeb1ae6baeca97cd089d7f82a1453e70de3da6",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "paint",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "chrome": {
+              "baseId": "chrome",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 1,
+              "tier": "reference",
+              "substrate": "metal",
+              "source": "Scalar authored control"
+            },
+            "rubber": {
+              "baseId": "rubber",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "rubber",
+              "source": "Scalar authored control"
+            },
+            "glass": {
+              "baseId": "glass",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "opaque glazing control",
+              "source": "Scalar authored control"
+            },
+            "light": {
+              "baseId": "light",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "lamp cover",
+              "source": "Scalar authored control"
+            },
+            "paint": {
+              "baseId": "paint",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 0.25,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "painted metal",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 23646,
+          "sharedRecipeMeaning": "Shared recipe module contains all three subjects; not standalone render-ready bytes"
+        },
+        "B": {
+          "triangles": 116464,
+          "drawMeshes": 5,
+          "geometryBufferBytes": 3797568,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1929560,
+          "assets": [
+            {
+              "url": "assets/study/paint/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 218406,
+              "sha256": "b1c280faa4c086bf53da09225dc4b3619a61a4456bf17f0f4355dd9d23fbaa55",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/paint/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 713230,
+              "sha256": "23ccc207090f229056e41add2b802640c8995d0f897de0bdfd993d2b3f54f3ba",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/paint/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 997924,
+              "sha256": "4af70ff2da9f60e56db21324caaeb1ae6baeca97cd089d7f82a1453e70de3da6",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "paint",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "chrome": {
+              "baseId": "chrome",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 1,
+              "tier": "reference",
+              "substrate": "metal",
+              "source": "Scalar authored control"
+            },
+            "rubber": {
+              "baseId": "rubber",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "rubber",
+              "source": "Scalar authored control"
+            },
+            "glass": {
+              "baseId": "glass",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "opaque glazing control",
+              "source": "Scalar authored control"
+            },
+            "light": {
+              "baseId": "light",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "lamp cover",
+              "source": "Scalar authored control"
+            },
+            "paint": {
+              "baseId": "paint",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 0.25,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "painted metal",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 23646,
+          "sharedRecipeMeaning": "Shared recipe module contains all three subjects; not standalone render-ready bytes"
+        }
+      },
+      "preparation": {
+        "materialAndGeometryReadyMs": 2083.800000190735,
+        "compressedFormatPolicy": "BC7 on the previously tested AMD desktop path",
+        "A": {
+          "firstRenderAndGPUCompletionMs": 103.59999990463257
+        },
+        "B": {
+          "firstRenderAndGPUCompletionMs": 4
+        },
+        "pairReadyMs": 2195.2000002861023,
+        "cacheState": "New pair resource wrappers; HTTP/decoder/shader/OS state may be warm. See resource timings."
+      },
+      "bounds": {
+        "min": [
+          -1.0744999647140503,
+          0.00012518191942945123,
+          -2.2074999809265137
+        ],
+        "max": [
+          1.0744999647140503,
+          1.391554832458496,
+          2.2300000190734863
+        ]
+      }
+    },
+    {
+      "name": "car-glossy-clean-glass",
+      "subject": "car",
+      "finish": "glossy",
+      "condition": "clean",
+      "glass": true,
+      "status": "ready",
+      "side": "A",
+      "trialId": "car:explore:control",
+      "subjectId": "car",
+      "geometryTiers": {
+        "A": "master",
+        "B": "master"
+      },
+      "textureTiers": {
+        "A": "reference",
+        "B": "reference"
+      },
+      "pose": {
+        "position": [
+          6.630334673997811,
+          3.8051353176969407,
+          8.524716009425756
+        ],
+        "target": [
+          0,
+          0.72,
+          0
+        ],
+        "fov": 35,
+        "near": 0.01,
+        "far": 200
+      },
+      "lightPhase": 0,
+      "timeline": 0,
+      "contextLost": false,
+      "valid": true,
+      "measurements": [
+        {
+          "side": "A",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999709,
+            "p95": 16.799999999995634,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 1.4000000953674316,
+            "p95": 2,
+            "p99": 2.4000000953674316,
+            "max": 2.5
+          },
+          "gpuMs": {
+            "p50": 1.3624,
+            "p95": 1.37424,
+            "p99": 1.37424,
+            "max": 1.61008,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              6.630334673997811,
+              3.8051353176969407,
+              8.524716009425756
+            ],
+            "target": [
+              0,
+              0.72,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "glossy",
+          "condition": "clean",
+          "glassTransmission": true,
+          "draws": 11,
+          "triangles": 223212,
+          "longTasks": [],
+          "valid": true
+        },
+        {
+          "side": "B",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999709,
+            "p95": 16.799999999995634,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 1.299999713897705,
+            "p95": 1.8000001907348633,
+            "p99": 1.9000000953674316,
+            "max": 2.0999999046325684
+          },
+          "gpuMs": {
+            "p50": 1.36304,
+            "p95": 1.36912,
+            "p99": 1.36912,
+            "max": 1.37984,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              6.630334673997811,
+              3.8051353176969407,
+              8.524716009425756
+            ],
+            "target": [
+              0,
+              0.72,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "glossy",
+          "condition": "clean",
+          "glassTransmission": true,
+          "draws": 11,
+          "triangles": 223212,
+          "longTasks": [],
+          "valid": true
+        }
+      ],
+      "metrics": {
+        "A": {
+          "triangles": 116464,
+          "drawMeshes": 5,
+          "geometryBufferBytes": 3797568,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1929560,
+          "assets": [
+            {
+              "url": "assets/study/paint/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 218406,
+              "sha256": "b1c280faa4c086bf53da09225dc4b3619a61a4456bf17f0f4355dd9d23fbaa55",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/paint/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 713230,
+              "sha256": "23ccc207090f229056e41add2b802640c8995d0f897de0bdfd993d2b3f54f3ba",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/paint/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 997924,
+              "sha256": "4af70ff2da9f60e56db21324caaeb1ae6baeca97cd089d7f82a1453e70de3da6",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "paint",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "chrome": {
+              "baseId": "chrome",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 1,
+              "tier": "reference",
+              "substrate": "metal",
+              "source": "Scalar authored control"
+            },
+            "rubber": {
+              "baseId": "rubber",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "rubber",
+              "source": "Scalar authored control"
+            },
+            "glass": {
+              "baseId": "glass",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "opaque glazing control",
+              "source": "Scalar authored control"
+            },
+            "light": {
+              "baseId": "light",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "lamp cover",
+              "source": "Scalar authored control"
+            },
+            "paint": {
+              "baseId": "paint",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 0.25,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "painted metal",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 23646,
+          "sharedRecipeMeaning": "Shared recipe module contains all three subjects; not standalone render-ready bytes"
+        },
+        "B": {
+          "triangles": 116464,
+          "drawMeshes": 5,
+          "geometryBufferBytes": 3797568,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1929560,
+          "assets": [
+            {
+              "url": "assets/study/paint/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 218406,
+              "sha256": "b1c280faa4c086bf53da09225dc4b3619a61a4456bf17f0f4355dd9d23fbaa55",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/paint/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 713230,
+              "sha256": "23ccc207090f229056e41add2b802640c8995d0f897de0bdfd993d2b3f54f3ba",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/paint/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 997924,
+              "sha256": "4af70ff2da9f60e56db21324caaeb1ae6baeca97cd089d7f82a1453e70de3da6",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "paint",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "chrome": {
+              "baseId": "chrome",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 1,
+              "tier": "reference",
+              "substrate": "metal",
+              "source": "Scalar authored control"
+            },
+            "rubber": {
+              "baseId": "rubber",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "rubber",
+              "source": "Scalar authored control"
+            },
+            "glass": {
+              "baseId": "glass",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "opaque glazing control",
+              "source": "Scalar authored control"
+            },
+            "light": {
+              "baseId": "light",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "lamp cover",
+              "source": "Scalar authored control"
+            },
+            "paint": {
+              "baseId": "paint",
+              "finishId": "glossy",
+              "conditionId": "clean",
+              "physicalScale": 0.25,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "painted metal",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 23646,
+          "sharedRecipeMeaning": "Shared recipe module contains all three subjects; not standalone render-ready bytes"
+        }
+      },
+      "preparation": {
+        "materialAndGeometryReadyMs": 2153.9000000953674,
+        "compressedFormatPolicy": "BC7 on the previously tested AMD desktop path",
+        "A": {
+          "firstRenderAndGPUCompletionMs": 540.8000001907349
+        },
+        "B": {
+          "firstRenderAndGPUCompletionMs": 9.100000381469727
+        },
+        "pairReadyMs": 2711.199999809265,
+        "cacheState": "New pair resource wrappers; HTTP/decoder/shader/OS state may be warm. See resource timings."
+      },
+      "bounds": {
+        "min": [
+          -1.0744999647140503,
+          0.00012518191942945123,
+          -2.2074999809265137
+        ],
+        "max": [
+          1.0744999647140503,
+          1.391554832458496,
+          2.2300000190734863
+        ]
+      }
+    },
+    {
+      "name": "car-glossy-worn",
+      "subject": "car",
+      "finish": "glossy",
+      "condition": "worn",
+      "glass": false,
+      "status": "ready",
+      "side": "A",
+      "trialId": "car:explore:control",
+      "subjectId": "car",
+      "geometryTiers": {
+        "A": "master",
+        "B": "master"
+      },
+      "textureTiers": {
+        "A": "reference",
+        "B": "reference"
+      },
+      "pose": {
+        "position": [
+          6.630334673997811,
+          3.8051353176969407,
+          8.524716009425756
+        ],
+        "target": [
+          0,
+          0.72,
+          0
+        ],
+        "fov": 35,
+        "near": 0.01,
+        "far": 200
+      },
+      "lightPhase": 0,
+      "timeline": 0,
+      "contextLost": false,
+      "valid": true,
+      "measurements": [
+        {
+          "side": "A",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999709,
+            "p95": 16.700000000004366,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.40000009536743164,
+            "p95": 0.5,
+            "p99": 0.5999999046325684,
+            "max": 0.6000003814697266
+          },
+          "gpuMs": {
+            "p50": 0.61216,
+            "p95": 0.97072,
+            "p99": 0.97072,
+            "max": 0.97168,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              6.630334673997811,
+              3.8051353176969407,
+              8.524716009425756
+            ],
+            "target": [
+              0,
+              0.72,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "glossy",
+          "condition": "worn",
+          "glassTransmission": false,
+          "draws": 6,
+          "triangles": 116466,
+          "longTasks": [],
+          "valid": true
+        },
+        {
+          "side": "B",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999709,
+            "p95": 16.700000000004366,
+            "p99": 16.799999999995634,
+            "max": 16.80000000000291
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.40000009536743164,
+            "p95": 0.5,
+            "p99": 0.5999999046325684,
+            "max": 0.6000003814697266
+          },
+          "gpuMs": {
+            "p50": 0.60736,
+            "p95": 0.9624,
+            "p99": 0.9624,
+            "max": 0.9672,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              6.630334673997811,
+              3.8051353176969407,
+              8.524716009425756
+            ],
+            "target": [
+              0,
+              0.72,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "glossy",
+          "condition": "worn",
+          "glassTransmission": false,
+          "draws": 6,
+          "triangles": 116466,
+          "longTasks": [],
+          "valid": true
+        }
+      ],
+      "metrics": {
+        "A": {
+          "triangles": 116464,
+          "drawMeshes": 5,
+          "geometryBufferBytes": 3797568,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1929560,
+          "assets": [
+            {
+              "url": "assets/study/paint/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 218406,
+              "sha256": "b1c280faa4c086bf53da09225dc4b3619a61a4456bf17f0f4355dd9d23fbaa55",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/paint/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 713230,
+              "sha256": "23ccc207090f229056e41add2b802640c8995d0f897de0bdfd993d2b3f54f3ba",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/paint/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 997924,
+              "sha256": "4af70ff2da9f60e56db21324caaeb1ae6baeca97cd089d7f82a1453e70de3da6",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "paint",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "chrome": {
+              "baseId": "chrome",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 1,
+              "tier": "reference",
+              "substrate": "metal",
+              "source": "Scalar authored control"
+            },
+            "rubber": {
+              "baseId": "rubber",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "rubber",
+              "source": "Scalar authored control"
+            },
+            "glass": {
+              "baseId": "glass",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "opaque glazing control",
+              "source": "Scalar authored control"
+            },
+            "light": {
+              "baseId": "light",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "lamp cover",
+              "source": "Scalar authored control"
+            },
+            "paint": {
+              "baseId": "paint",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 0.25,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "painted metal",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 23646,
+          "sharedRecipeMeaning": "Shared recipe module contains all three subjects; not standalone render-ready bytes"
+        },
+        "B": {
+          "triangles": 116464,
+          "drawMeshes": 5,
+          "geometryBufferBytes": 3797568,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1929560,
+          "assets": [
+            {
+              "url": "assets/study/paint/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 218406,
+              "sha256": "b1c280faa4c086bf53da09225dc4b3619a61a4456bf17f0f4355dd9d23fbaa55",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/paint/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 713230,
+              "sha256": "23ccc207090f229056e41add2b802640c8995d0f897de0bdfd993d2b3f54f3ba",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/paint/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 997924,
+              "sha256": "4af70ff2da9f60e56db21324caaeb1ae6baeca97cd089d7f82a1453e70de3da6",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "paint",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "paint",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "chrome": {
+              "baseId": "chrome",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 1,
+              "tier": "reference",
+              "substrate": "metal",
+              "source": "Scalar authored control"
+            },
+            "rubber": {
+              "baseId": "rubber",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "rubber",
+              "source": "Scalar authored control"
+            },
+            "glass": {
+              "baseId": "glass",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "opaque glazing control",
+              "source": "Scalar authored control"
+            },
+            "light": {
+              "baseId": "light",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "lamp cover",
+              "source": "Scalar authored control"
+            },
+            "paint": {
+              "baseId": "paint",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 0.25,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "painted metal",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 23646,
+          "sharedRecipeMeaning": "Shared recipe module contains all three subjects; not standalone render-ready bytes"
+        }
+      },
+      "preparation": {
+        "materialAndGeometryReadyMs": 2159.5999999046326,
+        "compressedFormatPolicy": "BC7 on the previously tested AMD desktop path",
+        "A": {
+          "firstRenderAndGPUCompletionMs": 108.09999990463257
+        },
+        "B": {
+          "firstRenderAndGPUCompletionMs": 4.900000095367432
+        },
+        "pairReadyMs": 2277.9000000953674,
+        "cacheState": "New pair resource wrappers; HTTP/decoder/shader/OS state may be warm. See resource timings."
+      },
+      "bounds": {
+        "min": [
+          -1.0744999647140503,
+          0.00012518191942945123,
+          -2.2074999809265137
+        ],
+        "max": [
+          1.0744999647140503,
+          1.391554832458496,
+          2.2300000190734863
+        ]
+      }
+    },
+    {
+      "name": "tree-satin-worn",
+      "subject": "tree",
+      "finish": "satin",
+      "condition": "worn",
+      "glass": false,
+      "status": "ready",
+      "side": "A",
+      "trialId": "tree:explore:control",
+      "subjectId": "tree",
+      "geometryTiers": {
+        "A": "master",
+        "B": "master"
+      },
+      "textureTiers": {
+        "A": "reference",
+        "B": "reference"
+      },
+      "pose": {
+        "position": [
+          7.01176771875632,
+          4.780970010112711,
+          7.630453105705407
+        ],
+        "target": [
+          0,
+          2.1,
+          0
+        ],
+        "fov": 35,
+        "near": 0.01,
+        "far": 200
+      },
+      "lightPhase": 0,
+      "timeline": 0,
+      "contextLost": false,
+      "valid": true,
+      "measurements": [
+        {
+          "side": "A",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999709,
+            "p95": 16.700000000004366,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.3000001907348633,
+            "p95": 0.5,
+            "p99": 0.5999999046325684,
+            "max": 1.5
+          },
+          "gpuMs": {
+            "p50": 0.8256,
+            "p95": 1.1672,
+            "p99": 1.1672,
+            "max": 1.1696,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              7.01176771875632,
+              4.780970010112711,
+              7.630453105705407
+            ],
+            "target": [
+              0,
+              2.1,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "satin",
+          "condition": "worn",
+          "glassTransmission": false,
+          "draws": 3,
+          "triangles": 77874,
+          "longTasks": [],
+          "valid": true
+        },
+        {
+          "side": "B",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999709,
+            "p95": 16.700000000004366,
+            "p99": 16.799999999995634,
+            "max": 16.80000000000291
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.3000001907348633,
+            "p95": 0.40000009536743164,
+            "p99": 0.5,
+            "max": 0.7999997138977051
+          },
+          "gpuMs": {
+            "p50": 0.82784,
+            "p95": 1.18592,
+            "p99": 1.18592,
+            "max": 1.23856,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              7.01176771875632,
+              4.780970010112711,
+              7.630453105705407
+            ],
+            "target": [
+              0,
+              2.1,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "satin",
+          "condition": "worn",
+          "glassTransmission": false,
+          "draws": 3,
+          "triangles": 77874,
+          "longTasks": [],
+          "valid": true
+        }
+      ],
+      "metrics": {
+        "A": {
+          "triangles": 77872,
+          "drawMeshes": 2,
+          "geometryBufferBytes": 3012816,
+          "textureMipBytes": 33554424,
+          "encodedAssetBytes": 3631048,
+          "assets": [
+            {
+              "url": "assets/study/bark/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 1205539,
+              "sha256": "fc3ba09d6e4a1a52370067d0c4bb95fc8b65dac81ad14b8be1e01b9c28bb4f4d",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/bark/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 768626,
+              "sha256": "4e204d0ebc18cb1a672ab3d1e37c56ac82b3076ef2902c045c1436968cc7382c",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/bark/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 223123,
+              "sha256": "1a38c29391686ee717602be0dbce7f3ad07962e4657a8539e9546ddd59078af2",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/leaf/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 1060649,
+              "sha256": "f7029296ff42506ab11b907cf09a96c50bd2adc5b807d9c14bc9be40f384ef69",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/leaf/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 201324,
+              "sha256": "0dadba80e8e260ca703c06e10082dc0e077f5d4f8900ceb177c41d7880f0881f",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/leaf/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 171787,
+              "sha256": "dbb13906f0f33aa9891af7bf78cede00d0d86bc765b7b72beefd7f8d4fbc7fa3",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "bark",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "bark",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "bark",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "leaf",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "leaf",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "leaf",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "bark": {
+              "baseId": "bark",
+              "finishId": "satin",
+              "conditionId": "worn",
+              "physicalScale": 0.45,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "bark",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            },
+            "leaf": {
+              "baseId": "leaf",
+              "finishId": "satin",
+              "conditionId": "worn",
+              "physicalScale": 0.2,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "leaf",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 23646,
+          "sharedRecipeMeaning": "Shared recipe module contains all three subjects; not standalone render-ready bytes"
+        },
+        "B": {
+          "triangles": 77872,
+          "drawMeshes": 2,
+          "geometryBufferBytes": 3012816,
+          "textureMipBytes": 33554424,
+          "encodedAssetBytes": 3631048,
+          "assets": [
+            {
+              "url": "assets/study/bark/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 1205539,
+              "sha256": "fc3ba09d6e4a1a52370067d0c4bb95fc8b65dac81ad14b8be1e01b9c28bb4f4d",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/bark/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 768626,
+              "sha256": "4e204d0ebc18cb1a672ab3d1e37c56ac82b3076ef2902c045c1436968cc7382c",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/bark/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 223123,
+              "sha256": "1a38c29391686ee717602be0dbce7f3ad07962e4657a8539e9546ddd59078af2",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/leaf/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 1060649,
+              "sha256": "f7029296ff42506ab11b907cf09a96c50bd2adc5b807d9c14bc9be40f384ef69",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/leaf/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 201324,
+              "sha256": "0dadba80e8e260ca703c06e10082dc0e077f5d4f8900ceb177c41d7880f0881f",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/leaf/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 171787,
+              "sha256": "dbb13906f0f33aa9891af7bf78cede00d0d86bc765b7b72beefd7f8d4fbc7fa3",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "bark",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "bark",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "bark",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "leaf",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "leaf",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "leaf",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "bark": {
+              "baseId": "bark",
+              "finishId": "satin",
+              "conditionId": "worn",
+              "physicalScale": 0.45,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "bark",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            },
+            "leaf": {
+              "baseId": "leaf",
+              "finishId": "satin",
+              "conditionId": "worn",
+              "physicalScale": 0.2,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "leaf",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 23646,
+          "sharedRecipeMeaning": "Shared recipe module contains all three subjects; not standalone render-ready bytes"
+        }
+      },
+      "preparation": {
+        "materialAndGeometryReadyMs": 1084,
+        "compressedFormatPolicy": "BC7 on the previously tested AMD desktop path",
+        "A": {
+          "firstRenderAndGPUCompletionMs": 156.5
+        },
+        "B": {
+          "firstRenderAndGPUCompletionMs": 4.400000095367432
+        },
+        "pairReadyMs": 1255.5999999046326,
+        "cacheState": "New pair resource wrappers; HTTP/decoder/shader/OS state may be warm. See resource timings."
+      },
+      "bounds": {
+        "min": [
+          -1.463314414024353,
+          0.0002822626265697181,
+          -1.6571317911148071
+        ],
+        "max": [
+          1.5555565357208252,
+          4.391010284423828,
+          1.6216140985488892
+        ]
+      }
+    },
+    {
+      "name": "chair-glossy-graphic",
+      "subject": "chair",
+      "finish": "glossy",
+      "condition": "graphic",
+      "glass": false,
+      "status": "ready",
+      "side": "A",
+      "trialId": "chair:explore:control",
+      "subjectId": "chair",
+      "geometryTiers": {
+        "A": "master",
+        "B": "master"
+      },
+      "textureTiers": {
+        "A": "reference",
+        "B": "reference"
+      },
+      "pose": {
+        "position": [
+          1.802450732790608,
+          1.3229915629724731,
+          2.075549328667973
+        ],
+        "target": [
+          0,
+          0.46,
+          0
+        ],
+        "fov": 35,
+        "near": 0.01,
+        "far": 200
+      },
+      "lightPhase": 0,
+      "timeline": 0,
+      "contextLost": false,
+      "valid": true,
+      "measurements": [
+        {
+          "side": "A",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999709,
+            "p95": 16.69999999999709,
+            "p99": 16.70000000001164,
+            "max": 16.79999999998836
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.39999961853027344,
+            "p95": 0.5,
+            "p99": 0.5999999046325684,
+            "max": 0.9000000953674316
+          },
+          "gpuMs": {
+            "p50": 0.5936,
+            "p95": 0.9392,
+            "p99": 0.9392,
+            "max": 0.97648,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              1.802450732790608,
+              1.3229915629724731,
+              2.075549328667973
+            ],
+            "target": [
+              0,
+              0.46,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "glossy",
+          "condition": "graphic",
+          "glassTransmission": false,
+          "draws": 4,
+          "triangles": 32282,
+          "longTasks": [],
+          "valid": true
+        },
+        {
+          "side": "B",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.39999961853027344,
+            "p95": 0.5,
+            "p99": 0.6999998092651367,
+            "max": 1
+          },
+          "gpuMs": {
+            "p50": 0.59344,
+            "p95": 0.94624,
+            "p99": 0.94624,
+            "max": 1.02896,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              1.802450732790608,
+              1.3229915629724731,
+              2.075549328667973
+            ],
+            "target": [
+              0,
+              0.46,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "glossy",
+          "condition": "graphic",
+          "glassTransmission": false,
+          "draws": 4,
+          "triangles": 32282,
+          "longTasks": [],
+          "valid": true
+        }
+      ],
+      "metrics": {
+        "A": {
+          "triangles": 32280,
+          "drawMeshes": 3,
+          "geometryBufferBytes": 1265904,
+          "textureMipBytes": 33554424,
+          "encodedAssetBytes": 4356148,
+          "assets": [
+            {
+              "url": "assets/study/fabric/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 667505,
+              "sha256": "44cb24da5985847f9d6d19525c7e9e719dd49ce594ee73d1f06aa1679f26df49",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/fabric/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 2061856,
+              "sha256": "bf362e07e19d368a3391bdee9669ac3e56e195068af0536883025f08911482f4",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/fabric/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 379182,
+              "sha256": "7bfd89ef255fdead0a49f532dad2b51fa012cc7ba431ea68613300f86361467e",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/wood/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 862220,
+              "sha256": "68c52f7a84968bc56e7b4d44c561649beb8d46db5db2803544ae4c12a1a632ab",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/wood/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 220757,
+              "sha256": "f75932f6586b7e85137364ab815e25af26a64e5e1a715bcb53f31da3a57150a5",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/wood/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 164628,
+              "sha256": "a4c9fbb8163fc779957dfbaf3580ac68562fe450a02d6f640871953d46ac03c5",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "fabric",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "fabric",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "fabric",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "stitch": {
+              "baseId": "stitch",
+              "finishId": "glossy",
+              "conditionId": "graphic",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "thread",
+              "source": "Scalar authored control"
+            },
+            "fabric": {
+              "baseId": "fabric",
+              "finishId": "glossy",
+              "conditionId": "graphic",
+              "physicalScale": 0.2,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "woven fabric",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            },
+            "wood": {
+              "baseId": "wood",
+              "finishId": "glossy",
+              "conditionId": "graphic",
+              "physicalScale": 0.5,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "wood",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 23646,
+          "sharedRecipeMeaning": "Shared recipe module contains all three subjects; not standalone render-ready bytes"
+        },
+        "B": {
+          "triangles": 32280,
+          "drawMeshes": 3,
+          "geometryBufferBytes": 1265904,
+          "textureMipBytes": 33554424,
+          "encodedAssetBytes": 4356148,
+          "assets": [
+            {
+              "url": "assets/study/fabric/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 667505,
+              "sha256": "44cb24da5985847f9d6d19525c7e9e719dd49ce594ee73d1f06aa1679f26df49",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/fabric/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 2061856,
+              "sha256": "bf362e07e19d368a3391bdee9669ac3e56e195068af0536883025f08911482f4",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/fabric/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 379182,
+              "sha256": "7bfd89ef255fdead0a49f532dad2b51fa012cc7ba431ea68613300f86361467e",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/wood/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 862220,
+              "sha256": "68c52f7a84968bc56e7b4d44c561649beb8d46db5db2803544ae4c12a1a632ab",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/wood/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 220757,
+              "sha256": "f75932f6586b7e85137364ab815e25af26a64e5e1a715bcb53f31da3a57150a5",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/wood/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 164628,
+              "sha256": "a4c9fbb8163fc779957dfbaf3580ac68562fe450a02d6f640871953d46ac03c5",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "fabric",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "fabric",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "fabric",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "stitch": {
+              "baseId": "stitch",
+              "finishId": "glossy",
+              "conditionId": "graphic",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "thread",
+              "source": "Scalar authored control"
+            },
+            "fabric": {
+              "baseId": "fabric",
+              "finishId": "glossy",
+              "conditionId": "graphic",
+              "physicalScale": 0.2,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "woven fabric",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            },
+            "wood": {
+              "baseId": "wood",
+              "finishId": "glossy",
+              "conditionId": "graphic",
+              "physicalScale": 0.5,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "wood",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 23646,
+          "sharedRecipeMeaning": "Shared recipe module contains all three subjects; not standalone render-ready bytes"
+        }
+      },
+      "preparation": {
+        "materialAndGeometryReadyMs": 671,
+        "compressedFormatPolicy": "BC7 on the previously tested AMD desktop path",
+        "A": {
+          "firstRenderAndGPUCompletionMs": 390.40000009536743
+        },
+        "B": {
+          "firstRenderAndGPUCompletionMs": 2.299999713897705
+        },
+        "pairReadyMs": 1078.5999999046326,
+        "cacheState": "New pair resource wrappers; HTTP/decoder/shader/OS state may be warm. See resource timings."
+      },
+      "bounds": {
+        "min": [
+          -0.4217108488082886,
+          0.00021176543668843806,
+          -0.3904018700122833
+        ],
+        "max": [
+          0.4217108488082886,
+          0.9520884156227112,
+          0.4254400134086609
+        ]
+      }
+    },
+    {
+      "name": "desk-matte-worn",
+      "subject": "desk",
+      "finish": "matte",
+      "condition": "worn",
+      "glass": false,
+      "status": "ready",
+      "side": "A",
+      "trialId": "desk:explore:control",
+      "subjectId": "desk",
+      "geometryTiers": {
+        "A": "master",
+        "B": "master"
+      },
+      "textureTiers": {
+        "A": "reference",
+        "B": "reference"
+      },
+      "pose": {
+        "position": [
+          2.1577615252409794,
+          1.749389760901817,
+          3.12875421159942
+        ],
+        "target": [
+          0,
+          0.39,
+          0
+        ],
+        "fov": 35,
+        "near": 0.01,
+        "far": 200
+      },
+      "lightPhase": 0,
+      "timeline": 0,
+      "contextLost": false,
+      "valid": true,
+      "measurements": [
+        {
+          "side": "A",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.3000001907348633,
+            "p95": 0.40000009536743164,
+            "p99": 0.5,
+            "max": 0.8000001907348633
+          },
+          "gpuMs": {
+            "p50": 0.54544,
+            "p95": 0.96304,
+            "p99": 0.96304,
+            "max": 0.96304,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              2.1577615252409794,
+              1.749389760901817,
+              3.12875421159942
+            ],
+            "target": [
+              0,
+              0.39,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "matte",
+          "condition": "worn",
+          "glassTransmission": false,
+          "draws": 5,
+          "triangles": 13350,
+          "longTasks": [],
+          "valid": true
+        },
+        {
+          "side": "B",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999709,
+            "p95": 16.70000000001164,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.3000001907348633,
+            "p95": 0.5,
+            "p99": 0.5,
+            "max": 0.5999999046325684
+          },
+          "gpuMs": {
+            "p50": 0.54464,
+            "p95": 0.95904,
+            "p99": 0.95904,
+            "max": 0.96336,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              2.1577615252409794,
+              1.749389760901817,
+              3.12875421159942
+            ],
+            "target": [
+              0,
+              0.39,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "matte",
+          "condition": "worn",
+          "glassTransmission": false,
+          "draws": 5,
+          "triangles": 13350,
+          "longTasks": [],
+          "valid": true
+        }
+      ],
+      "metrics": {
+        "A": {
+          "triangles": 13348,
+          "drawMeshes": 4,
+          "geometryBufferBytes": 652632,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1247605,
+          "assets": [
+            {
+              "url": "assets/study/wood/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 862220,
+              "sha256": "68c52f7a84968bc56e7b4d44c561649beb8d46db5db2803544ae4c12a1a632ab",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/wood/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 220757,
+              "sha256": "f75932f6586b7e85137364ab815e25af26a64e5e1a715bcb53f31da3a57150a5",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/wood/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 164628,
+              "sha256": "a4c9fbb8163fc779957dfbaf3580ac68562fe450a02d6f640871953d46ac03c5",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "wood",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "leather": {
+              "baseId": "leather",
+              "finishId": "matte",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "constant untextured leather control",
+              "source": "Scalar authored control"
+            },
+            "brass": {
+              "baseId": "brass",
+              "finishId": "matte",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 1,
+              "tier": "reference",
+              "substrate": "brass",
+              "source": "Scalar authored control"
+            },
+            "dark": {
+              "baseId": "dark",
+              "finishId": "matte",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "painted plinth",
+              "source": "Scalar authored control"
+            },
+            "wood": {
+              "baseId": "wood",
+              "finishId": "matte",
+              "conditionId": "worn",
+              "physicalScale": 0.5,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "wood",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 114112,
+          "sharedRecipeMeaning": "Preserved encoded geometry; shared engine excluded"
+        },
+        "B": {
+          "triangles": 13348,
+          "drawMeshes": 4,
+          "geometryBufferBytes": 652632,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1247605,
+          "assets": [
+            {
+              "url": "assets/study/wood/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 862220,
+              "sha256": "68c52f7a84968bc56e7b4d44c561649beb8d46db5db2803544ae4c12a1a632ab",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/wood/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 220757,
+              "sha256": "f75932f6586b7e85137364ab815e25af26a64e5e1a715bcb53f31da3a57150a5",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/wood/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 164628,
+              "sha256": "a4c9fbb8163fc779957dfbaf3580ac68562fe450a02d6f640871953d46ac03c5",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "wood",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "leather": {
+              "baseId": "leather",
+              "finishId": "matte",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "constant untextured leather control",
+              "source": "Scalar authored control"
+            },
+            "brass": {
+              "baseId": "brass",
+              "finishId": "matte",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 1,
+              "tier": "reference",
+              "substrate": "brass",
+              "source": "Scalar authored control"
+            },
+            "dark": {
+              "baseId": "dark",
+              "finishId": "matte",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "painted plinth",
+              "source": "Scalar authored control"
+            },
+            "wood": {
+              "baseId": "wood",
+              "finishId": "matte",
+              "conditionId": "worn",
+              "physicalScale": 0.5,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "wood",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 114112,
+          "sharedRecipeMeaning": "Preserved encoded geometry; shared engine excluded"
+        }
+      },
+      "preparation": {
+        "materialAndGeometryReadyMs": 142.09999990463257,
+        "compressedFormatPolicy": "BC7 on the previously tested AMD desktop path",
+        "A": {
+          "firstRenderAndGPUCompletionMs": 209.5
+        },
+        "B": {
+          "firstRenderAndGPUCompletionMs": 1.700000286102295
+        },
+        "pairReadyMs": 357,
+        "cacheState": "New pair resource wrappers; HTTP/decoder/shader/OS state may be warm. See resource timings."
+      },
+      "bounds": {
+        "min": [
+          -0.7599999904632568,
+          -1.490116086078075e-10,
+          -0.3799999952316284
+        ],
+        "max": [
+          0.7599999308586121,
+          0.7885295748710632,
+          0.3960043787956238
+        ]
+      }
+    },
+    {
+      "name": "desk-glossy-worn",
+      "subject": "desk",
+      "finish": "glossy",
+      "condition": "worn",
+      "glass": false,
+      "status": "ready",
+      "side": "A",
+      "trialId": "desk:explore:control",
+      "subjectId": "desk",
+      "geometryTiers": {
+        "A": "master",
+        "B": "master"
+      },
+      "textureTiers": {
+        "A": "reference",
+        "B": "reference"
+      },
+      "pose": {
+        "position": [
+          2.1577615252409794,
+          1.749389760901817,
+          3.12875421159942
+        ],
+        "target": [
+          0,
+          0.39,
+          0
+        ],
+        "fov": 35,
+        "near": 0.01,
+        "far": 200
+      },
+      "lightPhase": 0,
+      "timeline": 0,
+      "contextLost": false,
+      "valid": true,
+      "measurements": [
+        {
+          "side": "A",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999709,
+            "p95": 16.79999999998836,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.3000001907348633,
+            "p95": 0.40000009536743164,
+            "p99": 0.5,
+            "max": 0.5
+          },
+          "gpuMs": {
+            "p50": 0.61664,
+            "p95": 0.98864,
+            "p99": 0.98864,
+            "max": 1.0176,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              2.1577615252409794,
+              1.749389760901817,
+              3.12875421159942
+            ],
+            "target": [
+              0,
+              0.39,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "glossy",
+          "condition": "worn",
+          "glassTransmission": false,
+          "draws": 5,
+          "triangles": 13350,
+          "longTasks": [],
+          "valid": true
+        },
+        {
+          "side": "B",
+          "sampleCount": 119,
+          "frameCount": 119,
+          "frameMs": {
+            "p50": 16.69999999999709,
+            "p95": 16.80000000000291,
+            "p99": 16.80000000000291,
+            "max": 16.80000000000291
+          },
+          "cpuRenderSubmitMs": {
+            "p50": 0.3000001907348633,
+            "p95": 0.5,
+            "p99": 0.5,
+            "max": 0.9000000953674316
+          },
+          "gpuMs": {
+            "p50": 0.6168,
+            "p95": 0.9776,
+            "p99": 0.9776,
+            "max": 0.98048,
+            "sampleCount": 15
+          },
+          "camera": {
+            "position": [
+              2.1577615252409794,
+              1.749389760901817,
+              3.12875421159942
+            ],
+            "target": [
+              0,
+              0.39,
+              0
+            ],
+            "fov": 35,
+            "near": 0.01,
+            "far": 200
+          },
+          "viewId": "medium",
+          "output": {
+            "width": 549,
+            "height": 708,
+            "cssWidth": 366,
+            "cssHeight": 473,
+            "dpr": 1.5
+          },
+          "lightSetup": "studio",
+          "motion": true,
+          "trajectory": "Shared 8-second camera orbit and light sweep, each side starts phase 0",
+          "finish": "glossy",
+          "condition": "worn",
+          "glassTransmission": false,
+          "draws": 5,
+          "triangles": 13350,
+          "longTasks": [],
+          "valid": true
+        }
+      ],
+      "metrics": {
+        "A": {
+          "triangles": 13348,
+          "drawMeshes": 4,
+          "geometryBufferBytes": 652632,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1247605,
+          "assets": [
+            {
+              "url": "assets/study/wood/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 862220,
+              "sha256": "68c52f7a84968bc56e7b4d44c561649beb8d46db5db2803544ae4c12a1a632ab",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/wood/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 220757,
+              "sha256": "f75932f6586b7e85137364ab815e25af26a64e5e1a715bcb53f31da3a57150a5",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/wood/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 164628,
+              "sha256": "a4c9fbb8163fc779957dfbaf3580ac68562fe450a02d6f640871953d46ac03c5",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "wood",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "leather": {
+              "baseId": "leather",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "constant untextured leather control",
+              "source": "Scalar authored control"
+            },
+            "brass": {
+              "baseId": "brass",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 1,
+              "tier": "reference",
+              "substrate": "brass",
+              "source": "Scalar authored control"
+            },
+            "dark": {
+              "baseId": "dark",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "painted plinth",
+              "source": "Scalar authored control"
+            },
+            "wood": {
+              "baseId": "wood",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 0.5,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "wood",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 114112,
+          "sharedRecipeMeaning": "Preserved encoded geometry; shared engine excluded"
+        },
+        "B": {
+          "triangles": 13348,
+          "drawMeshes": 4,
+          "geometryBufferBytes": 652632,
+          "textureMipBytes": 16777212,
+          "encodedAssetBytes": 1247605,
+          "assets": [
+            {
+              "url": "assets/study/wood/ref-color.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 862220,
+              "sha256": "68c52f7a84968bc56e7b4d44c561649beb8d46db5db2803544ae4c12a1a632ab",
+              "colorSpace": "srgb"
+            },
+            {
+              "url": "assets/study/wood/ref-normal.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 220757,
+              "sha256": "f75932f6586b7e85137364ab815e25af26a64e5e1a715bcb53f31da3a57150a5",
+              "colorSpace": "linear"
+            },
+            {
+              "url": "assets/study/wood/ref-roughness.png",
+              "width": 1024,
+              "height": 1024,
+              "bytes": 164628,
+              "sha256": "a4c9fbb8163fc779957dfbaf3580ac68562fe450a02d6f640871953d46ac03c5",
+              "colorSpace": "linear"
+            }
+          ],
+          "formats": [
+            {
+              "role": "wood",
+              "channel": "color",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "srgb",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "normal",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            },
+            {
+              "role": "wood",
+              "channel": "roughness",
+              "format": 1023,
+              "type": 1009,
+              "width": 1024,
+              "height": 1024,
+              "colorSpace": "",
+              "mipLevels": 11
+            }
+          ],
+          "materials": {
+            "leather": {
+              "baseId": "leather",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "constant untextured leather control",
+              "source": "Scalar authored control"
+            },
+            "brass": {
+              "baseId": "brass",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 1,
+              "tier": "reference",
+              "substrate": "brass",
+              "source": "Scalar authored control"
+            },
+            "dark": {
+              "baseId": "dark",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 1,
+              "finishApplied": false,
+              "fallback": "Coating preset inapplicable; retain the base material response",
+              "conditionApplied": false,
+              "conditionFallback": "No authored condition for this base; retain its response",
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "painted plinth",
+              "source": "Scalar authored control"
+            },
+            "wood": {
+              "baseId": "wood",
+              "finishId": "glossy",
+              "conditionId": "worn",
+              "physicalScale": 0.5,
+              "finishApplied": true,
+              "fallback": null,
+              "conditionApplied": true,
+              "conditionFallback": null,
+              "metalness": 0,
+              "tier": "reference",
+              "substrate": "wood",
+              "source": "Original analytic authored channels; not scanned or measured material data."
+            }
+          },
+          "memoryMeaning": "Buffer and mip payload accounting, not measured driver VRAM; shared dependencies excluded from asset bytes",
+          "sourceRecipeBytes": 114112,
+          "sharedRecipeMeaning": "Preserved encoded geometry; shared engine excluded"
+        }
+      },
+      "preparation": {
+        "materialAndGeometryReadyMs": 166,
+        "compressedFormatPolicy": "BC7 on the previously tested AMD desktop path",
+        "A": {
+          "firstRenderAndGPUCompletionMs": 73.69999980926514
+        },
+        "B": {
+          "firstRenderAndGPUCompletionMs": 1.9000000953674316
+        },
+        "pairReadyMs": 248.59999990463257,
+        "cacheState": "New pair resource wrappers; HTTP/decoder/shader/OS state may be warm. See resource timings."
+      },
+      "bounds": {
+        "min": [
+          -0.7599999904632568,
+          -1.490116086078075e-10,
+          -0.3799999952316284
+        ],
+        "max": [
+          0.7599999308586121,
+          0.7885295748710632,
+          0.3960043787956238
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "buildId": "c75c68663d9a3f0a",
+  "environment": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/146.0.0.0 Safari/537.36",
+    "platform": "Linux x86_64",
+    "three": "186",
+    "rendererBackend": "WebGLRenderer",
+    "devicePixelRatio": 3,
+    "firstStudyVisit": true,
+    "hardwareConcurrency": 16,
+    "deviceMemoryGiB": 8,
+    "network": {
+      "effectiveType": "4g",
+      "downlink": 1.6,
+      "rtt": 100
+    },
+    "gpu": "ANGLE (AMD, AMD Radeon RX 460 Graphics (radeonsi polaris11 ACO), OpenGL ES 3.2)",
+    "glExtensions": [
+      "EXT_clip_control",
+      "EXT_color_buffer_float",
+      "EXT_color_buffer_half_float",
+      "EXT_conservative_depth",
+      "EXT_depth_clamp",
+      "EXT_disjoint_timer_query_webgl2",
+      "EXT_float_blend",
+      "EXT_polygon_offset_clamp",
+      "EXT_render_snorm",
+      "EXT_texture_compression_bptc",
+      "EXT_texture_compression_rgtc",
+      "EXT_texture_filter_anisotropic",
+      "EXT_texture_mirror_clamp_to_edge",
+      "EXT_texture_norm16",
+      "KHR_parallel_shader_compile",
+      "NV_shader_noperspective_interpolation",
+      "OES_draw_buffers_indexed",
+      "OES_sample_variables",
+      "OES_shader_multisample_interpolation",
+      "OES_texture_float_linear",
+      "WEBGL_blend_func_extended",
+      "WEBGL_clip_cull_distance",
+      "WEBGL_compressed_texture_astc",
+      "WEBGL_compressed_texture_etc",
+      "WEBGL_compressed_texture_etc1",
+      "WEBGL_compressed_texture_s3tc",
+      "WEBGL_compressed_texture_s3tc_srgb",
+      "WEBGL_debug_renderer_info",
+      "WEBGL_debug_shaders",
+      "WEBGL_lose_context",
+      "WEBGL_multi_draw",
+      "WEBGL_stencil_texturing"
+    ],
+    "asynchronousGPUTime": true
+  }
+}

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>HE + Photonic · detail study</title>
+  <link rel="icon" href="data:,">
+  <style>
+    :root{color-scheme:dark;font:16px/1.5 system-ui;background:#101b1d;color:#edf4ef}
+    *{box-sizing:border-box}body{margin:0}main{max-width:1020px;margin:auto;padding:18px}
+    h1{font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.2;margin:.4em 0}h2{font-size:1.2rem}
+    p{max-width:72ch;color:#c7d6d2}a{color:#a6dfc4}small,.muted{color:#a6bdb5;font-size:.88rem}
+    button,select,textarea{font:inherit;border:1px solid #54716b;border-radius:9px;background:#203c37;color:#fff}
+    button,select{padding:11px 14px;min-height:46px}button{cursor:pointer}button:disabled{opacity:.4;cursor:default}
+    button.primary{background:#96d7b8;color:#112921;font-weight:700}button[aria-pressed=true]{outline:2px solid #c8e8dc;outline-offset:2px}
+    .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0}label{display:flex;align-items:center;gap:8px}
+    #studyViewport{width:100%;height:min(56vh,520px);min-height:280px;background:#31423f;border-radius:12px;overflow:hidden;touch-action:none}
+    canvas{display:block}#studyStatus{padding:12px;background:#20302e;border-radius:9px;min-height:3em;overflow-wrap:anywhere}
+    #voteControls{padding:14px;background:#172b26;border-radius:12px}#voteControls button{flex:1;min-width:100px}
+    textarea{width:100%;padding:10px;resize:vertical}#defectNote{min-height:65px}#studyJson{height:220px;font:12px/1.5 ui-monospace,monospace}
+    details,section{margin:20px 0}#revealPanel{padding:16px;border:1px solid #54716b;border-radius:12px}
+    #variantCosts{white-space:pre-wrap;font:13px/1.6 ui-monospace,monospace;overflow-wrap:anywhere}
+    .viewControls{font-size:.9rem}.viewControls select{font-size:inherit}#subjectTitle{margin-bottom:4px}
+    #sessionSummary{color:#c7d6d2}#gallery img{width:100%;border-radius:10px}#gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+    [hidden]{display:none!important}footer{margin:30px 0}.voteHint{margin-top:4px}
+    @media(max-width:480px){main{padding:12px}.viewControls{gap:8px}button,select{padding:10px 12px}#voteControls{padding:10px}}
+  </style>
+</head>
+<body><main>
+  <a href="./">← Original desk benchmark</a>
+  <h1>How much detail can you see?</h1>
+  <p>Inspect a car, a tree and an upholstered chair. Switch between A and B, then choose the version that looks better. Their identities and costs appear after your choice.</p>
+  <h2 id="subjectTitle">Preparing the first comparison…</h2>
+  <div id="studyViewport" aria-label="Matched 3D comparison"></div>
+  <div class="controls">
+    <button id="sideA" disabled aria-pressed="true">Show A</button>
+    <button id="sideB" disabled aria-pressed="false">Show B</button>
+    <button id="stopStudy">Stop</button>
+    <button id="restartTrial" disabled>Restart comparison</button>
+  </div>
+  <div class="controls viewControls">
+    <label>View <select id="view"><option value="close">Close detail</option><option value="medium">Whole subject</option><option value="silhouette">Side / silhouette</option></select></label>
+    <label>Light <select id="lightSetup"><option value="studio">Studio</option><option value="raking">Raking light</option></select></label>
+    <label><input id="motion" type="checkbox"> Synchronized motion + light sweep</label>
+  </div>
+  <p id="studyStatus" role="status" aria-live="polite">Preparing both versions…</p>
+  <section id="voteControls">
+    <p class="voteHint">Judge visible surface detail, highlights, edges and motion stability. A tie is useful too.</p>
+    <label for="defectNote">What caught your eye? <span class="muted">(optional)</span></label>
+    <textarea id="defectNote" placeholder="A broken highlight, missing twig, fabric shimmer…"></textarea>
+    <div class="controls">
+      <button id="voteA" disabled>A looks better</button>
+      <button id="voteB" disabled>B looks better</button>
+      <button id="voteTie" disabled>No visible difference</button>
+    </div>
+  </section>
+  <div class="controls">
+    <button id="nextTrial" class="primary" disabled>Next comparison</button>
+    <button id="runMeasure" disabled>Measure both versions</button>
+  </div>
+  <p class="muted">Measurements take about 5 seconds. While comparing blind, timing and cost results stay hidden until you vote. Keep this tab visible; Stop saves an interruption, not a quality judgment.</p>
+  <section id="revealPanel" hidden>
+    <h2>Your choice is saved</h2>
+    <p id="voteSaved"></p>
+    <div id="variantCosts"></div>
+    <details><summary>Explore finishes and condition</summary>
+      <p>These controls change the intended appearance. They do not change your saved blind vote. Coating presets affect painted metal and wood; bark, cloth and other surfaces retain their compatible response.</p>
+      <div class="controls">
+        <label>Subject <select id="finishSubject"><option value="car">Car</option><option value="tree">Tree</option><option value="chair">Chair</option><option value="desk">Desk control</option></select></label>
+        <label>Finish <select id="finish" disabled><option value="matte">Matte</option><option value="satin" selected>Satin</option><option value="glossy">Glossy / clearcoat</option></select></label>
+        <label>Condition <select id="condition" disabled><option value="clean">Clean</option><option value="worn">Worn / weathered</option><option value="graphic">Decorative graphic</option></select></label>
+        <label><input id="glass" type="checkbox" disabled> Refractive car glass</label>
+      </div>
+      <p class="muted">Wear masks are authored contact/exposure approximations. They are not measured aging. The desk uses the preserved geometry with this study's wood and a constant leather control.</p>
+    </details>
+  </section>
+  <p id="sessionSummary">Your results stay on this device until you share them.</p>
+  <div class="controls">
+    <button id="exportStudy">Download results</button><button id="copyStudy">Copy results</button><button id="shareStudy">Share result file</button>
+  </div>
+  <details id="rawDetails"><summary>Portable results / copy fallback</summary><textarea id="studyJson" readonly aria-label="Study result JSON"></textarea></details>
+  <details><summary>More comparisons</summary>
+    <label>Trial set <select id="trialSet"><option value="quick">Short study · 9 comparisons</option><option value="full">Full shortlist · 15 comparisons</option></select></label>
+    <p class="muted">The short study includes texture and geometry comparisons for each subject. The full set adds more texture candidates. Trial order and A/B assignment are randomized locally.</p>
+  </details>
+  <details><summary>What this study can establish</summary>
+    <p>The subjects and surface channels are original authored test fixtures. Matching views isolate changes to texture delivery or geometry. These are comparisons against an authored reference, not a realism score or a full HE/Photonic engine benchmark.</p>
+    <p>One person's tie does not establish that everyone will see no difference. Frame intervals reflect this browser and screen refresh rate. Texture and buffer bytes describe payload accounting, not measured driver memory. First rendering includes preparation and compilation.</p>
+    <p>There is no account, analytics or automatic upload. A hidden tab or graphics-context loss interrupts the current trial. The original desk benchmark and its iPhone 13 evidence remain available.</p>
+    <p><a href="STUDY-PROTOCOL.txt">Protocol and reproducibility</a> · <a href="study-findings.html">Provisional findings and pictures</a></p>
+  </details>
+  <footer><small>HE + Photonic research · controlled study v2 · Three.js r186.1 · direct WebGL · shadows and tree wind off in baseline comparisons.</small></footer>
+  <noscript>This comparison needs JavaScript and WebGL.</noscript>
+</main><script type="module" src="study.js"></script></body>
+</html>

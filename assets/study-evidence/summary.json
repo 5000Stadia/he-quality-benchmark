@@ -1,0 +1,2111 @@
+{
+  "schema": "he-quality-provisional-summary/1",
+  "createdUTC": "2026-10-17T00:01:21.101135+00:00",
+  "humanVotes": 0,
+  "desktopRepetitions": 3,
+  "environment": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/146.0.0.0 Safari/537.36",
+    "platform": "Linux x86_64",
+    "three": "186",
+    "rendererBackend": "WebGLRenderer",
+    "devicePixelRatio": 3,
+    "firstStudyVisit": true,
+    "hardwareConcurrency": 16,
+    "deviceMemoryGiB": 8,
+    "network": {
+      "effectiveType": "4g",
+      "downlink": 1.45,
+      "rtt": 100
+    },
+    "gpu": "ANGLE (AMD, AMD Radeon RX 460 Graphics (radeonsi polaris11 ACO), OpenGL ES 3.2)",
+    "glExtensions": [
+      "EXT_clip_control",
+      "EXT_color_buffer_float",
+      "EXT_color_buffer_half_float",
+      "EXT_conservative_depth",
+      "EXT_depth_clamp",
+      "EXT_disjoint_timer_query_webgl2",
+      "EXT_float_blend",
+      "EXT_polygon_offset_clamp",
+      "EXT_render_snorm",
+      "EXT_texture_compression_bptc",
+      "EXT_texture_compression_rgtc",
+      "EXT_texture_filter_anisotropic",
+      "EXT_texture_mirror_clamp_to_edge",
+      "EXT_texture_norm16",
+      "KHR_parallel_shader_compile",
+      "NV_shader_noperspective_interpolation",
+      "OES_draw_buffers_indexed",
+      "OES_sample_variables",
+      "OES_shader_multisample_interpolation",
+      "OES_texture_float_linear",
+      "WEBGL_blend_func_extended",
+      "WEBGL_clip_cull_distance",
+      "WEBGL_compressed_texture_astc",
+      "WEBGL_compressed_texture_etc",
+      "WEBGL_compressed_texture_etc1",
+      "WEBGL_compressed_texture_s3tc",
+      "WEBGL_compressed_texture_s3tc_srgb",
+      "WEBGL_debug_renderer_info",
+      "WEBGL_debug_shaders",
+      "WEBGL_lose_context",
+      "WEBGL_multi_draw",
+      "WEBGL_stencil_texturing"
+    ],
+    "asynchronousGPUTime": true
+  },
+  "rows": [
+    {
+      "subject": "car",
+      "variant": "reference",
+      "name": "Lossless authored reference",
+      "runs": 15,
+      "frames": 1785,
+      "frameP50Median": 16.69999999999891,
+      "frameP95Median": 16.700000000000728,
+      "frameP99Median": 16.799999999999272,
+      "gpuP50Median": 0.98816,
+      "cpuSubmitP95Median": 0.5,
+      "triangles": 116464,
+      "geometryBufferBytes": 3797568,
+      "encodedSurfaceBytes": 1929560,
+      "textureMipBytes": 16777212,
+      "cpuGeometryArrayBytes": 3797568,
+      "cpuCompressedMipArrayBytes": 0,
+      "estimatedCPUImageRGBABytes": 12582912,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "paint",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "paint",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "paint",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 2292.2999997138977
+    },
+    {
+      "subject": "car",
+      "variant": "avif90",
+      "name": "AVIF90 color + lossless data",
+      "runs": 3,
+      "frames": 357,
+      "frameP50Median": 16.700000000000728,
+      "frameP95Median": 16.799999999999272,
+      "frameP99Median": 16.799999999999272,
+      "gpuP50Median": 0.98704,
+      "cpuSubmitP95Median": 0.5,
+      "triangles": 116464,
+      "geometryBufferBytes": 3797568,
+      "encodedSurfaceBytes": 1717644,
+      "textureMipBytes": 16777212,
+      "cpuGeometryArrayBytes": 3797568,
+      "cpuCompressedMipArrayBytes": 0,
+      "estimatedCPUImageRGBABytes": 12582912,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "paint",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "paint",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "paint",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 2255.3999996185303
+    },
+    {
+      "subject": "car",
+      "variant": "avif80",
+      "name": "AVIF80 color + lossless data",
+      "runs": 3,
+      "frames": 357,
+      "frameP50Median": 16.700000000000728,
+      "frameP95Median": 16.799999999999272,
+      "frameP99Median": 16.799999999999272,
+      "gpuP50Median": 0.9872,
+      "cpuSubmitP95Median": 0.5,
+      "triangles": 116464,
+      "geometryBufferBytes": 3797568,
+      "encodedSurfaceBytes": 1714617,
+      "textureMipBytes": 16777212,
+      "cpuGeometryArrayBytes": 3797568,
+      "cpuCompressedMipArrayBytes": 0,
+      "estimatedCPUImageRGBABytes": 12582912,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "paint",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "paint",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "paint",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 2256
+    },
+    {
+      "subject": "car",
+      "variant": "uastc1024",
+      "name": "UASTC1024 all channels",
+      "runs": 3,
+      "frames": 356,
+      "frameP50Median": 16.699999999999818,
+      "frameP95Median": 16.700000000000728,
+      "frameP99Median": 16.800000000000182,
+      "gpuP50Median": 0.9656,
+      "cpuSubmitP95Median": 0.6000003814697266,
+      "triangles": 116464,
+      "geometryBufferBytes": 3797568,
+      "encodedSurfaceBytes": 1947362,
+      "textureMipBytes": 4194384,
+      "cpuGeometryArrayBytes": 3797568,
+      "cpuCompressedMipArrayBytes": 4194384,
+      "estimatedCPUImageRGBABytes": 0,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "paint",
+          "channel": "color",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "paint",
+          "channel": "normal",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "paint",
+          "channel": "roughness",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 2889.300000190735
+    },
+    {
+      "subject": "car",
+      "variant": "uastc512",
+      "name": "UASTC512 all channels",
+      "runs": 3,
+      "frames": 357,
+      "frameP50Median": 16.69999999999891,
+      "frameP95Median": 16.700000000000728,
+      "frameP99Median": 16.799999999999272,
+      "gpuP50Median": 0.96624,
+      "cpuSubmitP95Median": 0.5999999046325684,
+      "triangles": 116464,
+      "geometryBufferBytes": 3797568,
+      "encodedSurfaceBytes": 461403,
+      "textureMipBytes": 1048656,
+      "cpuGeometryArrayBytes": 3797568,
+      "cpuCompressedMipArrayBytes": 1048656,
+      "estimatedCPUImageRGBABytes": 0,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "paint",
+          "channel": "color",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "srgb",
+          "mipLevels": 10
+        },
+        {
+          "role": "paint",
+          "channel": "normal",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "",
+          "mipLevels": 10
+        },
+        {
+          "role": "paint",
+          "channel": "roughness",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "",
+          "mipLevels": 10
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 2425.2999997138977
+    },
+    {
+      "subject": "car",
+      "variant": "reduced",
+      "name": "Reduced geometry + reference maps",
+      "runs": 3,
+      "frames": 350,
+      "frameP50Median": 16.69999999999709,
+      "frameP95Median": 16.700000000004366,
+      "frameP99Median": 16.80000000000291,
+      "gpuP50Median": 0.7464,
+      "cpuSubmitP95Median": 0.5999999046325684,
+      "triangles": 20088,
+      "geometryBufferBytes": 800400,
+      "encodedSurfaceBytes": 1929560,
+      "textureMipBytes": 16777212,
+      "cpuGeometryArrayBytes": 800400,
+      "cpuCompressedMipArrayBytes": 0,
+      "estimatedCPUImageRGBABytes": 12582912,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "paint",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "paint",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "paint",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 1449.3000001907349
+    },
+    {
+      "subject": "tree",
+      "variant": "reference",
+      "name": "Lossless authored reference",
+      "runs": 15,
+      "frames": 1785,
+      "frameP50Median": 16.69999999999709,
+      "frameP95Median": 16.700000000004366,
+      "frameP99Median": 16.80000000000291,
+      "gpuP50Median": 1.4624,
+      "cpuSubmitP95Median": 0.40000009536743164,
+      "triangles": 77872,
+      "geometryBufferBytes": 3012816,
+      "encodedSurfaceBytes": 3631048,
+      "textureMipBytes": 33554424,
+      "cpuGeometryArrayBytes": 3012816,
+      "cpuCompressedMipArrayBytes": 0,
+      "estimatedCPUImageRGBABytes": 25165824,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "bark",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "bark",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "bark",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 1347.0999999046326
+    },
+    {
+      "subject": "tree",
+      "variant": "avif90",
+      "name": "AVIF90 color + lossless data",
+      "runs": 3,
+      "frames": 357,
+      "frameP50Median": 16.69999999999709,
+      "frameP95Median": 16.70000000001164,
+      "frameP99Median": 16.799999999995634,
+      "gpuP50Median": 1.4624,
+      "cpuSubmitP95Median": 0.40000009536743164,
+      "triangles": 77872,
+      "geometryBufferBytes": 3012816,
+      "encodedSurfaceBytes": 1730939,
+      "textureMipBytes": 33554424,
+      "cpuGeometryArrayBytes": 3012816,
+      "cpuCompressedMipArrayBytes": 0,
+      "estimatedCPUImageRGBABytes": 25165824,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "leaf",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "bark",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "bark",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "bark",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 1347.0999999046326
+    },
+    {
+      "subject": "tree",
+      "variant": "avif80",
+      "name": "AVIF80 color + lossless data",
+      "runs": 3,
+      "frames": 357,
+      "frameP50Median": 16.69999999999709,
+      "frameP95Median": 16.700000000004366,
+      "frameP99Median": 16.80000000000291,
+      "gpuP50Median": 1.46176,
+      "cpuSubmitP95Median": 0.40000009536743164,
+      "triangles": 77872,
+      "geometryBufferBytes": 3012816,
+      "encodedSurfaceBytes": 1557646,
+      "textureMipBytes": 33554424,
+      "cpuGeometryArrayBytes": 3012816,
+      "cpuCompressedMipArrayBytes": 0,
+      "estimatedCPUImageRGBABytes": 25165824,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "bark",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "bark",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "bark",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 1263.6999998092651
+    },
+    {
+      "subject": "tree",
+      "variant": "uastc1024",
+      "name": "UASTC1024 all channels",
+      "runs": 3,
+      "frames": 357,
+      "frameP50Median": 16.69999999999709,
+      "frameP95Median": 16.799999999995634,
+      "frameP99Median": 16.80000000000291,
+      "gpuP50Median": 1.42192,
+      "cpuSubmitP95Median": 0.40000009536743164,
+      "triangles": 77872,
+      "geometryBufferBytes": 3012816,
+      "encodedSurfaceBytes": 3983857,
+      "textureMipBytes": 8388768,
+      "cpuGeometryArrayBytes": 3012816,
+      "cpuCompressedMipArrayBytes": 8388768,
+      "estimatedCPUImageRGBABytes": 0,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "bark",
+          "channel": "color",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "bark",
+          "channel": "normal",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "bark",
+          "channel": "roughness",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "color",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "normal",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "roughness",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 1632.8000001907349
+    },
+    {
+      "subject": "tree",
+      "variant": "uastc512",
+      "name": "UASTC512 all channels",
+      "runs": 3,
+      "frames": 357,
+      "frameP50Median": 16.69999999999709,
+      "frameP95Median": 16.700000000004366,
+      "frameP99Median": 16.80000000000291,
+      "gpuP50Median": 1.42528,
+      "cpuSubmitP95Median": 0.40000009536743164,
+      "triangles": 77872,
+      "geometryBufferBytes": 3012816,
+      "encodedSurfaceBytes": 1161791,
+      "textureMipBytes": 2097312,
+      "cpuGeometryArrayBytes": 3012816,
+      "cpuCompressedMipArrayBytes": 2097312,
+      "estimatedCPUImageRGBABytes": 0,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "bark",
+          "channel": "color",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "srgb",
+          "mipLevels": 10
+        },
+        {
+          "role": "bark",
+          "channel": "normal",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "",
+          "mipLevels": 10
+        },
+        {
+          "role": "bark",
+          "channel": "roughness",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "",
+          "mipLevels": 10
+        },
+        {
+          "role": "leaf",
+          "channel": "color",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "srgb",
+          "mipLevels": 10
+        },
+        {
+          "role": "leaf",
+          "channel": "normal",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "",
+          "mipLevels": 10
+        },
+        {
+          "role": "leaf",
+          "channel": "roughness",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "",
+          "mipLevels": 10
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 1563.0999999046326
+    },
+    {
+      "subject": "tree",
+      "variant": "reduced",
+      "name": "Reduced geometry + reference maps",
+      "runs": 3,
+      "frames": 357,
+      "frameP50Median": 16.69999999999709,
+      "frameP95Median": 16.79999999998836,
+      "frameP99Median": 16.80000000000291,
+      "gpuP50Median": 0.92032,
+      "cpuSubmitP95Median": 0.40000009536743164,
+      "triangles": 6150,
+      "geometryBufferBytes": 385620,
+      "encodedSurfaceBytes": 3631048,
+      "textureMipBytes": 33554424,
+      "cpuGeometryArrayBytes": 385620,
+      "cpuCompressedMipArrayBytes": 0,
+      "estimatedCPUImageRGBABytes": 25165824,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "bark",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "bark",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "bark",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "leaf",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 775.9000000953674
+    },
+    {
+      "subject": "chair",
+      "variant": "reference",
+      "name": "Lossless authored reference",
+      "runs": 15,
+      "frames": 1786,
+      "frameP50Median": 16.69999999999709,
+      "frameP95Median": 16.70000000001164,
+      "frameP99Median": 16.80000000000291,
+      "gpuP50Median": 0.82144,
+      "cpuSubmitP95Median": 0.40000009536743164,
+      "triangles": 32280,
+      "geometryBufferBytes": 1265904,
+      "encodedSurfaceBytes": 4356148,
+      "textureMipBytes": 33554424,
+      "cpuGeometryArrayBytes": 1265904,
+      "cpuCompressedMipArrayBytes": 0,
+      "estimatedCPUImageRGBABytes": 25165824,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "wood",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "wood",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "wood",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "fabric",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "fabric",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "fabric",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 875.8000001907349
+    },
+    {
+      "subject": "chair",
+      "variant": "avif90",
+      "name": "AVIF90 color + lossless data",
+      "runs": 3,
+      "frames": 357,
+      "frameP50Median": 16.69999999999709,
+      "frameP95Median": 16.70000000001164,
+      "frameP99Median": 16.80000000000291,
+      "gpuP50Median": 0.98256,
+      "cpuSubmitP95Median": 0.40000009536743164,
+      "triangles": 32280,
+      "geometryBufferBytes": 1265904,
+      "encodedSurfaceBytes": 3158279,
+      "textureMipBytes": 33554424,
+      "cpuGeometryArrayBytes": 1265904,
+      "cpuCompressedMipArrayBytes": 0,
+      "estimatedCPUImageRGBABytes": 25165824,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "wood",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "wood",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "wood",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "fabric",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "fabric",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "fabric",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 861.0999999046326
+    },
+    {
+      "subject": "chair",
+      "variant": "avif80",
+      "name": "AVIF80 color + lossless data",
+      "runs": 3,
+      "frames": 357,
+      "frameP50Median": 16.69999999999709,
+      "frameP95Median": 16.79999999998836,
+      "frameP99Median": 16.80000000000291,
+      "gpuP50Median": 0.82208,
+      "cpuSubmitP95Median": 0.40000009536743164,
+      "triangles": 32280,
+      "geometryBufferBytes": 1265904,
+      "encodedSurfaceBytes": 3006314,
+      "textureMipBytes": 33554424,
+      "cpuGeometryArrayBytes": 1265904,
+      "cpuCompressedMipArrayBytes": 0,
+      "estimatedCPUImageRGBABytes": 25165824,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "fabric",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "fabric",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "fabric",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "wood",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "wood",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "wood",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 801
+    },
+    {
+      "subject": "chair",
+      "variant": "uastc1024",
+      "name": "UASTC1024 all channels",
+      "runs": 3,
+      "frames": 357,
+      "frameP50Median": 16.69999999999709,
+      "frameP95Median": 16.70000000001164,
+      "frameP99Median": 16.80000000000291,
+      "gpuP50Median": 0.80464,
+      "cpuSubmitP95Median": 0.5,
+      "triangles": 32280,
+      "geometryBufferBytes": 1265904,
+      "encodedSurfaceBytes": 3584476,
+      "textureMipBytes": 8388768,
+      "cpuGeometryArrayBytes": 1265904,
+      "cpuCompressedMipArrayBytes": 8388768,
+      "estimatedCPUImageRGBABytes": 0,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "fabric",
+          "channel": "color",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "fabric",
+          "channel": "normal",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "fabric",
+          "channel": "roughness",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "wood",
+          "channel": "color",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "wood",
+          "channel": "normal",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "wood",
+          "channel": "roughness",
+          "format": 36492,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 1308.5999999046326
+    },
+    {
+      "subject": "chair",
+      "variant": "uastc512",
+      "name": "UASTC512 all channels",
+      "runs": 3,
+      "frames": 357,
+      "frameP50Median": 16.69999999999709,
+      "frameP95Median": 16.70000000001164,
+      "frameP99Median": 16.80000000000291,
+      "gpuP50Median": 0.8048,
+      "cpuSubmitP95Median": 0.5,
+      "triangles": 32280,
+      "geometryBufferBytes": 1265904,
+      "encodedSurfaceBytes": 1013278,
+      "textureMipBytes": 2097312,
+      "cpuGeometryArrayBytes": 1265904,
+      "cpuCompressedMipArrayBytes": 2097312,
+      "estimatedCPUImageRGBABytes": 0,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "fabric",
+          "channel": "color",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "srgb",
+          "mipLevels": 10
+        },
+        {
+          "role": "fabric",
+          "channel": "normal",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "",
+          "mipLevels": 10
+        },
+        {
+          "role": "fabric",
+          "channel": "roughness",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "",
+          "mipLevels": 10
+        },
+        {
+          "role": "wood",
+          "channel": "color",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "srgb",
+          "mipLevels": 10
+        },
+        {
+          "role": "wood",
+          "channel": "normal",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "",
+          "mipLevels": 10
+        },
+        {
+          "role": "wood",
+          "channel": "roughness",
+          "format": 36492,
+          "type": 1009,
+          "width": 512,
+          "height": 512,
+          "colorSpace": "",
+          "mipLevels": 10
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 1073.6999998092651
+    },
+    {
+      "subject": "chair",
+      "variant": "reduced",
+      "name": "Reduced geometry + reference maps",
+      "runs": 3,
+      "frames": 356,
+      "frameP50Median": 16.69999999999709,
+      "frameP95Median": 16.80000000000291,
+      "frameP99Median": 16.80000000000291,
+      "gpuP50Median": 0.68144,
+      "cpuSubmitP95Median": 0.40000009536743164,
+      "triangles": 7960,
+      "geometryBufferBytes": 430896,
+      "encodedSurfaceBytes": 4356148,
+      "textureMipBytes": 33554424,
+      "cpuGeometryArrayBytes": 430896,
+      "cpuCompressedMipArrayBytes": 0,
+      "estimatedCPUImageRGBABytes": 25165824,
+      "cpuMeaning": "Geometry and compressed mip array lengths are observable; browser image RGBA decode is an estimate. Browser/driver caches and overhead are unknown.",
+      "sourceRecipeBytesShared": 23646,
+      "formats": [
+        {
+          "role": "fabric",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "fabric",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "fabric",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "wood",
+          "channel": "color",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "srgb",
+          "mipLevels": 11
+        },
+        {
+          "role": "wood",
+          "channel": "normal",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        },
+        {
+          "role": "wood",
+          "channel": "roughness",
+          "format": 1023,
+          "type": 1009,
+          "width": 1024,
+          "height": 1024,
+          "colorSpace": "",
+          "mipLevels": 11
+        }
+      ],
+      "output": {
+        "width": 549,
+        "height": 708,
+        "cssWidth": 366,
+        "cssHeight": 473,
+        "dpr": 1.5
+      },
+      "medianPairPreparationMs": 580.2000002861023
+    }
+  ],
+  "renderedFidelity": [
+    {
+      "subject": "car",
+      "candidate": "uastc1024",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9987621048192447,
+      "rgbRMSE": 0.002274197505254019,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "car",
+      "candidate": "uastc1024",
+      "view": "medium",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9997588836567093,
+      "rgbRMSE": 0.001139104025778669,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "car",
+      "candidate": "uastc1024",
+      "view": "silhouette",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9998813565617201,
+      "rgbRMSE": 0.0011181677594038297,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "car",
+      "candidate": "uastc512",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9986418131241196,
+      "rgbRMSE": 0.002391729806613438,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "car",
+      "candidate": "uastc512",
+      "view": "medium",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9997533112494688,
+      "rgbRMSE": 0.0012491822038190237,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "car",
+      "candidate": "uastc512",
+      "view": "silhouette",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9998691223071112,
+      "rgbRMSE": 0.0012365673319515397,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "car",
+      "candidate": "avif90",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9995536080571589,
+      "rgbRMSE": 0.002461539771403259,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "car",
+      "candidate": "avif80",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9994624771949513,
+      "rgbRMSE": 0.0024807246227811462,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "car",
+      "candidate": "geometry",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9561006790994624,
+      "rgbRMSE": 0.03708271101288777,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "car",
+      "candidate": "geometry",
+      "view": "medium",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9938747425490198,
+      "rgbRMSE": 0.009227073432833806,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "car",
+      "candidate": "geometry",
+      "view": "silhouette",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9909471052999904,
+      "rgbRMSE": 0.012632616885315407,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "tree",
+      "candidate": "uastc1024",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9970908965541567,
+      "rgbRMSE": 0.0037017953260015026,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "tree",
+      "candidate": "uastc1024",
+      "view": "medium",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9978970842234601,
+      "rgbRMSE": 0.003603049078294741,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "tree",
+      "candidate": "uastc1024",
+      "view": "silhouette",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9969287437100922,
+      "rgbRMSE": 0.004325172466666101,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "tree",
+      "candidate": "uastc512",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9958165428064314,
+      "rgbRMSE": 0.00459537424030874,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "tree",
+      "candidate": "uastc512",
+      "view": "medium",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9943407165170511,
+      "rgbRMSE": 0.005978181319921289,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "tree",
+      "candidate": "uastc512",
+      "view": "silhouette",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9947756041725363,
+      "rgbRMSE": 0.00588901125283291,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "tree",
+      "candidate": "avif90",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9993999457658835,
+      "rgbRMSE": 0.0023380508833470226,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "tree",
+      "candidate": "avif80",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9993149197840121,
+      "rgbRMSE": 0.002471593718184694,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "tree",
+      "candidate": "geometry",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.5052319902841029,
+      "rgbRMSE": 0.11006760172481822,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "tree",
+      "candidate": "geometry",
+      "view": "medium",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.8612879848828345,
+      "rgbRMSE": 0.048471793819009124,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "tree",
+      "candidate": "geometry",
+      "view": "silhouette",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.7993437953930174,
+      "rgbRMSE": 0.058412499796844666,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "chair",
+      "candidate": "uastc1024",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9946399519909243,
+      "rgbRMSE": 0.0033851362009416235,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "chair",
+      "candidate": "uastc1024",
+      "view": "medium",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9989009682461113,
+      "rgbRMSE": 0.002096578395893419,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "chair",
+      "candidate": "uastc1024",
+      "view": "silhouette",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.99705683816669,
+      "rgbRMSE": 0.003389194022155499,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "chair",
+      "candidate": "uastc512",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9945596395419315,
+      "rgbRMSE": 0.003419954957134982,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "chair",
+      "candidate": "uastc512",
+      "view": "medium",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9988704366631771,
+      "rgbRMSE": 0.00210086386714462,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "chair",
+      "candidate": "uastc512",
+      "view": "silhouette",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9970218724208588,
+      "rgbRMSE": 0.0033927417142468456,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "chair",
+      "candidate": "avif90",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9992707521692336,
+      "rgbRMSE": 0.0015696016313378374,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "chair",
+      "candidate": "avif80",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9990260764686189,
+      "rgbRMSE": 0.0017750637618214244,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "chair",
+      "candidate": "geometry",
+      "view": "close",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9253522252091855,
+      "rgbRMSE": 0.05396405627421722,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "chair",
+      "candidate": "geometry",
+      "view": "medium",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9578773915112245,
+      "rgbRMSE": 0.03081719882414069,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    },
+    {
+      "subject": "chair",
+      "candidate": "geometry",
+      "view": "silhouette",
+      "centralCropPixels": [
+        109,
+        213,
+        988,
+        1208
+      ],
+      "block8GrayscaleSSIM": 0.9238513516652979,
+      "rgbRMSE": 0.033365496345606455,
+      "meaning": "Matched rendered reference fidelity, not realism or a human preference score"
+    }
+  ],
+  "initialPageTimings": [
+    {
+      "moduleEvaluationStartMs": 100,
+      "firstSceneFrameMs": 792.1999998092651,
+      "firstUsefulSubjectFrameMs": 2487,
+      "firstUsefulSubjectAfterModuleMs": 2387
+    },
+    {
+      "moduleEvaluationStartMs": 53.799999713897705,
+      "firstSceneFrameMs": 218.69999980926514,
+      "firstUsefulSubjectFrameMs": 1578.6999998092651,
+      "firstUsefulSubjectAfterModuleMs": 1524.9000000953674
+    },
+    {
+      "moduleEvaluationStartMs": 47.5,
+      "firstSceneFrameMs": 225.40000009536743,
+      "firstUsefulSubjectFrameMs": 1640.4000000953674,
+      "firstUsefulSubjectAfterModuleMs": 1592.9000000953674
+    }
+  ],
+  "surfacePreparationSeconds": 98.094883157406,
+  "sharedStudyBundleBytes": 786192,
+  "sharedStudyBundleGzipBytes": 214145,
+  "subjectRecipeBytesShared": 23646,
+  "materialRecipeBytesShared": 10852,
+  "rendererBundleVerification": {
+    "buildId": "c75c68663d9a3f0a",
+    "sha256": "692ef1e18b92b92783e12f214bf542dc12ad84f02a9910b6050435f25e0a6897",
+    "method": "Bundle matches archived evidence SHA256, or its modification preceded original matrix start; renderer inputs were frozen throughout. Runtime IDs are recorded by newer driver revisions."
+  },
+  "commonTranscoderFileBytes": {
+    "basis_transcoder.wasm": 527333,
+    "basis_transcoder.js": 57529
+  },
+  "surfaceTools": {
+    "numpy": "2.5.4",
+    "Pillow": "12.3.0",
+    "KTX": "4.4.2",
+    "Three": "0.186.1"
+  },
+  "informedFeatureChecks": [
+    {
+      "name": "car-matte-clean",
+      "subject": "car",
+      "frameP95Median": 16.75,
+      "gpuP50Median": 0.54992,
+      "draws": [
+        6,
+        6
+      ],
+      "meaning": "One automated informed setting, two matching sides; no human quality votes"
+    },
+    {
+      "name": "car-glossy-clean",
+      "subject": "car",
+      "frameP95Median": 16.700000000000728,
+      "gpuP50Median": 0.60392,
+      "draws": [
+        6,
+        6
+      ],
+      "meaning": "One automated informed setting, two matching sides; no human quality votes"
+    },
+    {
+      "name": "car-glossy-clean-glass",
+      "subject": "car",
+      "frameP95Median": 16.799999999995634,
+      "gpuP50Median": 1.36272,
+      "draws": [
+        11,
+        11
+      ],
+      "meaning": "One automated informed setting, two matching sides; no human quality votes"
+    },
+    {
+      "name": "car-glossy-worn",
+      "subject": "car",
+      "frameP95Median": 16.700000000004366,
+      "gpuP50Median": 0.6097600000000001,
+      "draws": [
+        6,
+        6
+      ],
+      "meaning": "One automated informed setting, two matching sides; no human quality votes"
+    },
+    {
+      "name": "tree-satin-worn",
+      "subject": "tree",
+      "frameP95Median": 16.700000000004366,
+      "gpuP50Median": 0.82672,
+      "draws": [
+        3,
+        3
+      ],
+      "meaning": "One automated informed setting, two matching sides; no human quality votes"
+    },
+    {
+      "name": "chair-glossy-graphic",
+      "subject": "chair",
+      "frameP95Median": 16.700000000004366,
+      "gpuP50Median": 0.59352,
+      "draws": [
+        4,
+        4
+      ],
+      "meaning": "One automated informed setting, two matching sides; no human quality votes"
+    },
+    {
+      "name": "desk-matte-worn",
+      "subject": "desk",
+      "frameP95Median": 16.70000000001164,
+      "gpuP50Median": 0.54504,
+      "draws": [
+        5,
+        5
+      ],
+      "meaning": "One automated informed setting, two matching sides; no human quality votes"
+    },
+    {
+      "name": "desk-glossy-worn",
+      "subject": "desk",
+      "frameP95Median": 16.799999999995634,
+      "gpuP50Median": 0.6167199999999999,
+      "draws": [
+        5,
+        5
+      ],
+      "meaning": "One automated informed setting, two matching sides; no human quality votes"
+    }
+  ]
+}

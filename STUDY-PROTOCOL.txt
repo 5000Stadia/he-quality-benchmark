@@ -1,0 +1,135 @@
+HE + PHOTONIC — CONTROLLED DETAIL STUDY V2
+2026-10-16. The study is separate from the preserved desk benchmark v1.
+
+Question
+--------
+Which delivery/geometry changes produce meaningful visible loss on a phone,
+and what are their separately measured costs? This is an authored diagnostic
+study, not proof of physical realism, a universal optimum, or engine capacity.
+The final research also covers mixed scenes and believable animation later.
+
+Subjects and material sources
+----------------------------
+Original procedural unbranded car, young broadleaf tree and upholstered chair:
+src/cases/subjects.js; construction/provenance in subjects-notes.txt beside it.
+Master and reduced tiers use the same design and deterministic seeds. Numerical
+views, physical dimensions and per-role meshes are inspectable in that source.
+The preserved desk mesh is an additional finish control, using the new wood
+channels and a constant untextured leather response. It is not a rerender of
+the historical iPhone desk material test.
+
+Five surface families are authored analytically: painted metal, bark, leaf,
+woven upholstery and wood. Each has native 1024x1024 color, normal and roughness
+channels. Normals come from an independent authored height field, not albedo
+brightness; roughness is separately authored. These are not scanned/measured
+PBR sources. Leaf color includes alpha; transparent RGB stays leaf-colored.
+Native resolution, physical tile scale, hashes, commands and conversion timings
+are in assets/study/manifest.json. Source generation is reproducible with the
+included preparation script and pinned tool versions recorded in the report.
+
+Controlled factors
+------------------
+Texture trials keep master geometry, camera, lighting, material parameters and
+finish/condition fixed. The lossless PNG reference is compared with AVIF90 or
+AVIF80 COLOR ONLY, retaining lossless normal/roughness companions; UASTC1024 and
+512 encode ALL THREE channels, with the 512 tier also changing resolution.
+Consequently these are delivery-pipeline candidates, not a codec-only ranking.
+Geometry trials retain identical lossless reference channels while changing
+tessellation. No combined geometry/texture winner is silently substituted.
+
+The short study has nine pairs: two texture deliveries and one geometry pair
+per subject. The full shortlist adds the two AVIF color candidates, totaling
+15 pairs. Seeded random order and side assignment are exported with actual
+mapping after votes; a seed alone is not relied upon for reproducibility.
+
+All pairs share one canvas/output resolution and exact camera/target/FOV. Whole
+subject and side views fit the union of both bounds at the actual aspect ratio;
+close views deliberately crop to reveal surface detail. Color, environment,
+exposure, MSAA, alpha cutoff and light setup are identical. A/B share one camera
+and light-motion timeline; switching does not reset phase. Static inspection is
+available. Timed A and B runs use the same trajectory starting at phase zero.
+Shadows/tree wind are off. Refractive glass is an explicit informed extra.
+
+Blind choices and informed exploration
+-------------------------------------
+The first choice is A better, B better or no visible difference, with optional
+defect notes. Formats, resolutions, bytes, timing and mapping remain hidden
+until that vote is saved. Public exports also omit unvoted candidate identities.
+The first vote remains immutable through restart and further inspection.
+Finish/condition controls are informed exploration and do not rewrite votes.
+A tie is not proof of equivalence; repeats from one person are not new people.
+Skipped, interrupted and failed trials are stored separately from quality votes.
+
+Base material, coating and condition are separate descriptors. Matte/satin/
+glossy coatings apply to painted metal and wood without changing metalness.
+Incompatible bases retain their native response and record that fallback.
+Cloth retains sheen; leaves retain cutout semantics. Worn/weathered masks are
+stable local contact/exposure approximations; graphic style is deliberately
+decorative. They are not physically simulated aging or automatic edge detection.
+
+Measurements
+------------
+The page records preparation, first rendered GPU completion (including upload/
+shader work), actual camera/output/settings, per-side encoded files, geometry
+buffers and mip-data bytes. These categories are not total driver memory and
+must not be added to unrelated source/shared-engine bytes. Common recipes,
+renderer, decoder and environment are shared dependencies; see build info and
+resource timing. HTTP transfer/cache observations are reported conservatively.
+
+Steady measurement warms both representations, then records real rAF frame
+p50/p95/p99/max, render-submission CPU time, asynchronous GPU queries if present,
+draws/triangles, sample count and long tasks. gl.finish is used only for first
+completion, not every steady frame. Frame timing can be refresh-limited and CPU
+submission is not full simulation time. Desktop mobile-viewport runs remain
+desktop GPU evidence. Actual phone results must come from the device.
+The study does not simulate network speed; optional separate network modeling
+uses 50/100/300 Mbps rather than DSL assumptions.
+
+Validity and privacy
+--------------------
+Both candidates must complete successful rendering before voting. Failed
+uploads/shaders/context loss are invalid trials, not low quality. Stop uses an
+obsolete-generation token so late preparation cannot revive the stopped trial.
+Hidden tabs interrupt the current trial; restart explicitly when visible.
+First blind choices and partial interruptions remain downloadable. Only the
+active pair is resident; the previous pair's resources are disposed.
+No account, analytics or automatic upload. Copy, download, native-share and raw
+JSON fallbacks are provided. Results remain local until the observer shares.
+
+Reproduction
+------------
+npm ci && npm run build; serve this repository via HTTP(S); open study.html.
+The build uses the existing locked Three.js 0.186.1/esbuild versions. It emits
+the unchanged v1 bundle and a separate study bundle with a content-derived ID.
+Run tests/study-browser.mjs with Playwright and STUDY_URL pointing to the page;
+PLAYWRIGHT_MODULE/CHROMIUM_PATH make local tool locations configurable.
+tests/study-matrix.mjs records the controlled desktop matrix and images. It
+does not create human quality votes; any test votes are explicitly automation.
+tests/study-finishes.mjs records the separate informed feature checks.
+scripts/summarize-study.py recomputes tables, crop/fidelity scores and figures
+from the saved matrix and exact PNGs. It includes the formula and constants.
+Install scripts/requirements.txt in an isolated Python environment; preparation
+also requires KTX Software 4.4.2. Set KTX_ENCODER and run scripts/prepare-study.py.
+Retain the manifest, source and original lossless inputs when regenerating tiers.
+
+Prior art adopted, no external source code imported
+--------------------------------------------------
+Neutral labels, preserved first blind responses, explicit ties and exact
+randomization/presentation evidence follow small pairwise-study practice.
+Label-bias evidence motivates hiding format/cost labels; applying it to codec
+labels is an inference. No formal ITU-compliance claim is made.
+https://link.springer.com/article/10.1007/s41233-019-0027-3
+https://psychopy.github.io/psychojs/module-data.TrialHandler.html
+https://library.imaging.org/admin/apis/public/api/ist/website/downloadArticle/cic/19/1/art00007
+
+Color is sRGB; normal and roughness maps are linear data. Alpha mip averaging
+can erase thin foliage; alpha-to-coverage requires MSAA and is not a cure for
+all overdraw/coverage artifacts. Inspect static AND moving leaf edges.
+https://threejs.org/manual/pages/color-management.html
+https://threejs.org/docs/pages/MeshStandardMaterial.html
+https://github.com/KhronosGroup/3D-Formats-Guidelines/blob/main/KTXArtistGuide.md
+https://research.nvidia.com/sites/default/files/pubs/2017-02_Hashed-Alpha-Testing/Wyman2017Hashed.pdf
+
+Browser visibility/context-loss handling informs validity and interruption.
+https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
+https://wikis.khronos.org/webgl/HandlingContextLost

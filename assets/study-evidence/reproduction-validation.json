@@ -1,0 +1,27 @@
+{
+  "schema": "he-quality-reproduction-validation/1",
+  "checkedUTC": "2026-10-17T00:04:17.006266+00:00",
+  "uniqueSurfaceFiles": 55,
+  "surfaceEncodedBytes": 23149488,
+  "allFileHashesSizesDimensionsValid": true,
+  "ktxHeadersAndMipLevelsValid": true,
+  "sourceNormalMaxUnitError": {
+    "paint": 0.0005688501232614662,
+    "bark": 0.006278843038372006,
+    "leaf": 0.004495852899795372,
+    "fabric": 0.005658729872543677,
+    "wood": 0.004128348802530546
+  },
+  "roughnessRGBChannelsEqual": true,
+  "leafAlphaRange": [
+    0,
+    255
+  ],
+  "fullyTransparentLeafRGBNonblack": true,
+  "generationScriptHashesMatchManifest": true,
+  "buildId": "c75c68663d9a3f0a",
+  "bundleSHA256": "692ef1e18b92b92783e12f214bf542dc12ad84f02a9910b6050435f25e0a6897",
+  "rebuildByteIdentical": true,
+  "v1AppSourceBundleDeskAssetUnchanged": true,
+  "summaryRegeneratedFromPublishedScript": true
+}

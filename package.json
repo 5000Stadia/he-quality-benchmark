@@ -7,6 +7,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "esbuild src/app.js --bundle --format=esm --minify --outfile=app.js"
+    "build": "node build.mjs"
   }
 }
