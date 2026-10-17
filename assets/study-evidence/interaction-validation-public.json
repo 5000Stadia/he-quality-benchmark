@@ -1,0 +1,75 @@
+{
+  "schema": "he-quality-study-interaction-validation/1",
+  "automationOnly": true,
+  "scope": "Normal phone-sized UI workflow using touchscreen taps, keyboard events, viewport changes and the portable-results textarea. No studyDebug or implementation imports.",
+  "limits": [
+    "Desktop Chromium with an AMD GPU and mobile viewport/touch emulation; not physical iPhone 13 or Safari validation.",
+    "Viewport changes approximate keyboard/browser chrome changes; no native iOS keyboard was driven.",
+    "All generated answers/comments are explicitly marked automation and establish no human quality preference or phone performance claim."
+  ],
+  "buildId": "7396763086827e49",
+  "validatedUTC": "2026-10-17T01:13:21.765895+00:00",
+  "url": "https://5000stadia.github.io/he-quality-benchmark/study.html?v=phone2",
+  "testedContentCommit": "2b7000f486715ba92f54a2776b4fa01244f8c5f6",
+  "contentCommitVerification": "Parent verified deployed HTTP hashes; actual build ID and hosted URL independently observed in portable results from every browser snapshot.",
+  "command": "STUDY_URL='https://5000stadia.github.io/he-quality-benchmark/study.html?v=phone2' STUDY_TEST_OUT=/tmp/quality-study-interaction-public-phone2 node tests/study-interaction.mjs",
+  "environment": {
+    "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/146.0.0.0 Safari/537.36",
+    "gpu": "ANGLE (AMD, AMD Radeon RX 460 Graphics (radeonsi polaris11 ACO), OpenGL ES 3.2)",
+    "viewportCSS": {
+      "width": 390,
+      "height": 844
+    },
+    "deviceScaleFactor": 3,
+    "touch": true,
+    "mobileEmulation": true,
+    "heightVariantsCSS": [
+      480,
+      664,
+      844
+    ],
+    "widthResizeCSS": [
+      390,
+      430
+    ]
+  },
+  "journeys": [
+    {
+      "name": "comment drafts survive keyboard focus, restart, navigation and reload",
+      "ok": true
+    },
+    {
+      "name": "first blind choice stays immutable while later comments remain editable and persist",
+      "ok": true
+    },
+    {
+      "name": "ordinary nine-pair phone flow separates finish exploration and ends explicitly",
+      "ok": true
+    },
+    {
+      "name": "keyboard and browser chrome resizing preserve answers; interrupted timing recovers",
+      "ok": true
+    },
+    {
+      "name": "legacy result-only storage restores first choice and saved draft without mutation",
+      "ok": true
+    }
+  ],
+  "pageErrors": [],
+  "observations": {
+    "normalStudyAutomationVotes": 9,
+    "completionPreservedOnReload": true,
+    "nextComparisonCanvasRectCSS": {
+      "top": 84.4375,
+      "bottom": 557.4375,
+      "height": 473
+    },
+    "nextComparisonVisibleCanvasCSS": 473.0,
+    "completedPairedTimingReceipts": 2,
+    "revealedPerSideTimingRowsAfterVote": 4,
+    "discardedPartialTimings": 3,
+    "legacyMigration": "Result-only he-quality-study-result key seeded with an exact UI-created first vote and its saved draft mapping; seed, current trial, full vote object and draft entries restored unchanged."
+  },
+  "localDetailedEvidence": "/tmp/quality-study-interaction-public-phone2/interaction-results.json",
+  "localViewportImage": "/tmp/quality-study-interaction-public-phone2/new-pair-visible-after-next-viewport.png"
+}
