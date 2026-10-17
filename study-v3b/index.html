@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="../">
+<title>HE quality study v3b</title>
+<style>
+:root{--bg:#0f1716;--fg:#e8eeec;--muted:#9fb0ac;--accent:#7fd1c1;--btn:#24312f}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.4 -apple-system,system-ui,sans-serif}
+main{max-width:520px;margin:0 auto;padding:8px 16px 40px}
+h1{font-size:18px;margin:4px 0 2px} p{margin:6px 0;color:var(--muted)}
+#viewport{width:100%;aspect-ratio:549/620;background:#31423f;border-radius:8px;overflow:hidden;touch-action:pan-y}
+#viewport canvas{display:block}
+.row{display:flex;gap:8px;margin:8px 0}.row button{flex:1}.gap{width:6px}
+button{font:inherit;font-size:15px;padding:11px 6px;border-radius:8px;border:1px solid #3b4b48;background:var(--btn);color:var(--fg)}
+button[aria-pressed=true]{background:var(--accent);color:#06201b;border-color:var(--accent)}
+button:disabled{opacity:.4}
+#question{font-weight:600;color:var(--fg);margin:6px 0 0}
+textarea{width:100%;box-sizing:border-box;font:inherit;min-height:56px;border-radius:8px;background:#162220;color:var(--fg);border:1px solid #3b4b48;padding:8px}
+#status{min-height:1.4em;color:var(--accent)} pre{white-space:pre-wrap;font-size:13px;color:var(--muted)}
+</style></head>
+<body><main>
+<h1>Quality study v3b</h1>
+<p id="progress"></p>
+<p id="status" role="status"></p>
+<section id="trial">
+  <div id="viewport"></div>
+  <div class="row"><button id="showA" aria-pressed="false">Show A</button><button id="showB" aria-pressed="false">Show B</button><span class="gap"></span><button id="viewWide" aria-pressed="true">Wider</button><button id="viewClose" aria-pressed="false">Close-up</button></div>
+  <p id="question"></p>
+  <div class="row"><button id="chooseA"></button><button id="chooseTie"></button><button id="chooseB"></button></div>
+  <p id="voteHint"></p>
+  <div class="row"><button id="next">Next</button></div>
+  <p id="motionNote"></p>
+  <label for="note">Optional note: what differs or looks wrong</label>
+  <textarea id="note"></textarea>
+  <div class="row"><button id="copy">Copy results</button><button id="download">Download</button><button id="share">Share</button></div>
+</section>
+<section id="done" hidden>
+  <p id="doneText"></p>
+  <div class="row"><button id="copy2">Copy results</button><button id="download2">Download</button><button id="share2">Share</button></div>
+  <pre id="summary"></pre>
+</section>
+<textarea id="raw" hidden readonly></textarea>
+<p>Your choices stay on this phone until you send them. Your first choice for each pair is final; notes can be added afterwards.</p>
+</main>
+<script type="module" src="study-v3b/study.bundle.js"></script>
+</body></html>
